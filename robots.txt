@@ -1,5 +1,5 @@
 # Robots.txt for Web Novel Static Generator
-Sitemap: https://your-username.github.io/web-novel-static-generator/sitemap.xml
+Sitemap: https://oekaki-connect.github.io/web-novel/sitemap.xml
 
 User-agent: *
 Allow: /

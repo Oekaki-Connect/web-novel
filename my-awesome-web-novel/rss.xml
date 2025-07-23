@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
     <title>My Awesome Web Novel</title>
-    <link>https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/</link>
+    <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/</link>
     <description>An epic fantasy adventure following the journey of heroes in the land of Eldoria</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Jul 2025 06:28:08 </lastBuildDate>
+    <lastBuildDate>Wed, 23 Jul 2025 06:30:47 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>Chapter 3: Ancient Ruins</title>
-        <link>https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/en/chapter-3/</link>
+        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-3/</link>
         <description><![CDATA[]]></description>
         <content:encoded><![CDATA[<h1>Chapter 3: Ancient Ruins</h1>
 <p>Deep in the Whispering Forest, Aria stumbled upon ruins older than memory, where ancient magic still lingered in the crumbling stones.</p>]]></content:encoded>
         <pubDate>Fri, 17 Jan 2025 00:00:00 </pubDate>
-        <guid>https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/en/chapter-3/</guid>
+        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-3/</guid>
     </item>
     <item>
         <title>Chapter 2: A New Journey Begins</title>
-        <link>https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/en/chapter-2/</link>
+        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-2/</link>
         <description><![CDATA[]]></description>
         <content:encoded><![CDATA[<h1>Chapter 2: A New Journey Begins</h1>
 <p>With the prophecy burning in her mind, Aria packed her belongings and set out into the wilderness, unaware of the dangers that awaited her.</p>
@@ -28,18 +28,18 @@
 </center></p>
 <p>She paused at the city gate...</p>]]></content:encoded>
         <pubDate>Thu, 16 Jan 2025 00:00:00 </pubDate>
-        <guid>https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/en/chapter-2/</guid>
+        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-2/</guid>
     </item>
     <item>
         <title>Chapter 1: The Prophecy Unveiled</title>
-        <link>https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/en/chapter-1/</link>
+        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-1/</link>
         <description><![CDATA[Aria discovers a mysterious scroll that will change the fate of the realm forever. The prophecy begins in the ancient city of Eldoria.]]></description>
         <content:encoded><![CDATA[<h1>Chapter 1: The Prophecy Unveiled</h1>
 <p>In the ancient city of Eldoria, a young scribe named Aria discovered a mysterious scroll that would change the fate of the realm forever.</p>
 <p><img alt="The Ancient Scroll" src="ancient_scroll.jpg" title="A mysterious scroll with golden edges" /></p>
 <p>The parchment crackled under her careful touch, its golden edges glinting in the candlelight. Ancient runes danced across the surface, telling of a hero who would rise when darkness threatened to consume all.</p>]]></content:encoded>
         <pubDate>Wed, 15 Jan 2025 00:00:00 </pubDate>
-        <guid>https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/en/chapter-1/</guid>
+        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-1/</guid>
     </item>
 </channel>
 </rss>
