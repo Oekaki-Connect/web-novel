@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第1章：予言の開示</title>
+    <link rel="stylesheet" href="../../../static/style.css">
+    
+    <!-- SEO Meta Tags -->
+    
+    <meta name="description" content="An epic fantasy web novel about ancient prophecies and magical adventures in the land of Eldoria.">
+    
+    
+    <meta name="keywords" content="fantasy, adventure, prophecy, magic, web novel, translation">
+    
+    
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="第1章：予言の開示 | Web Novel Collection">
+    <meta property="og:description" content="Follow Aria's journey as she discovers ancient prophecies and embarks on an epic adventure through the mystical land of Eldoria.">
+    <meta property="og:image" content="https://your-username.github.io/web-novel-static-generator/static/images/my-awesome-web-novel-social.jpg">
+    <meta property="og:url" content="https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/jp/chapter-1/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Web Novel Collection">
+    
+    <meta property="article:published_time" content="2025-01-15">
+    
+    
+    <meta property="article:author" content="Original Author">
+    
+    
+    
+    <meta property="article:tag" content="予言">
+    
+    <meta property="article:tag" content="冒険">
+    
+    <meta property="article:tag" content="魔法">
+    
+    <meta property="article:tag" content="始まり">
+    
+    
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="第1章：予言の開示 | Web Novel Collection">
+    <meta name="twitter:description" content="Follow Aria's journey as she discovers ancient prophecies and embarks on an epic adventure through the mystical land of Eldoria.">
+    <meta name="twitter:image" content="https://your-username.github.io/web-novel-static-generator/static/images/my-awesome-web-novel-social.jpg">
+    
+    <meta name="twitter:site" content="@your_twitter_handle">
+    <meta name="twitter:creator" content="@your_twitter_handle">
+    
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-username.github.io/web-novel-static-generator/my-awesome-web-novel/jp/chapter-1/">
+    
+    <!-- Theme Toggle Script -->
+    <script src="../../../static/theme-toggle.js"></script>
+    
+    <!-- Chapter Navigation Script -->
+    <script>
+        function jumpToChapter() {
+            const select = document.getElementById('chapter-select');
+            if (select.value) {
+                window.location.href = select.value;
+            }
+        }
+        
+        // Reading settings functionality
+        let currentTextSize = 100;
+        let currentLineSpacing = 1.6;
+        
+        function loadReadingSettings() {
+            const savedTextSize = localStorage.getItem('readingTextSize');
+            const savedLineSpacing = localStorage.getItem('readingLineSpacing');
+            
+            if (savedTextSize) {
+                currentTextSize = parseInt(savedTextSize);
+                applyTextSize();
+            }
+            
+            if (savedLineSpacing) {
+                currentLineSpacing = parseFloat(savedLineSpacing);
+                applyLineSpacing();
+            }
+            
+            updateDisplays();
+        }
+        
+        function adjustTextSize(delta) {
+            currentTextSize = Math.max(70, Math.min(200, currentTextSize + (delta * 10)));
+            applyTextSize();
+            localStorage.setItem('readingTextSize', currentTextSize);
+            updateDisplays();
+        }
+        
+        function adjustLineSpacing(delta) {
+            currentLineSpacing = Math.max(1.0, Math.min(3.0, currentLineSpacing + delta));
+            applyLineSpacing();
+            localStorage.setItem('readingLineSpacing', currentLineSpacing);
+            updateDisplays();
+        }
+        
+        function applyTextSize() {
+            // Set CSS custom property on the root document for text size
+            document.documentElement.style.setProperty('--reading-font-size', (currentTextSize / 100) + 'rem');
+        }
+        
+        function applyLineSpacing() {
+            // Set CSS custom property on the root document for line spacing
+            document.documentElement.style.setProperty('--reading-line-height', currentLineSpacing);
+        }
+        
+        function updateDisplays() {
+            document.getElementById('text-size-display').textContent = currentTextSize + '%';
+            document.getElementById('line-spacing-display').textContent = currentLineSpacing.toFixed(1);
+        }
+        
+        function resetReadingSettings() {
+            currentTextSize = 100;
+            currentLineSpacing = 1.6;
+            applyTextSize();
+            applyLineSpacing();
+            localStorage.removeItem('readingTextSize');
+            localStorage.removeItem('readingLineSpacing');
+            updateDisplays();
+        }
+        
+        // Load settings when page loads
+        document.addEventListener('DOMContentLoaded', loadReadingSettings);
+        
+        // Reading progress tracking
+        function initReadingProgress() {
+            const novelSlug = 'my-awesome-web-novel';
+            const chapterId = 'chapter-1';
+            const chapterTitle = '第1章：予言の開示';
+            
+            // Mark this chapter as visited
+            markChapterVisited(novelSlug, chapterId, chapterTitle);
+            
+            // Set up scroll tracking for completion
+            setupScrollTracking(novelSlug, chapterId);
+        }
+        
+        function markChapterVisited(novelSlug, chapterId, chapterTitle) {
+            const visitedKey = `visited_${novelSlug}`;
+            let visitedChapters = JSON.parse(localStorage.getItem(visitedKey) || '{}');
+            
+            visitedChapters[chapterId] = {
+                title: chapterTitle,
+                visitedAt: new Date().toISOString(),
+                completed: visitedChapters[chapterId]?.completed || false
+            };
+            
+            localStorage.setItem(visitedKey, JSON.stringify(visitedChapters));
+        }
+        
+        function markChapterCompleted(novelSlug, chapterId) {
+            const visitedKey = `visited_${novelSlug}`;
+            let visitedChapters = JSON.parse(localStorage.getItem(visitedKey) || '{}');
+            
+            if (visitedChapters[chapterId]) {
+                visitedChapters[chapterId].completed = true;
+                visitedChapters[chapterId].completedAt = new Date().toISOString();
+                localStorage.setItem(visitedKey, JSON.stringify(visitedChapters));
+                
+                // Update latest chapter read
+                const latestKey = `latest_${novelSlug}`;
+                localStorage.setItem(latestKey, JSON.stringify({
+                    chapterId: chapterId,
+                    title: visitedChapters[chapterId].title,
+                    completedAt: visitedChapters[chapterId].completedAt
+                }));
+            }
+        }
+        
+        function setupScrollTracking(novelSlug, chapterId) {
+            let hasScrolledToEnd = false;
+            
+            function checkScrollProgress() {
+                if (hasScrolledToEnd) return;
+                
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                // Consider chapter "completed" when user scrolls to within 100px of the bottom
+                const scrolledToEnd = (scrollTop + windowHeight) >= (documentHeight - 100);
+                
+                if (scrolledToEnd) {
+                    hasScrolledToEnd = true;
+                    markChapterCompleted(novelSlug, chapterId);
+                }
+            }
+            
+            window.addEventListener('scroll', checkScrollProgress);
+            window.addEventListener('resize', checkScrollProgress);
+            
+            // Also check on load in case content is short
+            setTimeout(checkScrollProgress, 1000);
+        }
+        
+        // Initialize reading progress tracking
+        document.addEventListener('DOMContentLoaded', initReadingProgress);
+    </script>
+    
+    
+</head>
+<body>
+    <header>
+        <nav class="breadcrumbs">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-separator">></span>
+            <a href="../toc/">My Awesome Web Novel</a>
+            <span class="breadcrumb-separator">></span>
+            <span class="current-page">第1章：予言の開示</span>
+        </nav>
+        <nav class="chapter-nav">
+            
+            <a href="../toc/">Table of Contents</a>
+            
+            <a href="../chapter-2/">Next Chapter</a>
+            
+        </nav>
+        
+        <div class="chapter-dropdown">
+            <label for="chapter-select">Jump to Chapter:</label>
+            <select id="chapter-select" onchange="jumpToChapter()">
+                <option value="">Select a chapter...</option>
+                
+                    <optgroup label="Arc 1: The Beginning">
+                        
+                            <option value="../chapter-1/" selected>
+                                Chapter 1: The Prophecy
+                            </option>
+                        
+                            <option value="../chapter-2/" >
+                                Chapter 2: A New Journey
+                            </option>
+                        
+                    </optgroup>
+                
+                    <optgroup label="Arc 2: The Quest">
+                        
+                            <option value="../chapter-3/" >
+                                Chapter 3: Ancient Ruins
+                            </option>
+                        
+                            <option value="../chapter-4/" >
+                                Chapter 4: The Guardian
+                            </option>
+                        
+                    </optgroup>
+                
+                    <optgroup label="Arc 3: The Trials">
+                        
+                            <option value="../chapter-5/" >
+                                Chapter 5: The Test
+                            </option>
+                        
+                            <option value="../chapter-6/" >
+                                Chapter 6: Allies in Darkness
+                            </option>
+                        
+                    </optgroup>
+                
+                    <optgroup label="Premium Content">
+                        
+                            <option value="../chapter-premium/" >
+                                Chapter Premium: Early Access 🔒
+                            </option>
+                        
+                    </optgroup>
+                
+            </select>
+        </div>
+        
+        <div class="reading-config">
+            <details>
+                <summary>Reading Settings</summary>
+                <div class="reading-controls">
+                    <div class="control-group">
+                        <label for="text-size">Text Size:</label>
+                        <div class="button-group">
+                            <button onclick="adjustTextSize(-1)">A-</button>
+                            <span id="text-size-display">100%</span>
+                            <button onclick="adjustTextSize(1)">A+</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="line-spacing">Line Spacing:</label>
+                        <div class="button-group">
+                            <button onclick="adjustLineSpacing(-0.1)">-</button>
+                            <span id="line-spacing-display">1.6</span>
+                            <button onclick="adjustLineSpacing(0.1)">+</button>
+                        </div>
+                    </div>
+                    <button onclick="resetReadingSettings()" class="reset-button">Reset to Default</button>
+                </div>
+            </details>
+        </div>
+        
+        <div class="language-switcher">
+            <h3>Languages:</h3>
+            
+                
+                    <a href="../../en/chapter-1/">EN</a>
+                
+            
+                
+                    <span class="current-language">JP</span>
+                
+            
+        </div>
+        
+        <h1>第1章：予言の開示</h1>
+        
+        
+        <div class="chapter-metadata">
+            
+            <div class="metadata-item">
+                <strong>Author:</strong> 
+                
+                
+                <a href="../../../authors/original-author/" class="metadata-author-link">Original Author</a>
+                
+            </div>
+            
+            
+            
+            <div class="metadata-item">
+                <strong>Translator:</strong> 
+                
+                
+                Sample Translator
+                
+            </div>
+            
+            
+            
+            <div class="metadata-item">
+                <strong>Published:</strong> 2025-01-15
+            </div>
+            
+            
+            
+            <div class="metadata-item">
+                <strong>Tags:</strong>
+                <div class="tags">
+                    
+                    <a href="tags/予言/" class="tag">予言</a>
+                    
+                    <a href="tags/冒険/" class="tag">冒険</a>
+                    
+                    <a href="tags/魔法/" class="tag">魔法</a>
+                    
+                    <a href="tags/始まり/" class="tag">始まり</a>
+                    
+                </div>
+            </div>
+            
+            
+            
+            <div class="metadata-item translation-notes">
+                <strong>Translation Notes:</strong>
+                <p>「エルドリア」は古代語の「黄金の都市」に由来します。</p>
+            </div>
+            
+        </div>
+        
+    </header>
+    <main>
+        
+        
+        
+        
+        <div id="chapter-content-wrapper" class="chapter-content">
+            <h1>第1章：予言の開示</h1>
+<p>古代都市エルドリアで、アリアという名の若い写本家が、この領域の運命を永遠に変える神秘的な巻物を発見した。</p>
+<p><img alt="古代の巻物" src="../../../images/my-awesome-web-novel/chapter-1/ancient_scroll_jp.jpg" title="黄金の縁を持つ神秘的な巻物" /></p>
+<p>羊皮紙は彼女の慎重な触れに応えてぱりぱりと音を立て、黄金の縁が蝋燭の光に輝いた。古代のルーン文字が表面を踊るように飾り、闇が全てを飲み込もうとする時に立ち上がる英雄の物語を語っていた。</p>
+        </div>
+        
+        
+        <div class="translator-commentary">
+            <h3>Translator's Commentary</h3>
+            <div class="commentary-content">
+                This chapter establishes the fantasy setting beautifully. I chose to translate "Prophecy Unveiled" as "予言の開示" to emphasize the revelation aspect rather than just "prophecy" (予言).
+
+The name "Aria" (アリア) works well in Japanese as it's already used for musical terms. I kept "Eldoria" (エルドリア) in katakana to maintain the fantasy feel.
+            </div>
+        </div>
+        
+        
+        
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <script src="https://utteranc.es/client.js"
+                    repo="Oekaki-Connect/web-novel-utterance-comments"
+                    issue-term="pathname"
+                    label="utterance-comment"
+                    theme="github-light"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+        
+    </main>
+    <footer>
+        <nav>
+            
+            <a href="../toc/">Table of Contents</a>
+            
+            <a href="../chapter-2/">Next Chapter</a>
+            
+        </nav>
+        <p>© 2025 My Awesome Web Novel - Original work by Sample Author</p>
+        
+        <nav class="footer-links">
+            
+            <a href="https://ko-fi.com/author" target="_blank">Support the Author</a>
+            
+            <a href="https://example.com/original" target="_blank">Original Source</a>
+            
+            <a href="https://www.oekakiconnect.net/" target="_blank">Oekaki Connect</a>
+            
+            <a href="https://www.oekaki.io/" target="_blank">Oekaki.io</a>
+            
+        </nav>
+        
+        
+    </footer>
+</body>
+</html>

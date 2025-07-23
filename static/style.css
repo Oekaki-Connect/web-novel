@@ -1,0 +1,2243 @@
+/* Basic styling for the web novel site - Inspired by Ozy Translations */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    /* Minimal academic color scheme inspired by Ozy Translations */
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --color-base: #f9f9f9;
+    --color-contrast: #333333;
+    --color-heading: #222222;
+    --color-primary: #111111;
+    --color-primary-hover: #333333;
+    --color-secondary: #666666;
+    --color-accent: #f7f7f7;
+    --content-width: 650px;
+    --content-width-wide: 700px;
+    --line-height: 1.6;
+    --border-radius: 4px;
+    /* Minimal shadows - remove decorative elements */
+    --shadow: none;
+    --shadow-md: none;
+}
+
+/* Dark mode color scheme */
+[data-theme="dark"] {
+    --color-base: #2d2d2d;
+    --color-contrast: #e0e0e0;
+    --color-heading: #f0f0f0;
+    --color-primary: #ffffff;
+    --color-primary-hover: #cccccc;
+    --color-secondary: #b0b0b0;
+    --color-accent: #3a3a3a;
+}
+
+/* Auto dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-base: #2d2d2d;
+        --color-contrast: #e0e0e0;
+        --color-heading: #f0f0f0;
+        --color-primary: #ffffff;
+        --color-primary-hover: #cccccc;
+        --color-secondary: #b0b0b0;
+        --color-accent: #3a3a3a;
+    }
+    
+    /* Override auto dark mode if user has manually set light mode */
+    [data-theme="light"] {
+        --color-base: #f9f9f9;
+        --color-contrast: #333333;
+        --color-heading: #222222;
+        --color-primary: #111111;
+        --color-primary-hover: #333333;
+        --color-secondary: #666666;
+        --color-accent: #f7f7f7;
+    }
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: var(--line-height);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-base);
+    color: var(--color-contrast);
+    font-weight: 400;
+    /* Remove decorative font smoothing for more academic look */
+}
+
+header {
+    background-color: var(--color-base);
+    color: var(--color-contrast);
+    padding: 2rem 1rem 1.5rem;
+    text-align: center;
+    /* Remove border and shadow for cleaner academic look */
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--color-heading);
+}
+
+header h1 a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+header h1 a:hover {
+    color: var(--color-primary);
+}
+
+header h2 {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    margin: 0.75rem 0 0 0;
+    font-weight: 400;
+    color: var(--color-secondary);
+}
+
+nav {
+    margin-bottom: 1.5rem;
+}
+
+nav a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    margin: 0 0.5em;
+    padding: 0;
+    border: none;
+    display: inline;
+    font-weight: normal;
+    font-size: 16px;
+    /* Remove fancy transitions for academic look */
+}
+
+nav a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+/* Breadcrumbs styling */
+.breadcrumbs {
+    margin-bottom: 1rem;
+    font-size: 14px;
+    color: var(--color-secondary);
+}
+
+.breadcrumbs a {
+    color: var(--color-primary);
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.breadcrumbs a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+}
+
+.breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: var(--color-secondary);
+}
+
+.current-page {
+    color: var(--color-secondary);
+    font-weight: normal;
+}
+
+/* Chapter navigation styling */
+.chapter-nav {
+    margin-bottom: 1rem;
+}
+
+.chapter-nav a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    margin: 0 0.5em;
+    padding: 0;
+    border: none;
+    display: inline;
+    font-weight: normal;
+    font-size: 16px;
+}
+
+.chapter-nav a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+/* Chapter dropdown styling */
+.chapter-dropdown {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.chapter-dropdown label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.chapter-dropdown select {
+    padding: 0.5rem;
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
+    background-color: var(--color-base);
+    color: var(--color-contrast);
+    font-family: var(--font-body);
+    font-size: 14px;
+    min-width: 250px;
+    max-width: 90%;
+}
+
+.chapter-dropdown select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.chapter-dropdown optgroup {
+    font-weight: 600;
+    color: var(--color-heading);
+}
+
+.chapter-dropdown option {
+    padding: 0.25rem;
+    color: var(--color-contrast);
+}
+
+/* Reading configuration styling */
+.reading-config {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.reading-config details {
+    max-width: 400px;
+    margin: 0 auto;
+    border: 1px solid var(--color-secondary);
+    border-radius: 6px;
+    padding: 0;
+}
+
+.reading-config summary {
+    padding: 0.75rem;
+    cursor: pointer;
+    font-weight: 500;
+    background-color: var(--color-accent);
+    color: var(--color-heading);
+    border-radius: 6px 6px 0 0;
+    user-select: none;
+}
+
+.reading-config summary:hover {
+    background-color: #edecec;
+    color: var(--color-contrast);
+}
+
+.reading-controls {
+    padding: 1rem;
+    background-color: var(--color-base);
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    gap: 0.5rem;
+}
+
+.control-group label {
+    font-size: 14px;
+    color: var(--color-secondary);
+    min-width: 80px;
+    text-align: left;
+}
+
+.control-group button {
+    background-color: var(--color-primary);
+    color: var(--color-base);
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    min-width: 30px;
+    transition: background-color 0.2s ease;
+}
+
+.control-group button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.control-group span {
+    font-size: 14px;
+    color: var(--color-heading);
+    min-width: 40px;
+    font-weight: 500;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reset-button {
+    background-color: var(--color-secondary);
+    color: var(--color-base);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.reset-button:hover {
+    background-color: var(--color-primary);
+}
+
+/* Remove pipe separators - they look weird on navigation */
+
+main {
+    max-width: var(--content-width-wide);
+    margin: 1rem auto;
+    padding: 0 20px;
+    background-color: var(--color-base);
+    /* Remove border-radius and shadow for minimal look */
+}
+
+/* Chapter content gets narrower width for better readability */
+.chapter-content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.arc {
+    margin-bottom: 2em;
+}
+
+.arc h3 {
+    font-family: var(--font-heading);
+    color: var(--color-heading);
+    /* Remove decorative border */
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.arc ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 1em;
+}
+
+.arc li {
+    margin: 0.5em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arc a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    padding: 0;
+    display: inline;
+    /* Remove fancy hover effects */
+    font-weight: normal;
+}
+
+.arc a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+.chapter-date {
+    color: var(--color-secondary);
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-left: 1rem;
+    white-space: nowrap;
+}
+
+.chapter-content h1 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-heading);
+    margin: 0.5em 0 1.5em 0;
+    /* Remove decorative border */
+}
+
+.chapter-content p {
+    margin-bottom: 1.2em;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.chapter-content p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Reading settings CSS custom properties */
+.chapter-content {
+    font-size: var(--reading-font-size, 1rem);
+    line-height: var(--reading-line-height, 1.6);
+}
+
+.chapter-content p {
+    font-size: var(--reading-font-size, 1rem);
+    line-height: var(--reading-line-height, 1.6);
+}
+
+.chapter-content h1 {
+    font-size: calc(var(--reading-font-size, 1rem) * 1.5);
+    line-height: var(--reading-line-height, 1.6);
+}
+
+/* Scene breaks with centered asterisks */
+.scene-break {
+    text-align: center;
+    margin: 2em 0;
+    font-weight: bold;
+    color: var(--color-contrast);
+}
+
+.scene-break::before {
+    content: '***';
+}
+
+.chapter-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    /* Remove decorative styling for minimal look */
+}
+
+footer {
+    background-color: var(--color-base);
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    /* Remove border for cleaner look */
+}
+
+footer nav {
+    margin-bottom: 1rem;
+}
+
+footer nav a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-size: 16px;
+    margin: 0 0.5em;
+}
+
+footer nav a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+footer p {
+    font-size: 14px;
+    margin: 0;
+    color: var(--color-secondary);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    :root {
+        --content-width: 95vw;
+        --content-width-wide: 95vw;
+    }
+    
+    body {
+        font-size: 15px;
+    }
+    
+    header {
+        padding: 1.5rem 1rem;
+    }
+    
+    header h1 {
+        font-size: 1.875rem;
+    }
+    
+    header h2 {
+        font-size: 1.25rem;
+    }
+    
+    main {
+        margin: 2rem 1rem;
+        padding: 0 1rem;
+    }
+    
+    .chapter-content {
+        padding: 2rem 1rem;
+        font-size: 1rem;
+    }
+    
+    .chapter-content h1 {
+        font-size: 1.75rem;
+    }
+    
+    .chapter-content p {
+        text-align: left;
+    }
+    
+    nav a {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: center;
+        padding: 0.75rem 1rem;
+    }
+    
+    .breadcrumbs {
+        font-size: 12px;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .breadcrumb-separator {
+        margin: 0 0.25rem;
+    }
+    
+    .chapter-nav a {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: center;
+        padding: 0.75rem 1rem;
+    }
+    
+    .chapter-dropdown select {
+        min-width: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .reading-config details {
+        max-width: none;
+        margin: 0 1rem;
+    }
+    
+    .control-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+    
+    .control-group label {
+        text-align: center;
+        min-width: auto;
+    }
+    
+    .control-group .button-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .arc li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .chapter-date {
+        margin-left: 0;
+        font-size: 0.8rem;
+    }
+    
+    .language-switcher {
+        padding: 1rem;
+    }
+    
+    .novel-card {
+        margin: 1.5rem 0;
+        padding: 1.5rem;
+    }
+    
+    .tags-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .tag-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.625rem;
+    }
+    
+    .chapter-content {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .novel-card {
+        padding: 1.25rem;
+    }
+    
+    .language-switcher h3 {
+        font-size: 0.8rem;
+    }
+    
+    .language-switcher a,
+    .language-switcher .current-language {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.65rem;
+    }
+    
+    /* Tags are now centered at all resolutions */
+}
+
+/* Story status styling */
+.story-status {
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.status-label {
+    color: var(--color-secondary);
+    font-weight: normal;
+}
+
+.status-value {
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 16px;
+    font-size: 14px;
+    margin-left: 0.5rem;
+}
+
+.status-ongoing {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.status-complete {
+    background-color: #e8f5e8;
+    color: #2e7d32;
+}
+
+[data-theme="dark"] .status-ongoing {
+    background-color: #1565c0;
+    color: #e3f2fd;
+}
+
+[data-theme="dark"] .status-complete {
+    background-color: #2e7d32;
+    color: #e8f5e8;
+}
+
+@media (prefers-color-scheme: dark) {
+    .status-ongoing {
+        background-color: #1565c0;
+        color: #e3f2fd;
+    }
+    
+    .status-complete {
+        background-color: #2e7d32;
+        color: #e8f5e8;
+    }
+    
+    /* Override auto dark mode if user has manually set light mode */
+    [data-theme="light"] .status-ongoing {
+        background-color: #e3f2fd;
+        color: #1976d2;
+    }
+    
+    [data-theme="light"] .status-complete {
+        background-color: #e8f5e8;
+        color: #2e7d32;
+    }
+}
+
+/* Story statistics styling */
+.story-stats {
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.stats-label {
+    color: var(--color-secondary);
+    font-weight: normal;
+}
+
+.stats-value {
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-left: 0.5rem;
+}
+
+/* Story tags styling */
+.story-tags {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.tags-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.story-tag {
+    background-color: var(--color-accent);
+    color: var(--color-heading);
+    border: 1px solid var(--color-secondary);
+    font-size: 0.8rem;
+    margin: 0.25rem;
+}
+
+/* Language switcher styling - Minimal academic style */
+.language-switcher {
+    margin: 1.5rem 0;
+    padding: 0;
+    background-color: var(--color-base);
+    /* Remove decorative styling */
+}
+
+.language-switcher h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 16px;
+    font-weight: normal;
+    color: var(--color-secondary);
+    /* Remove fancy styling */
+}
+
+.language-switcher a, .language-switcher .current-language {
+    display: inline;
+    padding: 0;
+    margin: 0 0.5em 0 0;
+    text-decoration: underline;
+    font-size: 16px;
+    font-weight: normal;
+    /* Remove transitions and fancy styling */
+}
+
+.language-switcher a {
+    color: var(--color-primary);
+    /* Remove borders and background */
+}
+
+.language-switcher a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+.language-switcher .current-language {
+    color: var(--color-contrast);
+    text-decoration: none;
+    font-weight: bold;
+    /* Remove background styling */
+}
+
+/* Removed pipe separators from language switcher for cleaner look */
+
+/* Translation notice styling */
+.translation-notice {
+    background-color: #f39c12;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid #e67e22;
+}
+
+.translation-notice p {
+    margin: 0;
+}
+
+.translation-notice a {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.translation-notice a:hover {
+    text-decoration: none;
+}
+
+/* Novel card styling for front page - Minimal academic style */
+.novel-card {
+    margin: 2em 0;
+    padding: 0;
+    background-color: var(--color-base);
+    display: flex;
+    gap: 1.5em;
+    align-items: flex-start;
+}
+
+.novel-cover {
+    flex-shrink: 0;
+}
+
+.cover-image {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+}
+
+.novel-info {
+    flex: 1;
+}
+
+/* Story cover on TOC page */
+.story-cover {
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+.story-cover-image {
+    max-width: 200px;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+}
+
+/* Arc covers on TOC page */
+.arc {
+    display: flex;
+    gap: 1.5em;
+    margin-bottom: 2.5em;
+    align-items: flex-start;
+}
+
+.arc-cover {
+    flex-shrink: 0;
+}
+
+.arc-cover-image {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+}
+
+.arc-content {
+    flex: 1;
+}
+
+/* Clickable images cursor */
+.clickable-image {
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.clickable-image:hover {
+    opacity: 0.8;
+}
+
+/* Image Modal */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    animation: zoomIn 0.3s ease;
+    display: block;
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { 
+        opacity: 0;
+        transform: scale(0.8); 
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1); 
+    }
+}
+
+/* Mobile responsiveness for cover art */
+@media (max-width: 600px) {
+    .novel-card {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .novel-cover {
+        text-align: center;
+    }
+    
+    .cover-image {
+        width: 100px;
+        height: 150px;
+    }
+    
+    .story-cover-image {
+        max-width: 150px;
+        max-height: 225px;
+    }
+    
+    .arc {
+        flex-direction: column;
+        gap: 1em;
+    }
+    
+    .arc-cover {
+        text-align: center;
+    }
+    
+    .arc-cover-image {
+        width: 80px;
+        height: 120px;
+    }
+    
+    .image-modal {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        max-width: 95vw;
+        max-height: 80vh;
+    }
+}
+
+/* Author pages styling */
+.author-header {
+    margin-bottom: 3em;
+    text-align: center;
+}
+
+.author-avatar {
+    margin: 2em 0;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-border);
+    background-color: var(--color-light);
+}
+
+.avatar-placeholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #888888;
+    border: 3px solid var(--color-border);
+}
+
+.author-info {
+    width: 100%;
+}
+
+.author-bio {
+    color: var(--color-contrast);
+    line-height: 1.6;
+    margin: 1em auto 1.5em auto;
+    font-style: italic;
+    max-width: 600px;
+}
+
+.author-links {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.author-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+}
+
+.author-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-base);
+}
+
+/* Chapter metadata author/translator links - normal text link style */
+.metadata-author-link {
+    color: var(--color-primary);
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.metadata-author-link:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+/* Reading progress indicators */
+.read-completed {
+    color: #28a745;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+.read-visited {
+    color: #6c757d;
+    text-decoration: none !important;
+}
+
+/* Latest chapter read section */
+.latest-chapter-read {
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5em;
+    margin: 2em 0;
+    text-align: center;
+}
+
+.latest-chapter-read h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: var(--color-heading);
+    font-size: 1.2em;
+}
+
+.latest-chapter-read p {
+    margin: 0.5em 0;
+    color: var(--color-contrast);
+}
+
+.latest-chapter-read a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.latest-chapter-read a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+.completion-date {
+    font-size: 0.9em;
+    color: var(--color-secondary);
+}
+
+.authors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.author-card {
+    display: flex;
+    gap: 1.5em;
+    align-items: flex-start;
+    padding: 1.5em;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-base);
+}
+
+.author-card .author-avatar {
+    flex-shrink: 0;
+}
+
+.author-card .avatar-image {
+    width: 80px;
+    height: 80px;
+}
+
+.author-card .avatar-placeholder {
+    width: 80px;
+    height: 80px;
+}
+
+.author-card .author-info {
+    flex: 1;
+}
+
+.author-card h2 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.2em;
+}
+
+.author-card h2 a {
+    color: var(--color-heading);
+    text-decoration: none;
+}
+
+.author-card h2 a:hover {
+    color: var(--color-primary);
+}
+
+.author-card .author-bio {
+    margin: 0.5em 0 1em 0;
+    font-size: 0.9em;
+}
+
+.author-card .author-links {
+    gap: 0.5em;
+}
+
+.author-card .author-link {
+    font-size: 0.8em;
+    padding: 0.3em 0.6em;
+}
+
+/* Author contributions styling */
+.author-stories, .author-chapters {
+    margin-bottom: 4em;
+}
+
+.chapter-limit-note {
+    color: var(--color-secondary);
+    font-style: italic;
+    margin-bottom: 1.5em;
+    font-size: 0.9em;
+}
+
+.story-item, .chapter-item {
+    margin-bottom: 2em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.story-item:last-child, .chapter-item:last-child {
+    border-bottom: none;
+    margin-bottom: 2em;
+    padding-bottom: 1em;
+}
+
+.story-item h3, .chapter-item h4 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.story-item h3 a, .chapter-item h4 a {
+    color: var(--color-heading);
+    text-decoration: none;
+}
+
+.story-item h3 a:hover, .chapter-item h4 a:hover {
+    color: var(--color-primary);
+}
+
+.story-role, .chapter-meta {
+    color: var(--color-secondary);
+    font-size: 0.9em;
+    margin-bottom: 0.5em;
+}
+
+.chapter-meta {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.story-description {
+    color: var(--color-contrast);
+    line-height: 1.6;
+    margin-top: 0.5em;
+}
+
+.no-content {
+    text-align: center;
+    color: var(--color-secondary);
+    margin: 3em 0;
+}
+
+/* Mobile responsiveness for author pages */
+@media (max-width: 600px) {
+    .author-header {
+        margin-bottom: 2em;
+    }
+    
+    .authors-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+    }
+    
+    .author-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .author-links {
+        justify-content: center;
+    }
+    
+    .chapter-meta {
+        flex-direction: column;
+        gap: 0.2em;
+    }
+}
+
+.novel-card h2 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0em;
+    margin-bottom: 1em;
+    color: var(--color-heading);
+}
+
+.novel-card h2 a {
+    color: var(--color-heading);
+    text-decoration: none;
+}
+
+.novel-card h2 a:hover {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.novel-card p {
+    color: var(--color-contrast);
+    line-height: 1.6;
+    margin-bottom: 1.2em;
+    text-align: justify;
+}
+
+.novel-card p:last-of-type {
+    margin-bottom: 0;
+}
+
+.novel-card p:last-of-type a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    /* Remove button styling for simple link */
+    padding: 0;
+    border: none;
+    background: none;
+    display: inline;
+    margin-top: 0;
+    font-weight: normal;
+}
+
+.novel-card p:last-of-type a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+/* Novel status styling on front page */
+.novel-status {
+    margin: 0.75rem 0;
+    font-size: 14px;
+}
+
+.novel-status .status-label {
+    color: var(--color-secondary);
+    font-weight: normal;
+}
+
+.novel-status .status-value {
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 13px;
+    margin-left: 0.5rem;
+}
+
+.novel-status .status-ongoing {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.novel-status .status-complete {
+    background-color: #e8f5e8;
+    color: #2e7d32;
+}
+
+/* Chapter metadata styling */
+.chapter-metadata {
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    border-radius: var(--border-radius);
+    /* Remove thick blue left border */
+    font-size: 0.9rem;
+    max-width: var(--content-width);
+}
+
+.metadata-item {
+    margin-bottom: 0.5rem;
+}
+
+.metadata-item:last-child {
+    margin-bottom: 0;
+}
+
+.metadata-item strong {
+    color: #2c3e50;
+}
+
+/* Tags styling */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    justify-content: center;
+}
+
+.tag {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s ease;
+    border: 1px solid var(--color-primary);
+}
+
+.tag:hover {
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+    color: white;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+/* Translation notes styling */
+.translation-notes {
+    background-color: #f5f5f5;
+    padding: 0.75rem;
+    border-radius: 4px;
+    /* Remove thick blue left border */
+    margin: 0.5rem 0;
+}
+
+.translation-notes p {
+    margin: 0.25rem 0 0 0;
+    font-style: italic;
+    color: #2c3e50;
+}
+
+/* Translator commentary styling */
+.translator-commentary {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin: 2rem 0;
+    padding: 1.5rem;
+}
+
+.translator-commentary h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.5rem;
+}
+
+.commentary-content {
+    line-height: 1.6;
+    color: #495057;
+}
+
+.commentary-content p {
+    margin-bottom: 1rem;
+}
+
+.commentary-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tag pages styling */
+.tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.tag-card {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    /* Remove shadows for minimal look */
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.tag-card:hover {
+    border-color: var(--color-primary);
+    text-decoration: none;
+}
+
+.tag-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: var(--color-heading);
+}
+
+.tag-card:hover h3 {
+    color: var(--color-primary);
+}
+
+.tag-count {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+/* Individual tag page styling */
+.tag-name {
+    color: var(--color-secondary);
+    background-color: #f5f5f5;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.9em;
+}
+
+.tag-description {
+    color: #6c757d;
+    font-style: italic;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 4px solid #ccc;
+}
+
+.chapter-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.chapter-item {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 1rem;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.chapter-item:hover {
+    border-color: var(--color-primary);
+    text-decoration: none;
+}
+
+.chapter-item h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--color-heading);
+}
+
+.chapter-item:hover h3 {
+    color: var(--color-primary);
+}
+
+.chapter-id {
+    color: #6c757d;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+/* Table of contents navigation */
+.toc-nav {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.tags-link {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.tags-link:hover {
+    background-color: var(--color-primary-hover);
+    color: white;
+    text-decoration: none;
+}
+
+/* Password protection styling */
+.password-protection {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin: 2rem auto;
+    padding: 0;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.password-form-container {
+    padding: 2rem;
+}
+
+.password-protection h3 {
+    margin: 0 0 1rem 0;
+    color: var(--color-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.password-protection p {
+    margin: 0 0 1.5rem 0;
+    color: var(--color-secondary);
+    line-height: 1.5;
+}
+
+.password-input-group {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.password-input-group input {
+    flex: 1;
+    max-width: 250px;
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: var(--font-body);
+    transition: border-color 0.2s ease;
+}
+
+.password-input-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.unlock-button {
+    background-color: var(--color-primary);
+    color: var(--color-base);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-family: var(--font-body);
+}
+
+.unlock-button:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.password-message {
+    background-color: #e8f5e8;
+    color: #2d5a2d;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    border: 1px solid #c3e6c3;
+}
+
+.password-message p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.password-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    border: 1px solid #f5c6cb;
+    font-size: 0.9rem;
+}
+
+.password-help {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #dee2e6;
+    color: var(--color-secondary);
+}
+
+.password-help p {
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Responsive password form */
+@media (max-width: 768px) {
+    .password-protection {
+        margin: 1rem;
+        max-width: none;
+    }
+    
+    .password-form-container {
+        padding: 1.5rem;
+    }
+    
+    .password-input-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .password-input-group input {
+        max-width: none;
+        width: 100%;
+    }
+    
+    .unlock-button {
+        width: 100%;
+    }
+}
+
+/* Footer styling */
+.footer-links {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.footer-links a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    font-size: 14px;
+    margin: 0 1rem;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+.footer-additional {
+    font-size: 12px;
+    color: var(--color-secondary);
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .footer-links a {
+        display: block;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Dark mode toggle styling */
+.theme-toggle-container {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: 14px;
+}
+
+.theme-toggle-text {
+    color: var(--color-secondary);
+}
+
+.theme-option {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-weight: normal;
+}
+
+.theme-option.active {
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.theme-option:hover {
+    color: var(--color-primary-hover);
+    text-decoration: none;
+}
+
+/* Dark mode specific styling adjustments */
+[data-theme="dark"] .chapter-metadata {
+    background-color: #3a3a3a;
+    border-color: #555555;
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .metadata-item strong {
+    color: var(--color-heading);
+}
+
+[data-theme="dark"] .translation-notes {
+    background-color: #3a3a3a;
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .translation-notes p {
+    color: var(--color-secondary);
+}
+
+[data-theme="dark"] .translator-commentary {
+    background-color: #3a3a3a;
+    border-color: #555555;
+}
+
+[data-theme="dark"] .translator-commentary h3 {
+    color: var(--color-heading);
+    border-bottom-color: #555555;
+}
+
+[data-theme="dark"] .commentary-content {
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .tag-card {
+    background-color: var(--color-accent);
+    border-color: #555555;
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .tag-description {
+    background-color: #3a3a3a;
+    color: var(--color-secondary);
+    border-left-color: #666666;
+}
+
+[data-theme="dark"] .chapter-item {
+    background-color: var(--color-accent);
+    border-color: #555555;
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .password-protection {
+    background-color: #3a3a3a;
+    border-color: #555555;
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .password-input-group input {
+    background-color: var(--color-base);
+    border-color: #555555;
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .password-input-group input:focus {
+    border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .chapter-dropdown select {
+    background-color: var(--color-accent);
+    border-color: #555555;
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .story-tag {
+    background-color: #555555;
+    color: #e0e0e0;
+    border-color: #666666;
+}
+
+[data-theme="dark"] .novel-status .status-ongoing {
+    background-color: #1565c0;
+    color: #e3f2fd;
+}
+
+[data-theme="dark"] .novel-status .status-complete {
+    background-color: #2e7d32;
+    color: #e8f5e8;
+}
+
+[data-theme="dark"] .reading-config details {
+    border-color: #555555;
+}
+
+[data-theme="dark"] .reading-config summary {
+    background-color: var(--color-accent);
+    color: var(--color-heading);
+}
+
+[data-theme="dark"] .reading-config summary:hover {
+    background-color: #636363;
+    color: var(--color-contrast);
+}
+
+[data-theme="dark"] .translation-notice {
+    background-color: #b8860b;
+    border-left-color: #daa520;
+}
+
+[data-theme="dark"] .tag {
+    background-color: #555555;
+    color: #e0e0e0;
+    border-color: #555555;
+}
+
+[data-theme="dark"] .tag:hover {
+    background-color: #666666;
+    border-color: #666666;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .tags-link {
+    background-color: #555555;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .tags-link:hover {
+    background-color: #666666;
+    color: #e0e0e0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .chapter-metadata {
+        background-color: #3a3a3a;
+        border-color: #555555;
+        color: #e0e0e0;
+    }
+    
+    .metadata-item strong {
+        color: #f0f0f0;
+    }
+    
+    .translation-notes {
+        background-color: #3a3a3a;
+        color: #e0e0e0;
+    }
+    
+    .translation-notes p {
+        color: #b0b0b0;
+    }
+    
+    .translator-commentary {
+        background-color: #3a3a3a;
+        border-color: #555555;
+    }
+    
+    .translator-commentary h3 {
+        color: #f0f0f0;
+        border-bottom-color: #555555;
+    }
+    
+    .commentary-content {
+        color: #e0e0e0;
+    }
+    
+    .tag-card {
+        background-color: #3a3a3a;
+        border-color: #555555;
+        color: #e0e0e0;
+    }
+    
+    .tag-description {
+        background-color: #3a3a3a;
+        color: #b0b0b0;
+        border-left-color: #666666;
+    }
+    
+    .chapter-item {
+        background-color: #3a3a3a;
+        border-color: #555555;
+        color: #e0e0e0;
+    }
+    
+    .password-protection {
+        background-color: #3a3a3a;
+        border-color: #555555;
+        color: #e0e0e0;
+    }
+    
+    .password-input-group input {
+        background-color: #2d2d2d;
+        border-color: #555555;
+        color: #e0e0e0;
+    }
+    
+    .password-input-group input:focus {
+        border-color: #ffffff;
+    }
+    
+    .chapter-dropdown select {
+        background-color: #3a3a3a;
+        border-color: #555555;
+        color: #e0e0e0;
+    }
+    
+    .story-tag {
+        background-color: #555555;
+        color: #e0e0e0;
+        border-color: #666666;
+    }
+    
+    .novel-status .status-ongoing {
+        background-color: #1565c0;
+        color: #e3f2fd;
+    }
+    
+    .novel-status .status-complete {
+        background-color: #2e7d32;
+        color: #e8f5e8;
+    }
+    
+    .translation-notice {
+        background-color: #b8860b;
+        border-left-color: #daa520;
+    }
+    
+    /* Override auto dark mode if user has manually set light mode */
+    [data-theme="light"] .chapter-metadata {
+        background-color: #f5f5f5;
+        border-color: #e0e0e0;
+        color: #333333;
+    }
+    
+    [data-theme="light"] .metadata-item strong {
+        color: #2c3e50;
+    }
+    
+    [data-theme="light"] .translation-notes {
+        background-color: #f5f5f5;
+        color: #333333;
+    }
+    
+    [data-theme="light"] .translation-notes p {
+        color: #2c3e50;
+    }
+    
+    [data-theme="light"] .translator-commentary {
+        background-color: #f8f9fa;
+        border-color: #dee2e6;
+    }
+    
+    [data-theme="light"] .translator-commentary h3 {
+        color: #2c3e50;
+        border-bottom-color: #e9ecef;
+    }
+    
+    [data-theme="light"] .commentary-content {
+        color: #495057;
+    }
+    
+    [data-theme="light"] .tag-card {
+        background-color: white;
+        border-color: #dee2e6;
+        color: #333333;
+    }
+    
+    [data-theme="light"] .tag-description {
+        background-color: #f8f9fa;
+        color: #6c757d;
+        border-left-color: #ccc;
+    }
+    
+    [data-theme="light"] .chapter-item {
+        background-color: white;
+        border-color: #dee2e6;
+        color: #333333;
+    }
+    
+    [data-theme="light"] .password-protection {
+        background-color: #f8f9fa;
+        border-color: #dee2e6;
+        color: #333333;
+    }
+    
+    [data-theme="light"] .password-input-group input {
+        background-color: white;
+        border-color: #dee2e6;
+        color: #333333;
+    }
+    
+    [data-theme="light"] .password-input-group input:focus {
+        border-color: #111111;
+    }
+    
+    [data-theme="light"] .chapter-dropdown select {
+        background-color: #f9f9f9;
+        border-color: #666666;
+        color: #333333;
+    }
+    
+    [data-theme="light"] .story-tag {
+        background-color: #f7f7f7;
+        color: #222222;
+        border-color: #666666;
+    }
+    
+    [data-theme="light"] .novel-status .status-ongoing {
+        background-color: #e3f2fd;
+        color: #1976d2;
+    }
+    
+    [data-theme="light"] .novel-status .status-complete {
+        background-color: #e8f5e8;
+        color: #2e7d32;
+    }
+    
+    [data-theme="light"] .translation-notice {
+        background-color: #f39c12;
+        border-left-color: #e67e22;
+    }
+    
+    .tag {
+        background-color: #555555;
+        color: #e0e0e0;
+        border-color: #555555;
+    }
+    
+    .tag:hover {
+        background-color: #666666;
+        border-color: #666666;
+        color: #e0e0e0;
+    }
+    
+    .tags-link {
+        background-color: #555555;
+        color: #e0e0e0;
+    }
+    
+    .tags-link:hover {
+        background-color: #666666;
+        color: #e0e0e0;
+    }
+    
+    /* Override auto dark mode if user has manually set light mode */
+    [data-theme="light"] .tag {
+        background-color: #111111;
+        color: white;
+        border-color: #111111;
+    }
+    
+    [data-theme="light"] .tag:hover {
+        background-color: #333333;
+        border-color: #333333;
+        color: white;
+    }
+    
+    [data-theme="light"] .tags-link {
+        background-color: #111111;
+        color: white;
+    }
+    
+    [data-theme="light"] .tags-link:hover {
+        background-color: #333333;
+        color: white;
+    }
+}
+
+/* Downloads section */
+.downloads-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background-color: var(--color-background-light);
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.downloads-section h3 {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.5rem;
+}
+
+.download-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.download-link {
+    display: inline-block;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-background);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid var(--color-accent);
+    width: fit-content;
+}
+
+.download-link:hover {
+    background-color: var(--color-background);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-link {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.pdf-link:hover {
+    background-color: var(--color-background);
+    color: #e74c3c;
+}
+
+.epub-link {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.epub-link:hover {
+    background-color: var(--color-background);
+    color: #3498db;
+}
+
+.arc-downloads {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.arc-downloads h4 {
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+.arc-download-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.arc-download-title {
+    font-weight: 500;
+    color: var(--color-text);
+    min-width: fit-content;
+}
+
+.arc-pdf-link,
+.arc-epub-link {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.875rem;
+    min-width: auto;
+}
+
+.arc-pdf-link {
+    background-color: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.arc-pdf-link:hover {
+    background-color: var(--color-background);
+    color: #e74c3c;
+}
+
+.arc-epub-link {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.arc-epub-link:hover {
+    background-color: var(--color-background);
+    color: #3498db;
+}
+
+@media (max-width: 768px) {
+    .downloads-section {
+        margin: 1rem 0;
+        padding: 1rem;
+    }
+    
+    .arc-download-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .arc-download-title {
+        margin-bottom: 0.25rem;
+    }
+    
+    .download-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
