@@ -6,6 +6,48 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://oekaki-connect.github.io/web-novel/pages.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/pages-jp.html</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/about/en/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/about/jp/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/privacy/en/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <lastmod>2025-01-23</lastmod>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/privacy/jp/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+        <lastmod>2025-01-23</lastmod>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/resources/en/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/resources/jp/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/toc/</loc>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
