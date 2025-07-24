@@ -5,7 +5,7 @@
     <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/</link>
     <description>An epic fantasy adventure following the journey of heroes in the land of Eldoria</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jul 2025 18:37:27 </lastBuildDate>
+    <lastBuildDate>Thu, 24 Jul 2025 19:10:32 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>Chapter Recent: Just Published</title>
@@ -15,11 +15,32 @@
 <p>This chapter has a publish date of January 23rd, 2025, which is in the recent past. It should always appear in builds.</p>
 <p>This demonstrates that the scheduled publishing feature only affects chapters with <strong>future</strong> publish dates.</p>
 <h2>Comparison</h2>
-<p>| Chapter | Publish Date | Status |
-|---------|-------------|--------|
-| Chapter Recent | 2025-01-23 | ✅ Always included |
-| Chapter Future | 2025-08-01 | ❌ Excluded until August 1st |
-| Regular chapters | No date or past...</p>]]></content:encoded>
+<table>
+<thead>
+<tr>
+<th>Chapter</th>
+<th>Publish Date</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chapter Recent</td>
+<td>2025-01-23</td>
+<td>✅ Always included</td>
+</tr>
+<tr>
+<td>Chapter Future</td>
+<td>2025-08-01</td>
+<td>❌ Excluded until August 1st</td>
+</tr>
+<tr>
+<td>Regular chapters</td>
+<td>No date or past...</td>
+<td></td>
+</tr>
+</tbody>
+</table>]]></content:encoded>
         <pubDate>Sun, 20 Jul 2025 00:00:00 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/</guid>
     </item>
