@@ -96,6 +96,12 @@
         <lastmod>2025-07-20</lastmod>
     </url>
     <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-markdown-demo/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <lastmod>2025-01-24</lastmod>
+    </url>
+    <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/adventure/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
@@ -166,12 +172,27 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/recent/</loc>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/demo/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/demo/</loc>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/markdown/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/tutorial/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/technology/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/recent/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -222,6 +243,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <lastmod>2025-07-20</lastmod>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/chapter-markdown-demo/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <lastmod>2025-01-24</lastmod>
     </url>
     <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/tags/予言/</loc>

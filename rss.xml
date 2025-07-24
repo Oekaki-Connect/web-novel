@@ -5,7 +5,7 @@
     <link>https://oekaki-connect.github.io/web-novel</link>
     <description>A collection of translated web novels and original stories</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jul 2025 19:10:31 </lastBuildDate>
+    <lastBuildDate>Thu, 24 Jul 2025 19:29:24 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>My Awesome Web Novel: Chapter Recent: Just Published</title>
@@ -15,7 +15,7 @@
 <p>This chapter has a publish date of January 23rd, 2025, which is in the recent past. It should always appear in builds.</p>
 <p>This demonstrates that the scheduled publishing feature only affects chapters with <strong>future</strong> publish dates.</p>
 <h2>Comparison</h2>
-<p>| Chapter | Publish D...</p>]]></content:encoded>
+<p>| Chapter | Publish D&hellip;</p>]]></content:encoded>
         <pubDate>Sun, 20 Jul 2025 00:00:00 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/</guid>
     </item>
@@ -23,14 +23,25 @@
         <title>Tower Dungeon: Chapter 1: The Sovereign's Secret Sin</title>
         <link>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-1/</link>
         <description><![CDATA[Chapter 1: The Sovereign's Secret Sin - The adventure begins!]]></description>
-        <content:encoded><![CDATA[<h1>Chapter 1: The Sovereign's Secret Sin</h1>
+        <content:encoded><![CDATA[<h1>Chapter 1: The Sovereign&rsquo;s Secret Sin</h1>
 <p><em>This is a manga chapter. The story is told through sequential art. Use the manga reader controls to navigate through the pages.</em></p>
 <p><strong>Reading Instructions:</strong>
 - Use arrow keys (← →) or A/D keys to navigate pages
 - Press F to toggle image scaling modes
-- Use +/-...</p>]]></content:encoded>
+- Use +/-&hellip;</p>]]></content:encoded>
         <pubDate>Sat, 25 Jan 2025 00:00:00 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-1/</guid>
+    </item>
+    <item>
+        <title>My Awesome Web Novel: Chapter Markdown Demo: The Scholar's Discovery</title>
+        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-markdown-demo/</link>
+        <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<h1>Chapter Markdown Demo: The Scholar&rsquo;s Discovery</h1>
+<hr />
+<h2 class="chapter-section">Part I: The Ancient Library</h2>
+<p>Elena stepped through the towering doors of the Arcanum Library, her breath catchin&hellip;</p>]]></content:encoded>
+        <pubDate>Fri, 24 Jan 2025 00:00:00 </pubDate>
+        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-markdown-demo/</guid>
     </item>
     <item>
         <title>My Awesome Web Novel: Chapter 3: Ancient Ruins</title>
@@ -49,7 +60,7 @@
 <p>This is a test!!</p>
 <p>In the ancient city of Eldoria, a young scribe named Aria discovered a mysterious scroll that would change the fate of the realm forever.</p>
 <p><img alt="The Ancient Scroll" src="ancient_scroll.jpg" title="A mysterious scroll with golden edges" /></p>
-<p>The parchment crackled u...</p>]]></content:encoded>
+<p>The parchment crackled u&hellip;</p>]]></content:encoded>
         <pubDate>Wed, 15 Jan 2025 00:00:00 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-1/</guid>
     </item>

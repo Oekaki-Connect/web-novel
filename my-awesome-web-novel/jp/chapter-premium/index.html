@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter Premium: Early Access</title>
-    <link rel="stylesheet" href="../../../static/style-e72a51c4.css">
+    <link rel="stylesheet" href="../../../static/style-fe2589c0.css">
     
     <!-- Custom styles for My Awesome Web Novel -->
     <style>
@@ -150,6 +150,87 @@
             background: var(--color-base, #1a202c);
             border-color: var(--color-border, #4a5568);
             color: var(--color-text, #f7fafc);
+        }
+        
+        /* Custom styles for markdown demo chapter */
+        .chapter-section {
+            padding: 1rem 0;
+            border-left: 4px solid #4a5568;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .important-section {
+            background: var(--color-accent, #f7fafc);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid #e53e3e;
+        }
+        
+        .advanced-content {
+            position: relative;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(74, 85, 104, 0.1) 0%, rgba(45, 55, 72, 0.1) 100%);
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .advanced-content::before {
+            content: "⚡ Advanced";
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            background: var(--color-base);
+            padding: 0 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #4a5568;
+        }
+        
+        .conclusion {
+            border-top: 2px solid #4a5568;
+            padding-top: 1.5rem;
+            margin-top: 3rem;
+            font-style: italic;
+        }
+        
+        .magical-text {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        
+        .magical-text::before {
+            content: "✨";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .author-note {
+            background: var(--color-accent, #f7fafc);
+            border-left: 4px solid #718096;
+            padding: 1rem;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--color-secondary);
+        }
+        
+        /* Dark mode adjustments for demo styles */
+        [data-theme="dark"] .important-section {
+            background: var(--color-accent, #2d3748);
+            border-left-color: #fc8181;
+        }
+        
+        [data-theme="dark"] .author-note {
+            background: var(--color-accent, #2d3748);
+            border-left-color: #a0aec0;
         }
     </style>
     
@@ -690,6 +771,16 @@
                         
                     </optgroup>
                 
+                    <optgroup label="Technical Demonstrations">
+                        
+                            
+                            <option value="../chapter-markdown-demo/" >
+                                Chapter Markdown Demo: The Scholar's Discovery
+                            </option>
+                            
+                        
+                    </optgroup>
+                
             </select>
         </div>
         
@@ -752,7 +843,7 @@
             </div>
         </div>
         
-        <div id="encrypted-content" style="display: none;">AsAINcrVJbBfdFczPbOAx29au0ZR3qns3JyZxpH3t4QPmiIri8Y9tF4nOmM7tojCdgXpLlPDq+GZs46Hyo740BHMUH3gijnveG8DYn6ykpdrTawGW8SquNqdg5DKk//MX9IAKobXK71JJwx+LPuD0m9e6RlX0KP9y4HNhcGZq7xf0BMmhdhpoll3Gn4sr4TFaBH1REKPzaTJzLmMyt3yg0vKBmOH1y60DGMDYj20l9JpWq1LU5Gv8d2WiIqPjvuJUshBN4LXPfFbaB99OvuC33pRrg4S1LH9y4uZjMaT7MIe8AkmytcnskViBGV+r47afh+uB13GovyZhYSQx93mlU3QBDGD2TyiDGIEdCy8mJd6TOkYWtTn7MuTjoHL3f+EW4QTNoTTOvFbbh55frOExTtZoAVV1LW2hd2d2qXB+9Ic8AkqmZY5vltiGD9w9cHebxi6S1DUvvfXls2FwYT/hFfKBmOjkT+0DGIcdCz7ktJ+UeVJEsKv/ZmFhY3cje6eW8BBN4WWIbRedA99OPXdmGsBw1dCj5Pw3NKelMqR58xJyxQvjpYovUBoHTE2vpOXb1DpCVffo7jNm4CBj5T/n1vIB2/K1DylDGYeMSmzgMM7XKYYRo77t8nM59jfw7eJU5o1K4PFabJEZhplO6nB1HRRvQJcxKLrmYaFgY+Q6oVQhBI3hcQwvUVpDzE/tYWXaVq/DlPdtLjagJiHxpznzE7IDjfKxia4QnMZP36PidZ1VOkSXcTn/taAzZ3AiPnMTdERM4XEPfAQKA98YOfOxyU19URW2LGms9LNxI/dq8wehEFjypZp8QwnSjF++8GXOwOtAkSRpPTYgZ7ZjZ7kgVPBDzeZmzq0T3MDfjD53707H+lLEpHnuJnSzcSP3avMHoRBY8qWafEMJ0oxYrPSiVhQpAZX37Prhd2F15H3q8wehEFjypZp8QwnSjF++8GXOx/pSxKR57iZ0tGXzI/inEqEEjGJi2u5WHMaYmT0zsJvS6wZU9+kttyBwofDlO6CSooLMMi8afEMJ0oxfvvBlzsf6UsSkee4mdLNxI/dq8wehEFjypZp8QwnGHQutNyVVFqiClnY6tvWnIOBzImkm1vGTC2FwCy9AXIeZTupgNl4WuQIXdyq/deGnsal3avMHoRBY8qWafEMJ0oxfvvBlzsf6UsSkee4mdLNxI/dq8wezRIwn9NkpUl1Byx8q4DDc1GoBleTzbiZ0s3Ej92rzB6EQWPKlmnxDCdKMX77wZc7H+lLEpHnuJnSzYjOn+6AA4YUN57TO7BCZA88PbSM2n5RvUk4kee4mdLNxI/dq8wehEFjypZp8QwnSjF++8GXOx/pSxKR57iZhoWBwpi2zlnNFSuf1GS9RWACZXzRwZc7H+lLEpHnuJnSzcSP3avMHoRBY8qWafEMJ0oxfvvBlzsfqhldwrT3y5uKjcHAqY1Qyw86h9k8og4NSjF++8GXOx/pSxKR57iZ0s3Ej92rzB6EQWPKlmnxDCdKMX77gMRiUapVOJHnuJnSzcSP3avMHoRBY8qWafEMJ0oxfvvBlzsD5hhRw67ozcznxI/dq8wehEFjypZp8QwnSjF++8GXOx/pVx3Vru6H</div>
+        <div id="encrypted-content" style="display: none;">AsAINcrVJbBfdFczPbOAx29au0ZR3qns3JyZxpH3t4QPmiIri8Y9tF4nOmM7tojCdgXpLlPDq+GZs46Hyo740BHMUH3gijnveG8DYn6ykpdrTawGW8SquNqdg5DKk//MX9IAKobXK71JJwx+LPuD0m9e6RlX0KP9y4HNhcGZq7xf0BMmhdhpoll3Gn4sr4TFaBH1REKPzaTJzLmMyt3yg0vKBmOH1y60DGMDYj20l9JpWq1LU5Gv8d2WiIqPjvuJUshBN4LXPfFbaB99OvuC33pRrg4S1LH9y4uZjMaT7MIe8AkmytcnskViBGV+r47afh+uB13GovyZhYSQx93mlU3QBDGD2TyiDGIEdCy8mJd6TOkYWtTn7MuTjoHL3f+EW4QTNoTTOvFbbh55frOExTtZoAVV1LW2hd2d2qXB+9IYyAUyn9lyhURuGTEutJbSaRmhDl7druiC0oSQiY/4nUvLWjDK1CyoQ2kOMT+1mMNzVqcMEvjh6sqDmIuUi+7MW9IEMcrFLLRCK0xjOqqU2CAfugNXkbDw0IGdgd2Y78xKy0Erj8Q6tEBhRC1xq9+9J0/3P1rU5+vJl4GIj4rkmVLAQSKG2iamDG8PY36vjpd5WqcPEsWu9dzShJDcmOeKEoQDNp6WKKUMcAJwKvuC2GhL9lcdwfmShYLT2MqQtbhWzRJjid4ooVhiGDE9tI/DclG8DkGRs/Dc0oCFxpOrn0rLEzqG3ye0DGYEdX6phMF+XqUYEtK17dqbjIiPjeeDSoQRLIPYPaICJz55P7WKl2JQvEtU3rW4wJ2Ylo+O/pxOyxM3y4pmtEE5Vj4u5euLNFugHQy757iZ0s3Ej92rzB6EQWPKlmnxDCdKMX773dNySekIXtC064TQjovCkO6CStdMMI/VPbhDaUgvVPvBlzsf6UsSkee4mdLNxI/dq8wehEFjypZp8Qw7AiJgmI7adlqnH0GN6PCKzOfEj92rzB6EQWPKlmnxDCdKMX77wZc7H+lLEpHnpMqRn43fiaufTMdcYYLCPaFfPUU+K6+V0mlepwgc1LS32p6EgcGJpYZNhmtjypZp8QwnSjF++8GXOx/pSxKR57iZ0s3Ej92rzB6EQWPKlmmjSXcFLHyUhNx6VKBGcd6p9tyRmcvYmOnBUMsXJoabPKVYYhhwMLiEmnhQpAZX37Prm/jNxI/dq8wehEFjypZp8QwnSjF++8GXOx/pSxKR57iZ0s3Ej93in03RBG6e0zu8ESUacCqzj9Z2WuthEpHnuJnSzcSP3avMHoRBY8qWafEMJ0oxfvvBlzsf6UsSkee41ZOPgcPAqZlK0AQxi9gqtAFkBXwzvo/DOTXpSxKR57iZ0s3Ej92rzB6EQWPKlmnxDCdKMX77wZc7H+lLEpGz8NyfiNmNmuKYVtEDbobfLrlYJWAxfvvBlzsf6UsSkee4mdLNxI/dq8wehEFjypZp8QwnSjF++8HUaVC6GF3Drv/QnNDGzpPkgkfJDjaZlEPxDCdKMX77wZc7H+lLEpHnuJnSzcSP3avMHoRBY8qWafEMJ0pwLaKP1CU16UsSkee4mdLNxI/dq8wehEFjypZp8QwnSjF++92YaFy7AkLF+ZKZ0s3Ej92rzB6EQWPKlmnxDCdKMX77wZcnEK0CRI8=</div>
         
         <script>
             function decryptContent() {
@@ -804,6 +895,7 @@
         </script>
         
         
+        
         <div class="chapter-metadata">
             
             <div class="metadata-item">
@@ -839,6 +931,7 @@
             
             
         </div>
+        
         
     </header>
     <main>

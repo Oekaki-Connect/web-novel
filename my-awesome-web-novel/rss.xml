@@ -5,7 +5,7 @@
     <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/</link>
     <description>An epic fantasy adventure following the journey of heroes in the land of Eldoria</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Jul 2025 19:10:32 </lastBuildDate>
+    <lastBuildDate>Thu, 24 Jul 2025 19:29:24 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>Chapter Recent: Just Published</title>
@@ -36,13 +36,25 @@
 </tr>
 <tr>
 <td>Regular chapters</td>
-<td>No date or past...</td>
+<td>No date or past&hellip;</td>
 <td></td>
 </tr>
 </tbody>
 </table>]]></content:encoded>
         <pubDate>Sun, 20 Jul 2025 00:00:00 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/</guid>
+    </item>
+    <item>
+        <title>Chapter Markdown Demo: The Scholar's Discovery</title>
+        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-markdown-demo/</link>
+        <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<h1>Chapter Markdown Demo: The Scholar&rsquo;s Discovery</h1>
+<hr />
+<h2 class="chapter-section">Part I: The Ancient Library</h2>
+<p>Elena stepped through the towering doors of the Arcanum Library, her breath catching at the sight before her. Thousands of tomes lined the walls, their leather bindings gleaming in the ethereal light that seemed to emanate from nowhere and everywhere at once[^1].</p>
+<p>&ldquo;Welcome, young sc&hellip;</p>]]></content:encoded>
+        <pubDate>Fri, 24 Jan 2025 00:00:00 </pubDate>
+        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-markdown-demo/</guid>
     </item>
     <item>
         <title>Chapter 3: Ancient Ruins</title>
