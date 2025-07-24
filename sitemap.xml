@@ -243,4 +243,40 @@
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/toc/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/tags/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-1/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <lastmod>2025-01-25</lastmod>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/tags/action/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/tags/mystery/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/tags/fantasy/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/tags/adventure/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
 </urlset>

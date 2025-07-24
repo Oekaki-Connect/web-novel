@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table of Contents - Tower Dungeon</title>
+    <link rel="stylesheet" href="../../../static/style.css">
+    
+    <!-- SEO Meta Tags -->
+    
+    <meta name="description" content="Read Tower Dungeon - an epic fantasy manga about mysterious tower exploration">
+    
+    
+    <meta name="keywords" content="manga, adventure, dungeon, fantasy, webcomic">
+    
+    
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Tower Dungeon - Table of Contents | Web Novel Collection">
+    <meta property="og:description" content="Follow the epic adventure in this dungeon-crawling manga">
+    <meta property="og:image" content="https://oekaki-connect.github.io/web-novel/static/images/tower-dungeon-social.jpg">
+    <meta property="og:url" content="https://oekaki-connect.github.io/web-novel/tower-dungeon/en/toc/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Web Novel Collection">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tower Dungeon - Table of Contents | Web Novel Collection">
+    <meta name="twitter:description" content="Follow the epic adventure in this dungeon-crawling manga">
+    <meta name="twitter:image" content="https://oekaki-connect.github.io/web-novel/static/images/tower-dungeon-social.jpg">
+    
+    <meta name="twitter:site" content="@your_twitter_handle">
+    
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://oekaki-connect.github.io/web-novel/tower-dungeon/en/toc/">
+    
+    <!-- Theme Toggle Script -->
+    <script src="../../../static/theme-toggle.js"></script>
+    
+    <!-- Reading Progress Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const novelSlug = 'tower-dungeon';
+            displayReadingProgress(novelSlug);
+            displayLatestChapterRead(novelSlug);
+        });
+        
+        function displayReadingProgress(novelSlug) {
+            const visitedKey = `visited_${novelSlug}`;
+            const visitedChapters = JSON.parse(localStorage.getItem(visitedKey) || '{}');
+            
+            // Add read indicators to chapter links
+            const chapterLinks = document.querySelectorAll('.arc ul li a');
+            chapterLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                const chapterId = href.split('/').filter(Boolean).pop();
+                
+                if (visitedChapters[chapterId]) {
+                    const indicator = document.createElement('span');
+                    indicator.className = visitedChapters[chapterId].completed ? 'read-completed' : 'read-visited';
+                    indicator.textContent = visitedChapters[chapterId].completed ? ' ✓' : ' ○';
+                    
+                    // Insert indicator inside the link at the end
+                    link.appendChild(indicator);
+                }
+            });
+        }
+        
+        function displayLatestChapterRead(novelSlug) {
+            const latestKey = `latest_${novelSlug}`;
+            const latestChapter = JSON.parse(localStorage.getItem(latestKey) || 'null');
+            
+            if (latestChapter) {
+                const tocNav = document.querySelector('.toc-nav');
+                if (tocNav) {
+                    const latestDiv = document.createElement('div');
+                    latestDiv.className = 'latest-chapter-read';
+                    
+                    const latestDate = new Date(latestChapter.completedAt).toLocaleDateString();
+                    latestDiv.innerHTML = `
+                        <h3>Continue Reading</h3>
+                        <p>Last completed: <a href="../${latestChapter.chapterId}/">${latestChapter.title}</a></p>
+                        <p class="completion-date">Finished on ${latestDate}</p>
+                    `;
+                    
+                    tocNav.parentNode.insertBefore(latestDiv, tocNav.nextSibling);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-separator">></span>
+            <span class="current-page">Tower Dungeon</span>
+        </nav>
+        
+        <h1>Tower Dungeon</h1>
+        
+        <div class="story-status">
+            <span class="status-label">Status:</span>
+            <span class="status-value status-ongoing">Ongoing</span>
+        </div>
+        
+        
+        <div class="story-stats">
+            <span class="stats-label">Total Length:</span>
+            <span class="stats-value">120 words</span>
+        </div>
+        
+        
+        <div class="story-tags">
+            <span class="tags-label">Genres:</span>
+            <div class="tags">
+                
+                <span class="tag story-tag">manga</span>
+                
+                <span class="tag story-tag">adventure</span>
+                
+                <span class="tag story-tag">dungeon</span>
+                
+                <span class="tag story-tag">fantasy</span>
+                
+                <span class="tag story-tag">action</span>
+                
+            </div>
+        </div>
+        
+        
+        <h2>Table of Contents</h2>
+        <nav class="toc-nav" aria-label="Story navigation">
+            <a href="../tags/" class="tags-link">Browse by Tags</a>
+        </nav>
+    </header>
+    <main>
+        
+        <section class="arc">
+            
+            <div class="arc-content">
+                <h3>Volume 1: The Tower's Secret</h3>
+                <ul aria-label="Chapters in Volume 1: The Tower's Secret">
+                    
+                    <li>
+                        <a href="../chapter-1/" aria-label="Read Chapter 1: The Sovereign's Secret Sin">Chapter 1: The Sovereign's Secret Sin</a>
+                        
+                        <span class="chapter-date" aria-label="Published on 2025-01-25">
+                            
+                            2025-01-25
+                        </span>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+        </section>
+        
+        
+        
+        
+        
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <div id="utterances-container" 
+                 data-repo="Oekaki-Connect/web-novel-utterance-comments"
+                 data-issue-term="pathname"
+                 data-label="utterance-comment">
+            </div>
+        </div>
+        
+    </main>
+    <footer>
+        <p>© 2025 Web Novel Collection</p>
+        
+        <nav class="footer-links">
+            
+            <a href="https://ko-fi.com/mangaartist" target="_blank">Support the Artist</a>
+            
+            <a href="https://example.com/tower-dungeon" target="_blank">Original Source</a>
+            
+            <a href="https://www.oekakiconnect.net/" target="_blank">Oekaki Connect</a>
+            
+            <a href="https://www.oekaki.io/" target="_blank">Oekaki.io</a>
+            
+        </nav>
+        
+        
+    </footer>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" alt="Full size image">
+        </div>
+    </div>
+
+    <script>
+        function openImageModal(imgElement) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.style.display = 'flex';
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+            
+            // Reset any inline styles that might interfere with CSS
+            modalImg.style.width = 'auto';
+            modalImg.style.height = 'auto';
+            modalImg.style.maxWidth = '100%';
+            modalImg.style.maxHeight = '100%';
+            
+            // Prevent body scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+    </script>
+</body>
+</html>
