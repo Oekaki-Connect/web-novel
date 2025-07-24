@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 1: The Sovereign's Secret Sin</title>
-    <link rel="stylesheet" href="../../../static/style.css">
+    <link rel="stylesheet" href="../../../static/style-318a8d5b.css">
     
     <!-- SEO Meta Tags -->
     
@@ -54,7 +54,7 @@
     <link rel="canonical" href="https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-1/">
     
     <!-- Theme Toggle Script -->
-    <script src="../../../static/theme-toggle.js"></script>
+    <script src="../../../static/theme-toggle-fd3ff3f5.js"></script>
     
     <!-- Chapter Navigation Script -->
     <script>
@@ -137,8 +137,9 @@
             // Mark this chapter as visited
             markChapterVisited(novelSlug, chapterId, chapterTitle);
             
-            // Set up scroll tracking for completion
-            setupScrollTracking(novelSlug, chapterId);
+            // Only set up scroll tracking for non-manga chapters
+            // Manga chapters use page-based completion tracking
+            
         }
         
         function markChapterVisited(novelSlug, chapterId, chapterTitle) {
@@ -183,11 +184,36 @@
                 const windowHeight = window.innerHeight;
                 const documentHeight = document.documentElement.scrollHeight;
                 
-                // Consider chapter "completed" when user scrolls to within 100px of the bottom
-                const scrolledToEnd = (scrollTop + windowHeight) >= (documentHeight - 100);
+                // Try to find meaningful completion points
+                let completionPoint = documentHeight - 200; // Default fallback
+                
+                // Check if comments section exists - completion point is when comments are visible
+                const commentsSection = document.querySelector('.comments-section, #utterances-container, [data-repo]');
+                if (commentsSection) {
+                    const commentsTop = commentsSection.getBoundingClientRect().top + scrollTop;
+                    completionPoint = Math.min(commentsTop - windowHeight * 0.3, completionPoint);
+                }
+                
+                // Check if footer exists - completion point is when footer is visible  
+                const footer = document.querySelector('footer');
+                if (footer) {
+                    const footerTop = footer.getBoundingClientRect().top + scrollTop;
+                    completionPoint = Math.min(footerTop - windowHeight * 0.5, completionPoint);
+                }
+                
+                // Check if chapter content wrapper exists - completion point is shortly after content ends
+                const contentWrapper = document.querySelector('#chapter-content-wrapper, .chapter-content');
+                if (contentWrapper) {
+                    const contentBottom = contentWrapper.getBoundingClientRect().bottom + scrollTop;
+                    completionPoint = Math.min(contentBottom + 100, completionPoint);
+                }
+                
+                // Consider chapter "completed" when user scrolls past the main content
+                const scrolledToEnd = (scrollTop + windowHeight) >= completionPoint;
                 
                 if (scrolledToEnd) {
                     hasScrolledToEnd = true;
+                    console.log('Chapter marked as completed - reached content end');
                     markChapterCompleted(novelSlug, chapterId);
                 }
             }
@@ -197,6 +223,19 @@
             
             // Also check on load in case content is short
             setTimeout(checkScrollProgress, 1000);
+            
+            // Mark as completed if user clicks next chapter link
+            const nextChapterLinks = document.querySelectorAll('nav a[href*="../"]:not([href*="toc"]), .chapter-nav a[href*="../"]:not([href*="toc"])');
+            nextChapterLinks.forEach(link => {
+                // Only add to links that look like next chapter (not prev or toc)
+                const linkText = link.textContent.toLowerCase();
+                if (linkText.includes('next') || linkText.includes('chapter') && !linkText.includes('previous') && !linkText.includes('prev')) {
+                    link.addEventListener('click', () => {
+                        console.log('Chapter marked as completed - clicked next chapter');
+                        markChapterCompleted(novelSlug, chapterId);
+                    });
+                }
+            });
         }
         
         // Initialize reading progress tracking
@@ -483,133 +522,6 @@
         
         
         
-        
-        <!-- Manga Reader -->
-        <div id="manga-reader" class="manga-reader">
-            <div class="manga-controls">
-                <div class="manga-controls-left">
-                    <span class="page-indicator">
-                        Page <span id="current-page">1</span> of <span id="total-pages">10</span>
-                    </span>
-                </div>
-                
-                <div class="manga-controls-center">
-                    <button id="prev-page" class="manga-btn" aria-label="Previous page">
-                        <span>◀</span>
-                    </button>
-                    <button id="next-page" class="manga-btn" aria-label="Next page">
-                        <span>▶</span>
-                    </button>
-                </div>
-                
-                <div class="manga-controls-right">
-                    <button id="zoom-fit-btn" class="manga-btn" aria-label="Zoom to fit viewport">
-                        <span>⤢</span>
-                    </button>
-                    <button id="fullscreen-btn" class="manga-btn" aria-label="Toggle fullscreen">
-                        <span>⛶</span>
-                    </button>
-                    <button id="manga-settings-btn" class="manga-btn" aria-label="Reader settings">
-                        <span>⚙</span>
-                    </button>
-                </div>
-            </div>
-            
-            <div class="manga-viewer" id="manga-viewer">
-                
-                <div class="manga-page" data-page="1" >
-                    <img src="../../../images/tower-dungeon/chapter-1/page01.png" alt="Tower Dungeon Chapter 1, Page 1" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="2" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page02.png" alt="Tower Dungeon Chapter 1, Page 2" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="3" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page03.png" alt="Tower Dungeon Chapter 1, Page 3" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="4" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page04.png" alt="Tower Dungeon Chapter 1, Page 4" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="5" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page05.png" alt="Tower Dungeon Chapter 1, Page 5" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="6" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page06.png" alt="Tower Dungeon Chapter 1, Page 6" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="7" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page07.png" alt="Tower Dungeon Chapter 1, Page 7" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="8" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page08.png" alt="Tower Dungeon Chapter 1, Page 8" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="9" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page09.png" alt="Tower Dungeon Chapter 1, Page 9" class="manga-image" loading="lazy">
-                </div>
-                
-                <div class="manga-page" data-page="10" style="display: none;">
-                    <img src="../../../images/tower-dungeon/chapter-1/page10.png" alt="Tower Dungeon Chapter 1, Page 10" class="manga-image" loading="lazy">
-                </div>
-                
-            </div>
-        </div>
-        
-        <!-- Manga Settings Modal -->
-        <div id="manga-settings-modal" class="manga-settings-modal" style="display: none;">
-            <div class="manga-settings-content">
-                <h3>Reader Settings</h3>
-                
-                <div class="setting-group">
-                    <label for="view-mode">View Mode:</label>
-                    <select id="view-mode">
-                        <option value="single">Single Page</option>
-                        <option value="double">Double Page</option>
-                        <option value="scroll">Vertical Scroll</option>
-                    </select>
-                </div>
-                
-                <div class="setting-group">
-                    <label for="image-scaling">Image Scaling:</label>
-                    <select id="image-scaling">
-                        <option value="fit_screen">Fit Screen</option>
-                        <option value="fit_width">Fit Width</option>
-                        <option value="original">Original Size</option>
-                    </select>
-                </div>
-                
-                <div class="setting-group">
-                    <label for="zoom-level">Zoom: <span id="zoom-display">100%</span></label>
-                    <input type="range" id="zoom-level" min="50" max="300" step="20" value="100">
-                </div>
-                
-                <div class="setting-group">
-                    <label for="preload-images">Image Preloading:</label>
-                    <select id="preload-images">
-                        <option value="0">Disabled</option>
-                        <option value="1">1 Image</option>
-                        <option value="2">2 Images</option>
-                        <option value="3" selected>3 Images</option>
-                        <option value="4">4 Images</option>
-                        <option value="5">5 Images</option>
-                    </select>
-                </div>
-                
-                <div class="setting-group">
-                    <button id="reset-settings" class="manga-btn">Reset to Defaults</button>
-                </div>
-                
-                <div class="setting-group">
-                    <button id="close-settings" class="manga-btn manga-btn-primary">Close</button>
-                </div>
-            </div>
-        </div>
-        
         <script>
             // Manga reader functionality
             const mangaData = {"config": {"cover_separate": true, "image_scaling": "fit_screen", "page_turn_area": "right_half", "preload_pages": 3, "reading_direction": "ltr", "view_mode": "single", "zoom_level": 100}, "page_count": 10, "pages": [{"alt_text": "Tower Dungeon Chapter 1, Page 1", "filename": "page01.png", "number": 1, "path": "../../../images/tower-dungeon/chapter-1/page01.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 2", "filename": "page02.png", "number": 2, "path": "../../../images/tower-dungeon/chapter-1/page02.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 3", "filename": "page03.png", "number": 3, "path": "../../../images/tower-dungeon/chapter-1/page03.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 4", "filename": "page04.png", "number": 4, "path": "../../../images/tower-dungeon/chapter-1/page04.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 5", "filename": "page05.png", "number": 5, "path": "../../../images/tower-dungeon/chapter-1/page05.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 6", "filename": "page06.png", "number": 6, "path": "../../../images/tower-dungeon/chapter-1/page06.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 7", "filename": "page07.png", "number": 7, "path": "../../../images/tower-dungeon/chapter-1/page07.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 8", "filename": "page08.png", "number": 8, "path": "../../../images/tower-dungeon/chapter-1/page08.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 9", "filename": "page09.png", "number": 9, "path": "../../../images/tower-dungeon/chapter-1/page09.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 10", "filename": "page10.png", "number": 10, "path": "../../../images/tower-dungeon/chapter-1/page10.png"}]};
@@ -617,6 +529,7 @@
             let viewMode = 'single';
             let imageScaling = 'fit_screen';
             let zoomLevel = 100;
+            // Use chapter-level reading direction if available, otherwise use story default
             let readingDirection = 'ltr';
             let preloadImages = 3; // Default to 3 images
             let isFullscreen = false;
@@ -637,12 +550,36 @@
                 
                 const totalPages = mangaData.page_count;
                 
-                // Preload upcoming pages
+                // Preload current page first (in case it's not loaded)
+                preloadImage(currentPage);
+                
+                // Preload pages in both directions with priority
                 for (let i = 1; i <= preloadImages; i++) {
+                    // Preload next pages (higher priority)
                     const nextPage = currentPage + i;
                     if (nextPage <= totalPages) {
                         preloadImage(nextPage);
                     }
+                    
+                    // Preload previous pages (lower priority, slight delay)
+                    const prevPage = currentPage - i;
+                    if (prevPage >= 1) {
+                        // Delay previous page preloading slightly to prioritize next pages
+                        setTimeout(() => preloadImage(prevPage), i * 100);
+                    }
+                }
+                
+                // Aggressively preload more pages if user has fast connection
+                if (preloadImages >= 3) {
+                    // Preload extra pages beyond the normal range
+                    setTimeout(() => {
+                        for (let i = preloadImages + 1; i <= preloadImages + 2; i++) {
+                            const nextPage = currentPage + i;
+                            if (nextPage <= totalPages) {
+                                preloadImage(nextPage);
+                            }
+                        }
+                    }, 500);
                 }
             }
             
@@ -656,15 +593,42 @@
                 const pageData = mangaData.pages.find(p => p.page_number === pageNumber);
                 if (!pageData) return;
                 
+                // Mark as being preloaded to prevent duplicates
+                preloadedImages.set(pageKey, 'loading');
+                
                 // Create and preload the image
                 const img = new Image();
                 img.onload = () => {
                     preloadedImages.set(pageKey, img);
                     console.log(`Preloaded page ${pageNumber}`);
+                    
+                    // Immediately update the actual img element if it exists
+                    const imgElement = document.querySelector(`.manga-page[data-page="${pageNumber}"] .manga-image`);
+                    if (imgElement) {
+                        // Ensure clean state
+                        imgElement.classList.remove('loading');
+                        imgElement.style.opacity = '1';
+                        
+                        // Update src if needed
+                        if (imgElement.src !== pageData.url) {
+                            imgElement.src = pageData.url;
+                        }
+                    }
                 };
                 img.onerror = () => {
                     console.warn(`Failed to preload page ${pageNumber}`);
+                    preloadedImages.delete(pageKey); // Remove failed preload
                 };
+                
+                // Only set crossOrigin if image is from external domain
+                const isExternal = pageData.url.startsWith('http://') || pageData.url.startsWith('https://');
+                if (isExternal) {
+                    img.crossOrigin = 'anonymous';
+                }
+                
+                // Add loading priority hint for modern browsers
+                img.decoding = 'async';
+                img.loading = 'eager';
                 
                 img.src = pageData.url;
             }
@@ -673,7 +637,28 @@
                 // Update UI
                 updatePageIndicator();
                 
-                // Start preloading images for current page
+                // Set up initial clean state for all images
+                const allImages = document.querySelectorAll('.manga-image');
+                allImages.forEach(img => {
+                    // Ensure clean initial state
+                    img.style.opacity = '1';
+                    img.classList.remove('loading');
+                    
+                    // Only add loading if image truly isn't loaded
+                    if (!img.complete || img.naturalHeight === 0) {
+                        img.classList.add('loading');
+                        img.onload = function() {
+                            this.classList.remove('loading');
+                            this.style.opacity = '1';
+                        };
+                        img.onerror = function() {
+                            this.classList.remove('loading');
+                            this.style.opacity = '1';
+                        };
+                    }
+                });
+                
+                // Start aggressive preloading for current and nearby pages
                 preloadUpcomingImages();
                 
                 // Event listeners
@@ -689,6 +674,12 @@
                     viewMode = e.target.value;
                     saveMangaSettings();
                     applyMangaSettings();
+                });
+                
+                document.getElementById('reading-direction').addEventListener('change', (e) => {
+                    readingDirection = e.target.value;
+                    saveMangaSettings();
+                    applyMangaSettings();  // Reapply view mode for RTL ordering
                 });
                 
                 document.getElementById('image-scaling').addEventListener('change', (e) => {
@@ -728,6 +719,12 @@
             }
             
             function showPage(pageNum) {
+                // Save current scroll position
+                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const mangaReader = document.getElementById('manga-reader');
+                const readerTop = mangaReader.offsetTop;
+                const relativeScroll = currentScrollTop - readerTop;
+                
                 // Hide current page
                 const currentPageEl = document.querySelector(`.manga-page[data-page="${currentPage}"]`);
                 if (currentPageEl) {
@@ -737,15 +734,64 @@
                 // Show new page
                 const newPageEl = document.querySelector(`.manga-page[data-page="${pageNum}"]`);
                 if (newPageEl) {
+                    const imgElement = newPageEl.querySelector('.manga-image');
+                    const pageKey = `page${pageNum}`;
+                    const preloadedImg = preloadedImages.get(pageKey);
+                    
+                    // Set up image before showing page to prevent flash
+                    if (imgElement) {
+                        if (preloadedImg && preloadedImg !== 'loading') {
+                            // Use preloaded image immediately - set src BEFORE showing
+                            imgElement.src = preloadedImg.src;
+                            imgElement.classList.remove('loading');
+                            // Ensure image is ready
+                            if (imgElement.complete) {
+                                imgElement.style.opacity = '1';
+                            }
+                        } else {
+                            // For non-preloaded images, ensure loading state is clean
+                            imgElement.classList.remove('loading');
+                            imgElement.style.opacity = '1';
+                            
+                            // If image isn't loaded, show loading state briefly
+                            if (!imgElement.complete || imgElement.naturalHeight === 0) {
+                                imgElement.classList.add('loading');
+                                imgElement.onload = function() {
+                                    this.classList.remove('loading');
+                                    this.style.opacity = '1';
+                                };
+                            }
+                        }
+                    }
+                    
+                    // Now show the page with image ready
                     newPageEl.style.display = 'block';
                     currentPage = pageNum;
                     updatePageIndicator();
                     
-                    // Scroll to top of page
-                    newPageEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Always position manga image optimally in viewport when changing pages
+                    setTimeout(() => {
+                        const controls = document.querySelector('.manga-controls');
+                        const controlsHeight = controls ? controls.offsetHeight : 0;
+                        
+                        // Calculate ideal scroll position to show image optimally
+                        // Position just below controls with some padding
+                        const targetScroll = readerTop + controlsHeight + 10;
+                        
+                        // Always scroll to optimal position for manga viewing
+                        window.scrollTo({ 
+                            top: targetScroll, 
+                            behavior: 'smooth' 
+                        });
+                    }, 50); // Small delay to ensure page is fully rendered
                     
-                    // Preload upcoming images
+                    // Preload upcoming images immediately
                     preloadUpcomingImages();
+                    
+                    // Check for manga completion
+                    if (window.mangaCompletionCheck) {
+                        window.mangaCompletionCheck(pageNum);
+                    }
                 }
             }
             
@@ -766,6 +812,7 @@
                 if (!isVisible) {
                     // Update controls to current values
                     document.getElementById('view-mode').value = viewMode;
+                    document.getElementById('reading-direction').value = readingDirection;
                     document.getElementById('image-scaling').value = imageScaling;
                     document.getElementById('zoom-level').value = zoomLevel;
                     document.getElementById('zoom-display').textContent = zoomLevel + '%';
@@ -778,14 +825,20 @@
                 const clickX = e.clientX - rect.left;
                 const width = rect.width;
                 
-                if (clickX < width * 0.3) {
-                    // Left third - previous page
-                    changePage(-1);
-                } else if (clickX > width * 0.7) {
-                    // Right third - next page
-                    changePage(1);
+                // Use 50% halves for navigation
+                const isLeftHalf = clickX < width * 0.5;
+                const isRightHalf = clickX >= width * 0.5;
+                
+                // Check reading direction (default to LTR if not set)
+                const isRTL = readingDirection === 'rtl';
+                
+                if (isLeftHalf) {
+                    // Left half - previous page (LTR) or next page (RTL)
+                    changePage(isRTL ? 1 : -1);
+                } else if (isRightHalf) {
+                    // Right half - next page (LTR) or previous page (RTL)
+                    changePage(isRTL ? -1 : 1);
                 }
-                // Middle third - no action (for UI controls)
             }
             
             function setupMangaKeyboardControls() {
@@ -816,7 +869,10 @@
                             showPage(mangaData.page_count);
                             break;
                         case 'Escape':
-                            toggleSettings();
+                            // Don't open settings if in fullscreen mode
+                            if (!isFullscreen) {
+                                toggleSettings();
+                            }
                             break;
                     }
                 });
@@ -830,6 +886,10 @@
                     imageScaling = settings.imageScaling || imageScaling;
                     zoomLevel = settings.zoomLevel || zoomLevel;
                     preloadImages = settings.preloadImages !== undefined ? settings.preloadImages : preloadImages;
+                    // Only override reading direction if saved (allow chapter-level override)
+                    if (settings.readingDirection) {
+                        readingDirection = settings.readingDirection;
+                    }
                 }
             }
             
@@ -838,7 +898,8 @@
                     viewMode,
                     imageScaling,
                     zoomLevel,
-                    preloadImages
+                    preloadImages,
+                    readingDirection
                 };
                 localStorage.setItem('manga-reader-settings', JSON.stringify(settings));
             }
@@ -846,6 +907,9 @@
             function applyMangaSettings() {
                 const viewer = document.getElementById('manga-viewer');
                 const images = viewer.querySelectorAll('.manga-image');
+                
+                // Set reading direction data attribute for CSS
+                viewer.setAttribute('data-reading-direction', readingDirection);
                 
                 // Apply view mode
                 applyViewMode();
@@ -904,10 +968,12 @@
                 
                 if (isFullscreen) {
                     reader.classList.add('fullscreen');
+                    document.body.style.overflow = 'hidden'; // Prevent scrolling
                     setupFullscreenMouseEvents();
                     hideFullscreenControls();
                 } else {
                     reader.classList.remove('fullscreen');
+                    document.body.style.overflow = ''; // Restore scrolling
                     showFullscreenControls();
                     cleanupFullscreenMouseEvents();
                 }
@@ -970,13 +1036,25 @@
             }
             
             function zoomToFit() {
-                const viewportHeight = window.innerHeight;
+                const viewportHeight = window.innerHeight * 0.9; // Leave some margin
                 const currentImage = document.querySelector(`.manga-page[data-page="${currentPage}"] .manga-image`);
                 
                 if (currentImage) {
+                    // Temporarily reset zoom and get base image size
+                    const originalTransform = currentImage.style.transform;
+                    currentImage.style.transform = 'scale(1)';
+                    
+                    // Force reflow to get accurate measurements
+                    currentImage.offsetHeight;
+                    
+                    // Get the natural displayed height at 100% zoom with current scaling mode
+                    const baseHeight = currentImage.getBoundingClientRect().height;
+                    
+                    // Restore original transform temporarily
+                    currentImage.style.transform = originalTransform;
+                    
                     // Calculate zoom to fit viewport height
-                    const imageHeight = currentImage.naturalHeight;
-                    const targetZoom = Math.floor((viewportHeight * 0.9 / imageHeight) * 100);
+                    const targetZoom = Math.floor((viewportHeight / baseHeight) * 100);
                     
                     zoomLevel = Math.max(50, Math.min(300, targetZoom));
                     
@@ -986,19 +1064,38 @@
                     saveMangaSettings();
                     applyMangaSettings();
                     
-                    // Scroll to center the image
-                    currentImage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Scroll to top of manga reader
+                    const mangaReader = document.getElementById('manga-reader');
+                    mangaReader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            
+            function markChapterCompleted(novelSlug, chapterId) {
+                const visitedKey = `visited_${novelSlug}`;
+                let visitedChapters = JSON.parse(localStorage.getItem(visitedKey) || '{}');
+                
+                if (visitedChapters[chapterId]) {
+                    visitedChapters[chapterId].completed = true;
+                    visitedChapters[chapterId].completedAt = new Date().toISOString();
+                    localStorage.setItem(visitedKey, JSON.stringify(visitedChapters));
+                    
+                    // Update latest chapter read
+                    const latestKey = `latest_${novelSlug}`;
+                    localStorage.setItem(latestKey, JSON.stringify({
+                        chapterId: chapterId,
+                        title: visitedChapters[chapterId].title,
+                        completedAt: visitedChapters[chapterId].completedAt
+                    }));
                 }
             }
             
             function setupPageCompletionTracking() {
-                // Override the showPage function to track completion
-                const originalShowPage = showPage;
-                showPage = function(pageNum) {
-                    originalShowPage(pageNum);
-                    
+                // Set up completion tracking for manga chapters
+                // This will be used in the changePage/showPage functions
+                window.mangaCompletionCheck = function(pageNum) {
                     // Mark as completed if this is the last page
                     if (pageNum === mangaData.page_count) {
+                        console.log('Marking manga chapter as completed - reached last page');
                         markChapterCompleted('tower-dungeon', 'chapter-1');
                     }
                 };
@@ -1082,6 +1179,20 @@
             }
         </script>
         
+        <!-- Show chapter content below manga pages -->
+        
+        <div id="chapter-content-wrapper" class="chapter-content manga-chapter-text">
+            <h1>Chapter 1: The Sovereign's Secret Sin</h1>
+<p><em>This is a manga chapter. The story is told through sequential art. Use the manga reader controls to navigate through the pages.</em></p>
+<p><strong>Reading Instructions:</strong>
+- Use arrow keys (← →) or A/D keys to navigate pages
+- Press F to toggle image scaling modes
+- Use +/- to zoom in and out
+- Press ? for full keyboard shortcuts
+- Click the settings gear (⚙️) to customize your reading experience</p>
+<p><em>The king is slain, and the princess has been whisked away to an enormous structure that descended from the sky—the Dragon Tower! The Royal Warband ascends the tower in order to save her, but they are thwarted in their quest by a powerful monster...</em></p>
+        </div>
+        
         
         
         
@@ -1102,7 +1213,146 @@
             </div>
         </div>
         
+        
+        
     </main>
+    
+    
+    <!-- Manga Reader (outside main for better width control) -->
+    <div id="manga-reader" class="manga-reader">
+        <div class="manga-controls">
+            <div class="manga-controls-left">
+                <span class="page-indicator">
+                    Page <span id="current-page">1</span> of <span id="total-pages">10</span>
+                </span>
+            </div>
+            
+            <div class="manga-controls-center">
+                <button id="prev-page" class="manga-btn" aria-label="Previous page" title="Previous page (← or A)">
+                    <span>◀</span>
+                </button>
+                <button id="next-page" class="manga-btn" aria-label="Next page" title="Next page (→ or D)">
+                    <span>▶</span>
+                </button>
+            </div>
+            
+            <div class="manga-controls-right">
+                <button id="zoom-fit-btn" class="manga-btn" aria-label="Zoom to fit viewport" title="Fit to viewport height">
+                    <span>⤢</span>
+                </button>
+                <button id="fullscreen-btn" class="manga-btn" aria-label="Toggle fullscreen" title="Toggle fullscreen (F)">
+                    <span>⛶</span>
+                </button>
+                <button id="manga-settings-btn" class="manga-btn" aria-label="Reader settings" title="Reader settings (ESC)">
+                    <span>⚙</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="manga-viewer" id="manga-viewer">
+            
+            <div class="manga-page" data-page="1" >
+                <img src="../../../images/tower-dungeon/chapter-1/page01.png" alt="Tower Dungeon Chapter 1, Page 1" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="2" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page02.png" alt="Tower Dungeon Chapter 1, Page 2" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="3" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page03.png" alt="Tower Dungeon Chapter 1, Page 3" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="4" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page04.png" alt="Tower Dungeon Chapter 1, Page 4" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="5" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page05.png" alt="Tower Dungeon Chapter 1, Page 5" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="6" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page06.png" alt="Tower Dungeon Chapter 1, Page 6" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="7" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page07.png" alt="Tower Dungeon Chapter 1, Page 7" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="8" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page08.png" alt="Tower Dungeon Chapter 1, Page 8" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="9" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page09.png" alt="Tower Dungeon Chapter 1, Page 9" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="10" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-1/page10.png" alt="Tower Dungeon Chapter 1, Page 10" class="manga-image" loading="lazy">
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Manga Settings Modal -->
+    <div id="manga-settings-modal" class="manga-settings-modal" style="display: none;">
+        <div class="manga-settings-content">
+            <h3>Manga Reader Settings</h3>
+            
+            <div class="setting-group">
+                <label for="view-mode">View Mode:</label>
+                <select id="view-mode">
+                    <option value="single">Single Page</option>
+                    <option value="double">Double Page</option>
+                    <option value="scroll">Vertical Scroll</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label for="reading-direction">Reading Direction:</label>
+                <select id="reading-direction">
+                    <option value="ltr">Left to Right</option>
+                    <option value="rtl">Right to Left</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label for="image-scaling">Image Scaling:</label>
+                <select id="image-scaling">
+                    <option value="fit_screen">Fit Screen</option>
+                    <option value="fit_width">Fit Width</option>
+                    <option value="original">Original Size</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label for="zoom-level">Zoom: <span id="zoom-display">100%</span></label>
+                <input type="range" id="zoom-level" min="50" max="300" step="10" value="100">
+            </div>
+            
+            <div class="setting-group">
+                <label for="preload-images">Image Preloading:</label>
+                <select id="preload-images">
+                    <option value="0">Disabled</option>
+                    <option value="1">1 Image</option>
+                    <option value="2">2 Images</option>
+                    <option value="3" selected>3 Images</option>
+                    <option value="4">4 Images</option>
+                    <option value="5">5 Images</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <button id="reset-settings" class="manga-btn">Reset to Defaults</button>
+            </div>
+            
+            <div class="setting-group">
+                <button id="close-settings" class="manga-btn manga-btn-primary">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    
     <footer>
         <nav aria-label="Footer navigation">
             
