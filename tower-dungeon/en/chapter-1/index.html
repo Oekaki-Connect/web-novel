@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 1: The Sovereign's Secret Sin</title>
-    <link rel="stylesheet" href="../../../static/style-f0861078.css">
+    <link rel="stylesheet" href="../../../static/style-079491ca.css">
     
     <!-- SEO Meta Tags -->
     
@@ -266,6 +266,11 @@
                     case 'l':
                         // Next chapter
                         
+                        const nextLink = document.querySelector('nav.chapter-nav a[href*="chapter-2"]');
+                        if (nextLink) {
+                            window.location.href = nextLink.href;
+                        }
+                        
                         e.preventDefault();
                         break;
                         
@@ -431,6 +436,8 @@
             
             <a href="../toc/">Table of Contents</a>
             
+            <a href="../chapter-2/">Next Chapter</a>
+            
         </nav>
         
         <div class="chapter-dropdown" role="group" aria-label="Chapter selection">
@@ -442,6 +449,10 @@
                         
                             <option value="../chapter-1/" selected>
                                 Chapter 1: The Sovereign's Secret Sin
+                            </option>
+                        
+                            <option value="../chapter-2/" >
+                                Chapter 2: The Tower's First Trial
                             </option>
                         
                     </optgroup>
@@ -537,6 +548,9 @@
             const preloadedImages = new Map(); // Cache for preloaded images
             
             document.addEventListener('DOMContentLoaded', function() {
+                // Handle URL parameters for seamless navigation
+                handleUrlParameters();
+                
                 initMangaReader();
                 setupMangaKeyboardControls();
                 loadMangaSettings();
@@ -544,6 +558,75 @@
                 setupFullscreenMode();
                 setupPageCompletionTracking();
             });
+            
+            function handleUrlParameters() {
+                const urlParams = new URLSearchParams(window.location.search);
+                
+                // Handle page parameter
+                const pageParam = urlParams.get('page');
+                if (pageParam === 'last') {
+                    currentPage = mangaData.page_count; // Start at last page
+                } else if (pageParam && !isNaN(parseInt(pageParam))) {
+                    currentPage = Math.max(1, Math.min(parseInt(pageParam), mangaData.page_count));
+                }
+                
+                // Handle fullscreen parameter
+                if (urlParams.get('fullscreen') === 'true') {
+                    // Delay fullscreen to ensure page is loaded
+                    setTimeout(() => {
+                        toggleFullscreen();
+                    }, 100);
+                }
+                
+                // Handle fitviewport parameter
+                if (urlParams.get('fitviewport') === 'true') {
+                    // Apply fit to viewport
+                    setTimeout(() => {
+                        const mangaViewer = document.getElementById('manga-viewer');
+                        if (mangaViewer) {
+                            mangaViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            // Apply zoom to fit if needed
+                            const zoomFitBtn = document.getElementById('zoom-fit-btn');
+                            if (zoomFitBtn) {
+                                zoomFitBtn.click();
+                            }
+                        }
+                    }, 100);
+                }
+                
+                // Show toast if navigating from another chapter
+                if (urlParams.get('page') || urlParams.get('fullscreen') || urlParams.get('fitviewport')) {
+                    showChapterToast("Chapter 1: The Sovereign\u0027s Secret Sin");
+                }
+            }
+            
+            function showChapterToast(chapterTitle) {
+                // Create toast element
+                const toast = document.createElement('div');
+                toast.className = 'chapter-toast';
+                toast.innerHTML = `
+                    <div class="toast-content">
+                        <span class="toast-icon">📖</span>
+                        <span class="toast-text">${chapterTitle}</span>
+                    </div>
+                `;
+                
+                // Add to body
+                document.body.appendChild(toast);
+                
+                // Trigger animation
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 10);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
             
             function preloadUpcomingImages() {
                 if (preloadImages === 0) return; // Preloading disabled
@@ -713,8 +796,56 @@
             
             function changePage(direction) {
                 const newPage = currentPage + direction;
-                if (newPage >= 1 && newPage <= mangaData.page_count) {
+                
+                // Check if we're trying to go beyond the current chapter
+                if (newPage < 1 && direction === -1) {
+                    // On first page, trying to go previous - navigate to previous chapter
+                    navigateToPreviousChapter();
+                } else if (newPage > mangaData.page_count && direction === 1) {
+                    // On last page, trying to go next - navigate to next chapter
+                    navigateToNextChapter();
+                } else if (newPage >= 1 && newPage <= mangaData.page_count) {
                     showPage(newPage);
+                }
+            }
+            
+            function navigateToPreviousChapter() {
+                const prevLink = document.querySelector('nav.chapter-nav a[href*="../"]');
+                const tocLink = document.querySelector('nav.chapter-nav a[href*="toc"]');
+                
+                if (prevLink && '') {
+                    // Navigate to previous chapter with state parameters
+                    const url = new URL(prevLink.href, window.location.href);
+                    url.searchParams.set('page', 'last'); // Start at last page of previous chapter
+                    if (isFullscreen) {
+                        url.searchParams.set('fullscreen', 'true');
+                    } else {
+                        url.searchParams.set('fitviewport', 'true');
+                    }
+                    window.location.href = url.toString();
+                } else if (tocLink) {
+                    // No previous chapter, go to TOC
+                    window.location.href = tocLink.href;
+                }
+            }
+            
+            function navigateToNextChapter() {
+                const nextLink = document.querySelector('nav.chapter-nav a[href*="../chapter-2"]');
+                const tocLink = document.querySelector('nav.chapter-nav a[href*="toc"]');
+                
+                if (nextLink && 'chapter-2') {
+                    // Navigate to next chapter with state parameters
+                    const url = new URL(nextLink.href, window.location.href);
+                    url.searchParams.set('page', '1'); // Start at first page of next chapter
+                    if (isFullscreen) {
+                        url.searchParams.set('fullscreen', 'true');
+                    } else {
+                        url.searchParams.set('fitviewport', 'true');
+                    }
+                    window.location.href = url.toString();
+                } else if (tocLink) {
+                    // No next chapter, go to TOC
+                    window.location.href = tocLink.href;
                 }
             }
             
@@ -1267,6 +1398,8 @@
             
             <a href="../toc/">Table of Contents</a>
             
+            <a href="../chapter-2/">Next Chapter</a>
+            
         </nav>
         
         
@@ -1423,6 +1556,8 @@
         <nav aria-label="Footer navigation">
             
             <a href="../toc/">Table of Contents</a>
+            
+            <a href="../chapter-2/">Next Chapter</a>
             
         </nav>
         <p>© 2025 Web Novel Collection</p>

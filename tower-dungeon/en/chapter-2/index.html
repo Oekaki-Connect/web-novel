@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: The Tower's First Trial</title>
+    <link rel="stylesheet" href="../../../static/style-079491ca.css">
+    
+    <!-- SEO Meta Tags -->
+    
+    <meta name="description" content="Read Tower Dungeon - an epic fantasy manga about mysterious tower exploration">
+    
+    
+    <meta name="keywords" content="manga, adventure, dungeon, fantasy, webcomic">
+    
+    
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Chapter 2: The Tower's First Trial | Web Novel Collection">
+    <meta property="og:description" content="Follow the epic adventure in this dungeon-crawling manga">
+    <meta property="og:image" content="https://oekaki-connect.github.io/web-novel/static/images/tower-dungeon-social.jpg">
+    <meta property="og:url" content="https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-2/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Web Novel Collection">
+    
+    <meta property="article:published_time" content="2025-01-26">
+    
+    
+    <meta property="article:author" content="Manga Artist">
+    
+    
+    
+    <meta property="article:tag" content="action">
+    
+    <meta property="article:tag" content="mystery">
+    
+    <meta property="article:tag" content="fantasy">
+    
+    <meta property="article:tag" content="adventure">
+    
+    
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chapter 2: The Tower's First Trial | Web Novel Collection">
+    <meta name="twitter:description" content="Follow the epic adventure in this dungeon-crawling manga">
+    <meta name="twitter:image" content="https://oekaki-connect.github.io/web-novel/static/images/tower-dungeon-social.jpg">
+    
+    <meta name="twitter:site" content="@your_twitter_handle">
+    <meta name="twitter:creator" content="@your_twitter_handle">
+    
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-2/">
+    
+    <!-- Theme Toggle Script -->
+    <script src="../../../static/theme-toggle-fd3ff3f5.js"></script>
+    
+    <!-- Chapter Navigation Script -->
+    <script>
+        function jumpToChapter() {
+            const select = document.getElementById('chapter-select');
+            if (select.value) {
+                window.location.href = select.value;
+            }
+        }
+        
+        // Reading settings functionality
+        let currentTextSize = 100;
+        let currentLineSpacing = 1.6;
+        
+        function loadReadingSettings() {
+            const savedTextSize = localStorage.getItem('readingTextSize');
+            const savedLineSpacing = localStorage.getItem('readingLineSpacing');
+            
+            if (savedTextSize) {
+                currentTextSize = parseInt(savedTextSize);
+                applyTextSize();
+            }
+            
+            if (savedLineSpacing) {
+                currentLineSpacing = parseFloat(savedLineSpacing);
+                applyLineSpacing();
+            }
+            
+            updateDisplays();
+        }
+        
+        function adjustTextSize(delta) {
+            currentTextSize = Math.max(70, Math.min(200, currentTextSize + (delta * 10)));
+            applyTextSize();
+            localStorage.setItem('readingTextSize', currentTextSize);
+            updateDisplays();
+        }
+        
+        function adjustLineSpacing(delta) {
+            currentLineSpacing = Math.max(1.0, Math.min(3.0, currentLineSpacing + delta));
+            applyLineSpacing();
+            localStorage.setItem('readingLineSpacing', currentLineSpacing);
+            updateDisplays();
+        }
+        
+        function applyTextSize() {
+            // Set CSS custom property on the root document for text size
+            document.documentElement.style.setProperty('--reading-font-size', (currentTextSize / 100) + 'rem');
+        }
+        
+        function applyLineSpacing() {
+            // Set CSS custom property on the root document for line spacing
+            document.documentElement.style.setProperty('--reading-line-height', currentLineSpacing);
+        }
+        
+        function updateDisplays() {
+            document.getElementById('text-size-display').textContent = currentTextSize + '%';
+            document.getElementById('line-spacing-display').textContent = currentLineSpacing.toFixed(1);
+        }
+        
+        function resetReadingSettings() {
+            currentTextSize = 100;
+            currentLineSpacing = 1.6;
+            applyTextSize();
+            applyLineSpacing();
+            localStorage.removeItem('readingTextSize');
+            localStorage.removeItem('readingLineSpacing');
+            updateDisplays();
+        }
+        
+        // Load settings when page loads
+        document.addEventListener('DOMContentLoaded', loadReadingSettings);
+        
+        // Reading progress tracking
+        function initReadingProgress() {
+            const novelSlug = 'tower-dungeon';
+            const chapterId = 'chapter-2';
+            const chapterTitle = "Chapter 2: The Tower\u0027s First Trial";
+            
+            // Mark this chapter as visited
+            markChapterVisited(novelSlug, chapterId, chapterTitle);
+            
+            // Only set up scroll tracking for non-manga chapters
+            // Manga chapters use page-based completion tracking
+            
+        }
+        
+        function markChapterVisited(novelSlug, chapterId, chapterTitle) {
+            const visitedKey = `visited_${novelSlug}`;
+            let visitedChapters = JSON.parse(localStorage.getItem(visitedKey) || '{}');
+            
+            visitedChapters[chapterId] = {
+                title: chapterTitle,
+                visitedAt: new Date().toISOString(),
+                completed: visitedChapters[chapterId]?.completed || false
+            };
+            
+            localStorage.setItem(visitedKey, JSON.stringify(visitedChapters));
+        }
+        
+        function markChapterCompleted(novelSlug, chapterId) {
+            const visitedKey = `visited_${novelSlug}`;
+            let visitedChapters = JSON.parse(localStorage.getItem(visitedKey) || '{}');
+            
+            if (visitedChapters[chapterId]) {
+                visitedChapters[chapterId].completed = true;
+                visitedChapters[chapterId].completedAt = new Date().toISOString();
+                localStorage.setItem(visitedKey, JSON.stringify(visitedChapters));
+                
+                // Update latest chapter read
+                const latestKey = `latest_${novelSlug}`;
+                localStorage.setItem(latestKey, JSON.stringify({
+                    chapterId: chapterId,
+                    title: visitedChapters[chapterId].title,
+                    completedAt: visitedChapters[chapterId].completedAt
+                }));
+            }
+        }
+        
+        function setupScrollTracking(novelSlug, chapterId) {
+            let hasScrolledToEnd = false;
+            
+            function checkScrollProgress() {
+                if (hasScrolledToEnd) return;
+                
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                // Try to find meaningful completion points
+                let completionPoint = documentHeight - 200; // Default fallback
+                
+                // Check if comments section exists - completion point is when comments are visible
+                const commentsSection = document.querySelector('.comments-section, #utterances-container, [data-repo]');
+                if (commentsSection) {
+                    const commentsTop = commentsSection.getBoundingClientRect().top + scrollTop;
+                    completionPoint = Math.min(commentsTop - windowHeight * 0.3, completionPoint);
+                }
+                
+                // Check if footer exists - completion point is when footer is visible  
+                const footer = document.querySelector('footer');
+                if (footer) {
+                    const footerTop = footer.getBoundingClientRect().top + scrollTop;
+                    completionPoint = Math.min(footerTop - windowHeight * 0.5, completionPoint);
+                }
+                
+                // Check if chapter content wrapper exists - completion point is shortly after content ends
+                const contentWrapper = document.querySelector('#chapter-content-wrapper, .chapter-content');
+                if (contentWrapper) {
+                    const contentBottom = contentWrapper.getBoundingClientRect().bottom + scrollTop;
+                    completionPoint = Math.min(contentBottom + 100, completionPoint);
+                }
+                
+                // Consider chapter "completed" when user scrolls past the main content
+                const scrolledToEnd = (scrollTop + windowHeight) >= completionPoint;
+                
+                if (scrolledToEnd) {
+                    hasScrolledToEnd = true;
+                    console.log('Chapter marked as completed - reached content end');
+                    markChapterCompleted(novelSlug, chapterId);
+                }
+            }
+            
+            window.addEventListener('scroll', checkScrollProgress);
+            window.addEventListener('resize', checkScrollProgress);
+            
+            // Also check on load in case content is short
+            setTimeout(checkScrollProgress, 1000);
+            
+            // Mark as completed if user clicks next chapter link
+            const nextChapterLinks = document.querySelectorAll('nav a[href*="../"]:not([href*="toc"]), .chapter-nav a[href*="../"]:not([href*="toc"])');
+            nextChapterLinks.forEach(link => {
+                // Only add to links that look like next chapter (not prev or toc)
+                const linkText = link.textContent.toLowerCase();
+                if (linkText.includes('next') || linkText.includes('chapter') && !linkText.includes('previous') && !linkText.includes('prev')) {
+                    link.addEventListener('click', () => {
+                        console.log('Chapter marked as completed - clicked next chapter');
+                        markChapterCompleted(novelSlug, chapterId);
+                    });
+                }
+            });
+        }
+        
+        // Initialize reading progress tracking
+        document.addEventListener('DOMContentLoaded', initReadingProgress);
+        
+        // Keyboard navigation support
+        function initKeyboardNavigation() {
+            document.addEventListener('keydown', function(e) {
+                // Skip if user is typing in an input field
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
+                    return;
+                }
+                
+                // Skip if any modifier keys are pressed (except Shift for some cases)
+                if (e.ctrlKey || e.metaKey || e.altKey) {
+                    return;
+                }
+                
+                switch(e.key) {
+                    case 'ArrowLeft':
+                    case 'h':
+                        // Previous chapter
+                        
+                        const prevLink = document.querySelector('nav.chapter-nav a[href*="chapter-1"]');
+                        if (prevLink) {
+                            window.location.href = prevLink.href;
+                        }
+                        
+                        e.preventDefault();
+                        break;
+                        
+                    case 'ArrowRight':
+                    case 'l':
+                        // Next chapter
+                        
+                        e.preventDefault();
+                        break;
+                        
+                    case 'ArrowUp':
+                    case 'k':
+                        // Scroll up
+                        window.scrollBy(0, -100);
+                        e.preventDefault();
+                        break;
+                        
+                    case 'ArrowDown':
+                    case 'j':
+                        // Scroll down
+                        window.scrollBy(0, 100);
+                        e.preventDefault();
+                        break;
+                        
+                    case 'Home':
+                    case 'g':
+                        // Go to top
+                        window.scrollTo(0, 0);
+                        e.preventDefault();
+                        break;
+                        
+                    case 'End':
+                    case 'G':
+                        // Go to bottom
+                        window.scrollTo(0, document.body.scrollHeight);
+                        e.preventDefault();
+                        break;
+                        
+                    case 't':
+                        // Go to table of contents
+                        const tocLink = document.querySelector('nav.chapter-nav a[href*="toc"]');
+                        if (tocLink) {
+                            window.location.href = tocLink.href;
+                        }
+                        e.preventDefault();
+                        break;
+                        
+                    case '=':
+                    case '+':
+                        // Increase text size
+                        adjustTextSize(1);
+                        e.preventDefault();
+                        break;
+                        
+                    case '-':
+                        // Decrease text size
+                        adjustTextSize(-1);
+                        e.preventDefault();
+                        break;
+                        
+                    case '0':
+                        // Reset reading settings
+                        resetReadingSettings();
+                        e.preventDefault();
+                        break;
+                        
+                    case '?':
+                        // Show help modal
+                        showKeyboardHelp();
+                        e.preventDefault();
+                        break;
+                }
+            });
+        }
+        
+        function showKeyboardHelp() {
+            const existingModal = document.getElementById('keyboard-help-modal');
+            if (existingModal) {
+                existingModal.style.display = 'block';
+                existingModal.querySelector('.help-close').focus();
+                return;
+            }
+            
+            const modal = document.createElement('div');
+            modal.id = 'keyboard-help-modal';
+            modal.className = 'keyboard-help-modal';
+            modal.innerHTML = `
+                <div class="help-content">
+                    <div class="help-header">
+                        <h3>Keyboard Shortcuts</h3>
+                        <button class="help-close" aria-label="Close help">&times;</button>
+                    </div>
+                    <div class="help-body">
+                        <div class="help-section">
+                            <h4>Navigation</h4>
+                            <ul>
+                                <li><kbd>←</kbd> or <kbd>h</kbd> - Previous chapter</li>
+                                <li><kbd>→</kbd> or <kbd>l</kbd> - Next chapter</li>
+                                <li><kbd>t</kbd> - Table of contents</li>
+                            </ul>
+                        </div>
+                        <div class="help-section">
+                            <h4>Scrolling</h4>
+                            <ul>
+                                <li><kbd>↑</kbd> or <kbd>k</kbd> - Scroll up</li>
+                                <li><kbd>↓</kbd> or <kbd>j</kbd> - Scroll down</li>
+                                <li><kbd>Home</kbd> or <kbd>g</kbd> - Go to top</li>
+                                <li><kbd>End</kbd> or <kbd>G</kbd> - Go to bottom</li>
+                            </ul>
+                        </div>
+                        <div class="help-section">
+                            <h4>Reading Settings</h4>
+                            <ul>
+                                <li><kbd>+</kbd> or <kbd>=</kbd> - Increase text size</li>
+                                <li><kbd>-</kbd> - Decrease text size</li>
+                                <li><kbd>0</kbd> - Reset all settings</li>
+                            </ul>
+                        </div>
+                        <div class="help-section">
+                            <h4>Help</h4>
+                            <ul>
+                                <li><kbd>?</kbd> - Show this help</li>
+                                <li><kbd>Esc</kbd> - Close help/modals</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="help-overlay"></div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Focus the close button
+            const closeBtn = modal.querySelector('.help-close');
+            closeBtn.focus();
+            
+            // Close handlers
+            closeBtn.addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            modal.querySelector('.help-overlay').addEventListener('click', () => {
+                document.body.removeChild(modal);
+            });
+            
+            document.addEventListener('keydown', function escHandler(e) {
+                if (e.key === 'Escape') {
+                    document.body.removeChild(modal);
+                    document.removeEventListener('keydown', escHandler);
+                }
+            });
+        }
+        
+        // Initialize keyboard navigation
+        document.addEventListener('DOMContentLoaded', initKeyboardNavigation);
+    </script>
+    
+    
+</head>
+<body>
+    <header>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-separator">></span>
+            <a href="../toc/">Tower Dungeon</a>
+            <span class="breadcrumb-separator">></span>
+            <span class="current-page">Chapter 2: The Tower's First Trial</span>
+        </nav>
+        <nav class="chapter-nav" aria-label="Chapter navigation">
+            
+            <a href="../chapter-1/">Previous Chapter</a>
+            
+            <a href="../toc/">Table of Contents</a>
+            
+        </nav>
+        
+        <div class="chapter-dropdown" role="group" aria-label="Chapter selection">
+            <label for="chapter-select">Jump to Chapter:</label>
+            <select id="chapter-select" onchange="jumpToChapter()" aria-label="Jump to chapter">
+                <option value="">Select a chapter...</option>
+                
+                    <optgroup label="Volume 1: The Tower's Secret">
+                        
+                            <option value="../chapter-1/" >
+                                Chapter 1: The Sovereign's Secret Sin
+                            </option>
+                        
+                            <option value="../chapter-2/" selected>
+                                Chapter 2: The Tower's First Trial
+                            </option>
+                        
+                    </optgroup>
+                
+            </select>
+        </div>
+        
+        <div class="reading-config" role="group" aria-label="Reading settings">
+            <details>
+                <summary>Reading Settings</summary>
+                <div class="reading-controls">
+                    <div class="control-group">
+                        <label for="text-size">Text Size:</label>
+                        <div class="button-group">
+                            <button onclick="adjustTextSize(-1)">A-</button>
+                            <span id="text-size-display">100%</span>
+                            <button onclick="adjustTextSize(1)">A+</button>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label for="line-spacing">Line Spacing:</label>
+                        <div class="button-group">
+                            <button onclick="adjustLineSpacing(-0.1)">-</button>
+                            <span id="line-spacing-display">1.6</span>
+                            <button onclick="adjustLineSpacing(0.1)">+</button>
+                        </div>
+                    </div>
+                    <button onclick="resetReadingSettings()" class="reset-button">Reset to Default</button>
+                </div>
+            </details>
+        </div>
+        
+        <h1>Chapter 2: The Tower's First Trial</h1>
+        
+        
+        <div class="chapter-metadata">
+            
+            <div class="metadata-item">
+                <strong>Author:</strong> 
+                
+                
+                Manga Artist
+                
+            </div>
+            
+            
+            
+            
+            
+            <div class="metadata-item">
+                <strong>Published:</strong> 2025-01-26
+            </div>
+            
+            
+            
+            <div class="metadata-item">
+                <strong>Tags:</strong>
+                <div class="tags">
+                    
+                    <a href="../tags/action/" class="tag">action</a>
+                    
+                    <a href="../tags/mystery/" class="tag">mystery</a>
+                    
+                    <a href="../tags/fantasy/" class="tag">fantasy</a>
+                    
+                    <a href="../tags/adventure/" class="tag">adventure</a>
+                    
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        
+    </header>
+    <main>
+        
+        
+        
+        
+        <script>
+            // Manga reader functionality
+            const mangaData = {"config": {"cover_separate": true, "image_scaling": "fit_screen", "page_turn_area": "right_half", "preload_pages": 3, "reading_direction": "ltr", "view_mode": "single", "zoom_level": 100}, "page_count": 10, "pages": [{"alt_text": "Tower Dungeon Chapter ?, Page 1", "filename": "page01.png", "number": 1, "path": "../../../images/tower-dungeon/chapter-2/page01.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 2", "filename": "page02.png", "number": 2, "path": "../../../images/tower-dungeon/chapter-2/page02.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 3", "filename": "page03.png", "number": 3, "path": "../../../images/tower-dungeon/chapter-2/page03.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 4", "filename": "page04.png", "number": 4, "path": "../../../images/tower-dungeon/chapter-2/page04.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 5", "filename": "page05.png", "number": 5, "path": "../../../images/tower-dungeon/chapter-2/page05.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 6", "filename": "page06.png", "number": 6, "path": "../../../images/tower-dungeon/chapter-2/page06.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 7", "filename": "page07.png", "number": 7, "path": "../../../images/tower-dungeon/chapter-2/page07.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 8", "filename": "page08.png", "number": 8, "path": "../../../images/tower-dungeon/chapter-2/page08.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 9", "filename": "page09.png", "number": 9, "path": "../../../images/tower-dungeon/chapter-2/page09.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 10", "filename": "page10.png", "number": 10, "path": "../../../images/tower-dungeon/chapter-2/page10.png"}]};
+            let currentPage = 1;
+            let viewMode = 'single';
+            let imageScaling = 'fit_screen';
+            let zoomLevel = 100;
+            // Use chapter-level reading direction if available, otherwise use story default
+            let readingDirection = 'ltr';
+            let preloadImages = 3; // Default to 3 images
+            let isFullscreen = false;
+            let mouseTimer = null;
+            const preloadedImages = new Map(); // Cache for preloaded images
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                // Handle URL parameters for seamless navigation
+                handleUrlParameters();
+                
+                initMangaReader();
+                setupMangaKeyboardControls();
+                loadMangaSettings();
+                applyMangaSettings();
+                setupFullscreenMode();
+                setupPageCompletionTracking();
+            });
+            
+            function handleUrlParameters() {
+                const urlParams = new URLSearchParams(window.location.search);
+                
+                // Handle page parameter
+                const pageParam = urlParams.get('page');
+                if (pageParam === 'last') {
+                    currentPage = mangaData.page_count; // Start at last page
+                } else if (pageParam && !isNaN(parseInt(pageParam))) {
+                    currentPage = Math.max(1, Math.min(parseInt(pageParam), mangaData.page_count));
+                }
+                
+                // Handle fullscreen parameter
+                if (urlParams.get('fullscreen') === 'true') {
+                    // Delay fullscreen to ensure page is loaded
+                    setTimeout(() => {
+                        toggleFullscreen();
+                    }, 100);
+                }
+                
+                // Handle fitviewport parameter
+                if (urlParams.get('fitviewport') === 'true') {
+                    // Apply fit to viewport
+                    setTimeout(() => {
+                        const mangaViewer = document.getElementById('manga-viewer');
+                        if (mangaViewer) {
+                            mangaViewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            // Apply zoom to fit if needed
+                            const zoomFitBtn = document.getElementById('zoom-fit-btn');
+                            if (zoomFitBtn) {
+                                zoomFitBtn.click();
+                            }
+                        }
+                    }, 100);
+                }
+                
+                // Show toast if navigating from another chapter
+                if (urlParams.get('page') || urlParams.get('fullscreen') || urlParams.get('fitviewport')) {
+                    showChapterToast("Chapter 2: The Tower\u0027s First Trial");
+                }
+            }
+            
+            function showChapterToast(chapterTitle) {
+                // Create toast element
+                const toast = document.createElement('div');
+                toast.className = 'chapter-toast';
+                toast.innerHTML = `
+                    <div class="toast-content">
+                        <span class="toast-icon">📖</span>
+                        <span class="toast-text">${chapterTitle}</span>
+                    </div>
+                `;
+                
+                // Add to body
+                document.body.appendChild(toast);
+                
+                // Trigger animation
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 10);
+                
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+            
+            function preloadUpcomingImages() {
+                if (preloadImages === 0) return; // Preloading disabled
+                
+                const totalPages = mangaData.page_count;
+                
+                // Preload current page first (in case it's not loaded)
+                preloadImage(currentPage);
+                
+                // Preload pages in both directions with priority
+                for (let i = 1; i <= preloadImages; i++) {
+                    // Preload next pages (higher priority)
+                    const nextPage = currentPage + i;
+                    if (nextPage <= totalPages) {
+                        preloadImage(nextPage);
+                    }
+                    
+                    // Preload previous pages (lower priority, slight delay)
+                    const prevPage = currentPage - i;
+                    if (prevPage >= 1) {
+                        // Delay previous page preloading slightly to prioritize next pages
+                        setTimeout(() => preloadImage(prevPage), i * 100);
+                    }
+                }
+                
+                // Aggressively preload more pages if user has fast connection
+                if (preloadImages >= 3) {
+                    // Preload extra pages beyond the normal range
+                    setTimeout(() => {
+                        for (let i = preloadImages + 1; i <= preloadImages + 2; i++) {
+                            const nextPage = currentPage + i;
+                            if (nextPage <= totalPages) {
+                                preloadImage(nextPage);
+                            }
+                        }
+                    }, 500);
+                }
+            }
+            
+            function preloadImage(pageNumber) {
+                const pageKey = `page${pageNumber}`;
+                
+                // Skip if already preloaded
+                if (preloadedImages.has(pageKey)) return;
+                
+                // Find the page data
+                const pageData = mangaData.pages.find(p => p.page_number === pageNumber);
+                if (!pageData) return;
+                
+                // Mark as being preloaded to prevent duplicates
+                preloadedImages.set(pageKey, 'loading');
+                
+                // Create and preload the image
+                const img = new Image();
+                img.onload = () => {
+                    preloadedImages.set(pageKey, img);
+                    console.log(`Preloaded page ${pageNumber}`);
+                    
+                    // Immediately update the actual img element if it exists
+                    const imgElement = document.querySelector(`.manga-page[data-page="${pageNumber}"] .manga-image`);
+                    if (imgElement) {
+                        // Ensure clean state
+                        imgElement.classList.remove('loading');
+                        imgElement.style.opacity = '1';
+                        
+                        // Update src if needed
+                        if (imgElement.src !== pageData.url) {
+                            imgElement.src = pageData.url;
+                        }
+                    }
+                };
+                img.onerror = () => {
+                    console.warn(`Failed to preload page ${pageNumber}`);
+                    preloadedImages.delete(pageKey); // Remove failed preload
+                };
+                
+                // Only set crossOrigin if image is from external domain
+                const isExternal = pageData.url.startsWith('http://') || pageData.url.startsWith('https://');
+                if (isExternal) {
+                    img.crossOrigin = 'anonymous';
+                }
+                
+                // Add loading priority hint for modern browsers
+                img.decoding = 'async';
+                img.loading = 'eager';
+                
+                img.src = pageData.url;
+            }
+            
+            function initMangaReader() {
+                // Update UI
+                updatePageIndicator();
+                
+                // Set up initial clean state for all images
+                const allImages = document.querySelectorAll('.manga-image');
+                allImages.forEach(img => {
+                    // Ensure clean initial state
+                    img.style.opacity = '1';
+                    img.classList.remove('loading');
+                    
+                    // Only add loading if image truly isn't loaded
+                    if (!img.complete || img.naturalHeight === 0) {
+                        img.classList.add('loading');
+                        img.onload = function() {
+                            this.classList.remove('loading');
+                            this.style.opacity = '1';
+                        };
+                        img.onerror = function() {
+                            this.classList.remove('loading');
+                            this.style.opacity = '1';
+                        };
+                    }
+                });
+                
+                // Start aggressive preloading for current and nearby pages
+                preloadUpcomingImages();
+                
+                // Event listeners
+                document.getElementById('prev-page').addEventListener('click', () => changePage(-1));
+                document.getElementById('next-page').addEventListener('click', () => changePage(1));
+                document.getElementById('zoom-fit-btn').addEventListener('click', zoomToFit);
+                document.getElementById('fullscreen-btn').addEventListener('click', toggleFullscreen);
+                document.getElementById('manga-settings-btn').addEventListener('click', toggleSettings);
+                document.getElementById('close-settings').addEventListener('click', toggleSettings);
+                
+                // Settings controls
+                document.getElementById('view-mode').addEventListener('change', (e) => {
+                    viewMode = e.target.value;
+                    saveMangaSettings();
+                    applyMangaSettings();
+                });
+                
+                document.getElementById('reading-direction').addEventListener('change', (e) => {
+                    readingDirection = e.target.value;
+                    saveMangaSettings();
+                    applyMangaSettings();  // Reapply view mode for RTL ordering
+                });
+                
+                document.getElementById('image-scaling').addEventListener('change', (e) => {
+                    imageScaling = e.target.value;
+                    saveMangaSettings();
+                    applyMangaSettings();
+                });
+                
+                document.getElementById('zoom-level').addEventListener('input', (e) => {
+                    zoomLevel = parseInt(e.target.value);
+                    document.getElementById('zoom-display').textContent = zoomLevel + '%';
+                    saveMangaSettings();
+                    applyMangaSettings();
+                });
+                
+                document.getElementById('preload-images').addEventListener('change', (e) => {
+                    preloadImages = parseInt(e.target.value);
+                    saveMangaSettings();
+                    // Clear existing preload cache when settings change
+                    preloadedImages.clear();
+                    // Trigger preloading for current page
+                    preloadUpcomingImages();
+                });
+                
+                document.getElementById('reset-settings').addEventListener('click', resetMangaSettings);
+                
+                // Click areas for page turning
+                const viewer = document.getElementById('manga-viewer');
+                viewer.addEventListener('click', handleViewerClick);
+            }
+            
+            function changePage(direction) {
+                const newPage = currentPage + direction;
+                
+                // Check if we're trying to go beyond the current chapter
+                if (newPage < 1 && direction === -1) {
+                    // On first page, trying to go previous - navigate to previous chapter
+                    navigateToPreviousChapter();
+                } else if (newPage > mangaData.page_count && direction === 1) {
+                    // On last page, trying to go next - navigate to next chapter
+                    navigateToNextChapter();
+                } else if (newPage >= 1 && newPage <= mangaData.page_count) {
+                    showPage(newPage);
+                }
+            }
+            
+            function navigateToPreviousChapter() {
+                const prevLink = document.querySelector('nav.chapter-nav a[href*="../chapter-1"]');
+                const tocLink = document.querySelector('nav.chapter-nav a[href*="toc"]');
+                
+                if (prevLink && 'chapter-1') {
+                    // Navigate to previous chapter with state parameters
+                    const url = new URL(prevLink.href, window.location.href);
+                    url.searchParams.set('page', 'last'); // Start at last page of previous chapter
+                    if (isFullscreen) {
+                        url.searchParams.set('fullscreen', 'true');
+                    } else {
+                        url.searchParams.set('fitviewport', 'true');
+                    }
+                    window.location.href = url.toString();
+                } else if (tocLink) {
+                    // No previous chapter, go to TOC
+                    window.location.href = tocLink.href;
+                }
+            }
+            
+            function navigateToNextChapter() {
+                const nextLink = document.querySelector('nav.chapter-nav a[href*="../"]');
+                const tocLink = document.querySelector('nav.chapter-nav a[href*="toc"]');
+                
+                if (nextLink && '') {
+                    // Navigate to next chapter with state parameters
+                    const url = new URL(nextLink.href, window.location.href);
+                    url.searchParams.set('page', '1'); // Start at first page of next chapter
+                    if (isFullscreen) {
+                        url.searchParams.set('fullscreen', 'true');
+                    } else {
+                        url.searchParams.set('fitviewport', 'true');
+                    }
+                    window.location.href = url.toString();
+                } else if (tocLink) {
+                    // No next chapter, go to TOC
+                    window.location.href = tocLink.href;
+                }
+            }
+            
+            function showPage(pageNum) {
+                // Save current scroll position
+                const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const mangaReader = document.getElementById('manga-reader');
+                const readerTop = mangaReader.offsetTop;
+                const relativeScroll = currentScrollTop - readerTop;
+                
+                // Hide current page
+                const currentPageEl = document.querySelector(`.manga-page[data-page="${currentPage}"]`);
+                if (currentPageEl) {
+                    currentPageEl.style.display = 'none';
+                }
+                
+                // Show new page
+                const newPageEl = document.querySelector(`.manga-page[data-page="${pageNum}"]`);
+                if (newPageEl) {
+                    const imgElement = newPageEl.querySelector('.manga-image');
+                    const pageKey = `page${pageNum}`;
+                    const preloadedImg = preloadedImages.get(pageKey);
+                    
+                    // Set up image before showing page to prevent flash
+                    if (imgElement) {
+                        if (preloadedImg && preloadedImg !== 'loading') {
+                            // Use preloaded image immediately - set src BEFORE showing
+                            imgElement.src = preloadedImg.src;
+                            imgElement.classList.remove('loading');
+                            // Ensure image is ready
+                            if (imgElement.complete) {
+                                imgElement.style.opacity = '1';
+                            }
+                        } else {
+                            // For non-preloaded images, ensure loading state is clean
+                            imgElement.classList.remove('loading');
+                            imgElement.style.opacity = '1';
+                            
+                            // If image isn't loaded, show loading state briefly
+                            if (!imgElement.complete || imgElement.naturalHeight === 0) {
+                                imgElement.classList.add('loading');
+                                imgElement.onload = function() {
+                                    this.classList.remove('loading');
+                                    this.style.opacity = '1';
+                                };
+                            }
+                        }
+                    }
+                    
+                    // Now show the page with image ready
+                    newPageEl.style.display = 'block';
+                    currentPage = pageNum;
+                    updatePageIndicator();
+                    
+                    // Always position manga image optimally in viewport when changing pages
+                    setTimeout(() => {
+                        const controls = document.querySelector('.manga-controls');
+                        const controlsHeight = controls ? controls.offsetHeight : 0;
+                        
+                        // Calculate ideal scroll position to show image optimally
+                        // Position just below controls with some padding
+                        const targetScroll = readerTop + controlsHeight + 10;
+                        
+                        // Always scroll to optimal position for manga viewing
+                        window.scrollTo({ 
+                            top: targetScroll, 
+                            behavior: 'smooth' 
+                        });
+                    }, 50); // Small delay to ensure page is fully rendered
+                    
+                    // Preload upcoming images immediately
+                    preloadUpcomingImages();
+                    
+                    // Check for manga completion
+                    if (window.mangaCompletionCheck) {
+                        window.mangaCompletionCheck(pageNum);
+                    }
+                }
+            }
+            
+            function updatePageIndicator() {
+                document.getElementById('current-page').textContent = currentPage;
+                document.getElementById('total-pages').textContent = mangaData.page_count;
+                
+                // Update navigation button states
+                document.getElementById('prev-page').disabled = currentPage === 1;
+                document.getElementById('next-page').disabled = currentPage === mangaData.page_count;
+            }
+            
+            function toggleSettings() {
+                const modal = document.getElementById('manga-settings-modal');
+                const controls = document.querySelector('.manga-controls');
+                const shortcuts = document.querySelector('.manga-shortcuts');
+                const isVisible = modal.style.display !== 'none' && modal.style.display !== '';
+                
+                modal.style.display = isVisible ? 'none' : 'flex';
+                
+                // Disable/enable pointer events on controls when modal is open/closed
+                if (controls) {
+                    controls.style.pointerEvents = isVisible ? 'auto' : 'none';
+                }
+                if (shortcuts) {
+                    shortcuts.style.pointerEvents = isVisible ? 'auto' : 'none';
+                }
+                
+                if (!isVisible) {
+                    // Hide controls when opening modal in fullscreen
+                    if (isFullscreen && controls) {
+                        controls.classList.remove('show');
+                    }
+                    
+                    // Update controls to current values
+                    document.getElementById('view-mode').value = viewMode;
+                    document.getElementById('reading-direction').value = readingDirection;
+                    document.getElementById('image-scaling').value = imageScaling;
+                    document.getElementById('zoom-level').value = zoomLevel;
+                    document.getElementById('zoom-display').textContent = zoomLevel + '%';
+                    document.getElementById('preload-images').value = preloadImages;
+                }
+            }
+            
+            function handleViewerClick(e) {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const clickX = e.clientX - rect.left;
+                const width = rect.width;
+                
+                // Use 50% halves for navigation
+                const isLeftHalf = clickX < width * 0.5;
+                const isRightHalf = clickX >= width * 0.5;
+                
+                // Check reading direction (default to LTR if not set)
+                const isRTL = readingDirection === 'rtl';
+                
+                if (isLeftHalf) {
+                    // Left half - previous page (LTR) or next page (RTL)
+                    changePage(isRTL ? 1 : -1);
+                } else if (isRightHalf) {
+                    // Right half - next page (LTR) or previous page (RTL)
+                    changePage(isRTL ? -1 : 1);
+                }
+            }
+            
+            function setupMangaKeyboardControls() {
+                document.addEventListener('keydown', function(e) {
+                    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') {
+                        return; // Don't interfere with form inputs
+                    }
+                    
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                        case 'a':
+                        case 'A':
+                            e.preventDefault();
+                            changePage(-1);
+                            break;
+                        case 'ArrowRight':
+                        case 'd':
+                        case 'D':
+                            e.preventDefault();
+                            changePage(1);
+                            break;
+                        case 'Home':
+                            e.preventDefault();
+                            showPage(1);
+                            break;
+                        case 'End':
+                            e.preventDefault();
+                            showPage(mangaData.page_count);
+                            break;
+                        case 'Escape':
+                            // Close settings modal if it's open
+                            const modal = document.getElementById('manga-settings-modal');
+                            if (modal.style.display !== 'none' && modal.style.display !== '') {
+                                modal.style.display = 'none';
+                                
+                                // Re-enable pointer events on controls
+                                const controls = document.querySelector('.manga-controls');
+                                const shortcuts = document.querySelector('.manga-shortcuts');
+                                if (controls) controls.style.pointerEvents = 'auto';
+                                if (shortcuts) shortcuts.style.pointerEvents = 'auto';
+                            }
+                            break;
+                    }
+                });
+            }
+            
+            function loadMangaSettings() {
+                const saved = localStorage.getItem('manga-reader-settings');
+                if (saved) {
+                    const settings = JSON.parse(saved);
+                    viewMode = settings.viewMode || viewMode;
+                    imageScaling = settings.imageScaling || imageScaling;
+                    zoomLevel = settings.zoomLevel || zoomLevel;
+                    preloadImages = settings.preloadImages !== undefined ? settings.preloadImages : preloadImages;
+                    // Only override reading direction if saved (allow chapter-level override)
+                    if (settings.readingDirection) {
+                        readingDirection = settings.readingDirection;
+                    }
+                }
+            }
+            
+            function saveMangaSettings() {
+                const settings = {
+                    viewMode,
+                    imageScaling,
+                    zoomLevel,
+                    preloadImages,
+                    readingDirection
+                };
+                localStorage.setItem('manga-reader-settings', JSON.stringify(settings));
+            }
+            
+            function applyMangaSettings() {
+                const viewer = document.getElementById('manga-viewer');
+                const images = viewer.querySelectorAll('.manga-image');
+                
+                // Set reading direction data attribute for CSS
+                viewer.setAttribute('data-reading-direction', readingDirection);
+                
+                // Apply view mode
+                applyViewMode();
+                
+                // Apply scaling
+                images.forEach(img => {
+                    img.style.transform = `scale(${zoomLevel / 100})`;
+                    
+                    switch(imageScaling) {
+                        case 'fit_screen':
+                            img.style.maxWidth = '100vw';
+                            img.style.maxHeight = '100vh';
+                            img.style.width = 'auto';
+                            img.style.height = 'auto';
+                            break;
+                        case 'fit_width':
+                            img.style.maxWidth = '100%';
+                            img.style.maxHeight = 'none';
+                            img.style.width = '100%';
+                            img.style.height = 'auto';
+                            break;
+                        case 'original':
+                            img.style.maxWidth = 'none';
+                            img.style.maxHeight = 'none';
+                            img.style.width = 'auto';
+                            img.style.height = 'auto';
+                            break;
+                    }
+                });
+            }
+            
+            function resetMangaSettings() {
+                viewMode = 'single';
+                imageScaling = 'fit_screen';
+                zoomLevel = 100;
+                preloadImages = 3; // Reset to default
+                
+                saveMangaSettings();
+                applyMangaSettings();
+                
+                // Clear and restart preloading
+                preloadedImages.clear();
+                preloadUpcomingImages();
+                
+                // Update UI
+                document.getElementById('view-mode').value = viewMode;
+                document.getElementById('image-scaling').value = imageScaling;
+                document.getElementById('zoom-level').value = zoomLevel;
+                document.getElementById('zoom-display').textContent = zoomLevel + '%';
+                document.getElementById('preload-images').value = preloadImages;
+            }
+            
+            function toggleFullscreen() {
+                const reader = document.getElementById('manga-reader');
+                
+                if (!isFullscreen) {
+                    // Enter fullscreen mode
+                    if (reader.requestFullscreen) {
+                        reader.requestFullscreen();
+                    } else if (reader.webkitRequestFullscreen) { // Safari
+                        reader.webkitRequestFullscreen();
+                    } else if (reader.msRequestFullscreen) { // IE/Edge
+                        reader.msRequestFullscreen();
+                    } else if (reader.mozRequestFullScreen) { // Firefox
+                        reader.mozRequestFullScreen();
+                    }
+                } else {
+                    // Exit fullscreen mode
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) { // Safari
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) { // IE/Edge
+                        document.msExitFullscreen();
+                    } else if (document.mozCancelFullScreen) { // Firefox
+                        document.mozCancelFullScreen();
+                    }
+                }
+            }
+            
+            function setupFullscreenMode() {
+                // Listen for fullscreen changes
+                document.addEventListener('fullscreenchange', handleFullscreenChange);
+                document.addEventListener('webkitfullscreenchange', handleFullscreenChange); // Safari
+                document.addEventListener('mozfullscreenchange', handleFullscreenChange); // Firefox
+                document.addEventListener('MSFullscreenChange', handleFullscreenChange); // IE/Edge
+                
+                // ESC key handler for fullscreen
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && isFullscreen) {
+                        toggleFullscreen();
+                    }
+                });
+            }
+            
+            function handleFullscreenChange() {
+                const reader = document.getElementById('manga-reader');
+                const isCurrentlyFullscreen = !!(document.fullscreenElement || 
+                                                document.webkitFullscreenElement || 
+                                                document.mozFullScreenElement || 
+                                                document.msFullscreenElement);
+                
+                isFullscreen = isCurrentlyFullscreen;
+                
+                if (isFullscreen) {
+                    reader.classList.add('fullscreen');
+                    document.body.style.overflow = 'hidden';
+                    setupFullscreenMouseEvents();
+                    hideFullscreenControls();
+                } else {
+                    reader.classList.remove('fullscreen');
+                    document.body.style.overflow = '';
+                    showFullscreenControls();
+                    cleanupFullscreenMouseEvents();
+                }
+            }
+            
+            function setupFullscreenMouseEvents() {
+                const controls = document.querySelector('.manga-controls');
+                
+                document.addEventListener('mousemove', handleFullscreenMouseMove);
+                document.addEventListener('mouseleave', hideFullscreenControls);
+            }
+            
+            function cleanupFullscreenMouseEvents() {
+                document.removeEventListener('mousemove', handleFullscreenMouseMove);
+                document.removeEventListener('mouseleave', hideFullscreenControls);
+            }
+            
+            function handleFullscreenMouseMove(e) {
+                const controls = document.querySelector('.manga-controls');
+                const modal = document.getElementById('manga-settings-modal');
+                
+                // Don't show controls if settings modal is open
+                const isModalOpen = modal && modal.style.display !== 'none' && modal.style.display !== '';
+                
+                // Show controls if mouse is near top of screen and modal is not open
+                if (e.clientY < 100 && !isModalOpen) {
+                    showFullscreenControls();
+                    
+                    // Clear existing timer
+                    if (mouseTimer) {
+                        clearTimeout(mouseTimer);
+                    }
+                    
+                    // Hide controls after 3 seconds of no movement
+                    mouseTimer = setTimeout(() => {
+                        hideFullscreenControls();
+                    }, 3000);
+                } else {
+                    hideFullscreenControls();
+                }
+            }
+            
+            function showFullscreenControls() {
+                const controls = document.querySelector('.manga-controls');
+                if (isFullscreen) {
+                    controls.classList.add('show');
+                }
+            }
+            
+            function hideFullscreenControls() {
+                const controls = document.querySelector('.manga-controls');
+                if (isFullscreen) {
+                    controls.classList.remove('show');
+                }
+            }
+            
+            function zoomToFit() {
+                const viewportHeight = window.innerHeight * 0.9; // Leave some margin
+                const currentImage = document.querySelector(`.manga-page[data-page="${currentPage}"] .manga-image`);
+                
+                if (currentImage) {
+                    // Temporarily reset zoom and get base image size
+                    const originalTransform = currentImage.style.transform;
+                    currentImage.style.transform = 'scale(1)';
+                    
+                    // Force reflow to get accurate measurements
+                    currentImage.offsetHeight;
+                    
+                    // Get the natural displayed height at 100% zoom with current scaling mode
+                    const baseHeight = currentImage.getBoundingClientRect().height;
+                    
+                    // Restore original transform temporarily
+                    currentImage.style.transform = originalTransform;
+                    
+                    // Calculate zoom to fit viewport height
+                    const targetZoom = Math.floor((viewportHeight / baseHeight) * 100);
+                    
+                    zoomLevel = Math.max(50, Math.min(300, targetZoom));
+                    
+                    // Update UI and save settings
+                    document.getElementById('zoom-level').value = zoomLevel;
+                    document.getElementById('zoom-display').textContent = zoomLevel + '%';
+                    saveMangaSettings();
+                    applyMangaSettings();
+                    
+                    // Scroll to top of manga reader
+                    const mangaReader = document.getElementById('manga-reader');
+                    mangaReader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+            
+            function markChapterCompleted(novelSlug, chapterId) {
+                const visitedKey = `visited_${novelSlug}`;
+                let visitedChapters = JSON.parse(localStorage.getItem(visitedKey) || '{}');
+                
+                if (visitedChapters[chapterId]) {
+                    visitedChapters[chapterId].completed = true;
+                    visitedChapters[chapterId].completedAt = new Date().toISOString();
+                    localStorage.setItem(visitedKey, JSON.stringify(visitedChapters));
+                    
+                    // Update latest chapter read
+                    const latestKey = `latest_${novelSlug}`;
+                    localStorage.setItem(latestKey, JSON.stringify({
+                        chapterId: chapterId,
+                        title: visitedChapters[chapterId].title,
+                        completedAt: visitedChapters[chapterId].completedAt
+                    }));
+                }
+            }
+            
+            function setupPageCompletionTracking() {
+                // Set up completion tracking for manga chapters
+                // This will be used in the changePage/showPage functions
+                window.mangaCompletionCheck = function(pageNum) {
+                    // Mark as completed if this is the last page
+                    if (pageNum === mangaData.page_count) {
+                        console.log('Marking manga chapter as completed - reached last page');
+                        markChapterCompleted('tower-dungeon', 'chapter-2');
+                    }
+                };
+            }
+            
+            function applyViewMode() {
+                const viewer = document.getElementById('manga-viewer');
+                const pages = viewer.querySelectorAll('.manga-page');
+                
+                // Remove all view mode classes
+                viewer.classList.remove('double-page', 'scroll-mode', 'original-size');
+                
+                switch(viewMode) {
+                    case 'double':
+                        viewer.classList.add('double-page');
+                        setupDoublePage();
+                        break;
+                    case 'scroll':
+                        viewer.classList.add('scroll-mode');
+                        setupScrollMode();
+                        break;
+                    default:
+                        setupSinglePage();
+                        break;
+                }
+                
+                if (imageScaling === 'original') {
+                    viewer.classList.add('original-size');
+                }
+            }
+            
+            function setupSinglePage() {
+                const pages = document.querySelectorAll('.manga-page');
+                pages.forEach((page, index) => {
+                    page.style.display = (index + 1 === currentPage) ? 'block' : 'none';
+                    page.classList.remove('active', 'single-cover');
+                });
+            }
+            
+            function setupDoublePage() {
+                const pages = document.querySelectorAll('.manga-page');
+                const coverSeparate = true;
+                
+                pages.forEach(page => {
+                    page.style.display = 'none';
+                    page.classList.remove('active', 'single-cover');
+                });
+                
+                if (currentPage === 1 && coverSeparate) {
+                    // Show first page alone
+                    const firstPage = document.querySelector('.manga-page[data-page="1"]');
+                    if (firstPage) {
+                        firstPage.style.display = 'block';
+                        firstPage.classList.add('active', 'single-cover');
+                    }
+                } else {
+                    // Show two pages side by side
+                    const startPage = coverSeparate ? 
+                        (currentPage === 1 ? 1 : (currentPage % 2 === 0 ? currentPage : currentPage - 1)) :
+                        (currentPage % 2 === 1 ? currentPage : currentPage - 1);
+                    
+                    for (let i = 0; i < 2; i++) {
+                        const pageNum = startPage + i;
+                        if (pageNum <= mangaData.page_count) {
+                            const page = document.querySelector(`.manga-page[data-page="${pageNum}"]`);
+                            if (page) {
+                                page.style.display = 'block';
+                                page.classList.add('active');
+                            }
+                        }
+                    }
+                }
+            }
+            
+            function setupScrollMode() {
+                const pages = document.querySelectorAll('.manga-page');
+                pages.forEach(page => {
+                    page.style.display = 'block';
+                    page.classList.remove('active', 'single-cover');
+                });
+            }
+        </script>
+        
+        <!-- Show chapter content below manga pages -->
+        
+        <div id="chapter-content-wrapper" class="chapter-content manga-chapter-text">
+            <h1>Chapter 2: The Tower&rsquo;s First Trial</h1>
+<p><em>This is a manga chapter. The story is told through sequential art. Use the manga reader controls to navigate through the pages.</em></p>
+<p><strong>Reading Instructions:</strong>
+- Use arrow keys (← →) or A/D keys to navigate pages
+- Press F to toggle image scaling modes
+- Use +/- to zoom in and out
+- Press ? for full keyboard shortcuts
+- Click the settings gear (⚙️) to customize your reading experience</p>
+<p><em>Having entered the Dragon Tower to rescue the princess, the Royal Warband encounters their first trial. Strange mechanisms and ancient magic bar their path forward&hellip;</em></p>
+        </div>
+        
+        
+        
+        
+        <!-- Chapter Navigation -->
+        <nav class="chapter-nav-bottom" aria-label="Bottom chapter navigation">
+            
+            <a href="../chapter-1/">Previous Chapter</a>
+            
+            <a href="../toc/">Table of Contents</a>
+            
+        </nav>
+        
+        
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <div id="utterances-container" 
+                 data-repo="Oekaki-Connect/web-novel-utterance-comments"
+                 data-issue-term="pathname"
+                 data-label="utterance-comment">
+            </div>
+        </div>
+        
+        
+        
+    </main>
+    
+    
+    <!-- Manga Reader (outside main for better width control) -->
+    <div id="manga-reader" class="manga-reader">
+        <div class="manga-controls">
+            <div class="manga-controls-left">
+                <span class="page-indicator">
+                    Page <span id="current-page">1</span> of <span id="total-pages">10</span>
+                </span>
+            </div>
+            
+            <div class="manga-controls-center">
+                <button id="prev-page" class="manga-btn" aria-label="Previous page" title="Previous page (← or A)">
+                    <span>◀</span>
+                </button>
+                <button id="next-page" class="manga-btn" aria-label="Next page" title="Next page (→ or D)">
+                    <span>▶</span>
+                </button>
+            </div>
+            
+            <div class="manga-controls-right">
+                <button id="zoom-fit-btn" class="manga-btn" aria-label="Zoom to fit viewport" title="Fit to viewport height">
+                    <span>⤢</span>
+                </button>
+                <button id="fullscreen-btn" class="manga-btn" aria-label="Toggle fullscreen" title="Toggle fullscreen (F)">
+                    <span>⛶</span>
+                </button>
+                <button id="manga-settings-btn" class="manga-btn" aria-label="Reader settings" title="Reader settings (ESC)">
+                    <span>⚙</span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="manga-viewer" id="manga-viewer">
+            
+            <div class="manga-page" data-page="1" >
+                <img src="../../../images/tower-dungeon/chapter-2/page01.png" alt="Tower Dungeon Chapter ?, Page 1" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="2" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page02.png" alt="Tower Dungeon Chapter ?, Page 2" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="3" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page03.png" alt="Tower Dungeon Chapter ?, Page 3" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="4" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page04.png" alt="Tower Dungeon Chapter ?, Page 4" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="5" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page05.png" alt="Tower Dungeon Chapter ?, Page 5" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="6" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page06.png" alt="Tower Dungeon Chapter ?, Page 6" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="7" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page07.png" alt="Tower Dungeon Chapter ?, Page 7" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="8" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page08.png" alt="Tower Dungeon Chapter ?, Page 8" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="9" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page09.png" alt="Tower Dungeon Chapter ?, Page 9" class="manga-image" loading="lazy">
+            </div>
+            
+            <div class="manga-page" data-page="10" style="display: none;">
+                <img src="../../../images/tower-dungeon/chapter-2/page10.png" alt="Tower Dungeon Chapter ?, Page 10" class="manga-image" loading="lazy">
+            </div>
+            
+        </div>
+    </div>
+    
+    <!-- Manga Settings Modal -->
+    <div id="manga-settings-modal" class="manga-settings-modal" style="display: none;">
+        <div class="manga-settings-content">
+            <h3>Manga Reader Settings</h3>
+            
+            <div class="setting-group">
+                <label for="view-mode">View Mode:</label>
+                <select id="view-mode">
+                    <option value="single">Single Page</option>
+                    <option value="double">Double Page</option>
+                    <option value="scroll">Vertical Scroll</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label for="reading-direction">Reading Direction:</label>
+                <select id="reading-direction">
+                    <option value="ltr">Left to Right</option>
+                    <option value="rtl">Right to Left</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label for="image-scaling">Image Scaling:</label>
+                <select id="image-scaling">
+                    <option value="fit_screen">Fit Screen</option>
+                    <option value="fit_width">Fit Width</option>
+                    <option value="original">Original Size</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label for="zoom-level">Zoom: <span id="zoom-display">100%</span></label>
+                <input type="range" id="zoom-level" min="50" max="300" step="10" value="100">
+            </div>
+            
+            <div class="setting-group">
+                <label for="preload-images">Image Preloading:</label>
+                <select id="preload-images">
+                    <option value="0">Disabled</option>
+                    <option value="1">1 Image</option>
+                    <option value="2">2 Images</option>
+                    <option value="3" selected>3 Images</option>
+                    <option value="4">4 Images</option>
+                    <option value="5">5 Images</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <button id="reset-settings" class="manga-btn">Reset to Defaults</button>
+            </div>
+            
+            <div class="setting-group">
+                <button id="close-settings" class="manga-btn manga-btn-primary">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <footer>
+        <nav aria-label="Footer navigation">
+            
+            <a href="../chapter-1/">Previous Chapter</a>
+            
+            <a href="../toc/">Table of Contents</a>
+            
+        </nav>
+        <p>© 2025 Web Novel Collection</p>
+        
+        <nav class="footer-links" aria-label="Footer links">
+            
+            <a href="https://ko-fi.com/pyramid" target="_blank">Support the Artist</a>
+            
+            <a href="https://example.com/tower-dungeon" target="_blank">Original Source</a>
+            
+            <a href="https://www.oekakiconnect.net/" target="_blank">Oekaki Connect</a>
+            
+            <a href="https://www.oekaki.io/" target="_blank">Oekaki.io</a>
+            
+        </nav>
+        
+        
+    </footer>
+</body>
+</html>
