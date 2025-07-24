@@ -286,6 +286,7 @@
     
     <!-- Chapter Navigation Script -->
     <script>
+        
         function jumpToChapter() {
             const select = document.getElementById('chapter-select');
             if (select.value) {
@@ -360,7 +361,8 @@
         function initReadingProgress() {
             const novelSlug = 'my-awesome-web-novel';
             const chapterId = 'chapter-3';
-            const chapterTitle = 'Chapter 3: Ancient Ruins';
+            const chapterTitle = "Chapter 3: Ancient Ruins";
+            
             
             // Mark this chapter as visited
             markChapterVisited(novelSlug, chapterId, chapterTitle);
@@ -398,6 +400,8 @@
                     title: visitedChapters[chapterId].title,
                     completedAt: visitedChapters[chapterId].completedAt
                 }));
+            } else {
+                console.error('Chapter not found in visited chapters:', chapterId, visitedChapters);
             }
         }
         
@@ -413,6 +417,7 @@
                 
                 // Try to find meaningful completion points
                 let completionPoint = documentHeight - 200; // Default fallback
+                
                 
                 // Check if comments section exists - completion point is when comments are visible
                 const commentsSection = document.querySelector('.comments-section, #utterances-container, [data-repo]');
@@ -437,6 +442,7 @@
                 
                 // Consider chapter "completed" when user scrolls past the main content
                 const scrolledToEnd = (scrollTop + windowHeight) >= completionPoint;
+                
                 
                 if (scrolledToEnd) {
                     hasScrolledToEnd = true;
