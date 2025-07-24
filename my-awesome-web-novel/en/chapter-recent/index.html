@@ -3,55 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidden Chapter: Secret Interlude</title>
+    <title>Chapter Recent: Just Published</title>
     <link rel="stylesheet" href="../../../static/style.css">
+    
+    <!-- Custom styles for My Awesome Web Novel -->
+    <style>
+        .custom-novel-header {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            padding: 20px;
+            margin: 0 0 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .custom-novel-title {
+            font-size: 2.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .custom-novel-subtitle {
+            margin-top: 8px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .custom-chapter-intro {
+            background: var(--bg-secondary, #f7fafc);
+            border-left: 4px solid #4a5568;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        [data-theme="dark"] .custom-chapter-intro {
+            background: var(--bg-secondary, #2d3748);
+            border-left-color: #718096;
+        }
+        
+        .custom-fantasy-decoration {
+            text-align: center;
+            font-size: 1.5em;
+            color: #4a5568;
+            margin: 20px 0;
+        }
+        
+        [data-theme="dark"] .custom-fantasy-decoration {
+            color: #a0aec0;
+        }
+        
+        /* Ensure no horizontal overflow */
+        .custom-novel-header, 
+        .custom-chapter-intro {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+    </style>
     
     <!-- SEO Meta Tags -->
     
-    <meta name="description" content="Hidden interlude chapter">
+    <meta name="description" content="Test chapter with recent publish date - should be visible immediately">
     
     
-    <meta name="keywords" content="hidden, secret, interlude">
+    <meta name="keywords" content="recent, published, test">
     
-    
-    <meta name="robots" content="noindex, nofollow">
     
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Hidden Chapter: Secret Interlude | Web Novel Collection">
-    <meta property="og:description" content="A secret interlude chapter for those who find the hidden link">
-    <meta property="og:image" content="https://oekaki-connect.github.io/web-novel/static/images/chapter-hidden-social.jpg">
-    <meta property="og:url" content="https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-hidden/">
+    <meta property="og:title" content="Chapter Recent: Just Published | Web Novel Collection">
+    <meta property="og:description" content="A test chapter with a recent publish date to demonstrate the scheduled publishing feature.">
+    <meta property="og:image" content="https://oekaki-connect.github.io/web-novel/static/images/my-awesome-web-novel-social.jpg">
+    <meta property="og:url" content="https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Web Novel Collection">
     
-    <meta property="article:published_time" content="2025-01-20">
+    <meta property="article:published_time" content="2025-07-20">
     
     
     <meta property="article:author" content="Original Author">
     
     
     
-    <meta property="article:tag" content="hidden">
+    <meta property="article:tag" content="recent">
     
-    <meta property="article:tag" content="secret">
+    <meta property="article:tag" content="test">
     
-    <meta property="article:tag" content="interlude">
+    <meta property="article:tag" content="demo">
     
     
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Hidden Chapter: Secret Interlude | Web Novel Collection">
-    <meta name="twitter:description" content="A secret interlude chapter for those who find the hidden link">
-    <meta name="twitter:image" content="https://oekaki-connect.github.io/web-novel/static/images/chapter-hidden-social.jpg">
+    <meta name="twitter:title" content="Chapter Recent: Just Published | Web Novel Collection">
+    <meta name="twitter:description" content="A test chapter with a recent publish date to demonstrate the scheduled publishing feature.">
+    <meta name="twitter:image" content="https://oekaki-connect.github.io/web-novel/static/images/my-awesome-web-novel-social.jpg">
     
     <meta name="twitter:site" content="@your_twitter_handle">
     <meta name="twitter:creator" content="@your_twitter_handle">
     
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-hidden/">
+    <link rel="canonical" href="https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/">
     
     <!-- Theme Toggle Script -->
     <script src="../../../static/theme-toggle.js"></script>
@@ -130,9 +187,9 @@
         
         // Reading progress tracking
         function initReadingProgress() {
-            const novelSlug = 'my-awesome-web-novel';
-            const chapterId = 'chapter-hidden';
-            const chapterTitle = 'Hidden Chapter: Secret Interlude';
+            const novelSlug = '';
+            const chapterId = 'chapter-recent';
+            const chapterTitle = 'Chapter Recent: Just Published';
             
             // Mark this chapter as visited
             markChapterVisited(novelSlug, chapterId, chapterTitle);
@@ -206,15 +263,23 @@
     
 </head>
 <body>
+    <!-- Custom Fantasy Novel Header -->
+    <div class="custom-novel-header">
+        <h1 class="custom-novel-title">My Awesome Web Novel</h1>
+        <div class="custom-novel-subtitle">Custom Story Template Example</div>
+    </div>
+    
     <header>
         <nav class="breadcrumbs">
             <a href="../../../">Home</a>
             <span class="breadcrumb-separator">></span>
             <a href="../toc/">My Awesome Web Novel</a>
             <span class="breadcrumb-separator">></span>
-            <span class="current-page">Hidden Chapter: Secret Interlude</span>
+            <span class="current-page">Chapter Recent: Just Published</span>
         </nav>
         <nav class="chapter-nav">
+            
+            <a href="../chapter-premium/">Previous Chapter</a>
             
             <a href="../toc/">Table of Contents</a>
             
@@ -227,45 +292,87 @@
                 
                     <optgroup label="Arc 1: The Beginning">
                         
+                            
                             <option value="../chapter-1/" >
                                 Chapter 1: The Prophecy
                             </option>
+                            
                         
+                            
                             <option value="../chapter-2/" >
                                 Chapter 2: A New Journey
                             </option>
+                            
                         
                     </optgroup>
                 
                     <optgroup label="Arc 2: The Quest">
                         
+                            
                             <option value="../chapter-3/" >
                                 Chapter 3: Ancient Ruins
                             </option>
+                            
                         
+                            
                             <option value="../chapter-4/" >
                                 Chapter 4: The Guardian
                             </option>
+                            
                         
                     </optgroup>
                 
                     <optgroup label="Arc 3: The Trials">
                         
+                            
                             <option value="../chapter-5/" >
                                 Chapter 5: The Test
                             </option>
+                            
                         
+                            
                             <option value="../chapter-6/" >
                                 Chapter 6: Allies in Darkness
                             </option>
+                            
+                        
+                            
+                            <option value="../chapter-6-draft/" >
+                                Chapter 6 Draft: The Secret Meeting
+                            </option>
+                            
                         
                     </optgroup>
                 
                     <optgroup label="Premium Content">
                         
+                            
                             <option value="../chapter-premium/" >
                                 Chapter Premium: Early Access 🔒
                             </option>
+                            
+                        
+                            
+                            <option value="../chapter-hidden/" >
+                                Chapter Hidden: Secret Interlude 👁️
+                            </option>
+                            
+                        
+                    </optgroup>
+                
+                    <optgroup label="Scheduled Content">
+                        
+                            
+                            <option value="../chapter-recent/" selected>
+                                Chapter Recent: Just Published
+                            </option>
+                            
+                        
+                            
+                            <option value="../chapter-future/" >
+                                Chapter Future: Scheduled Release
+                            </option>
+                            
                         
                     </optgroup>
                 
@@ -305,12 +412,19 @@
                 
             
                 
-                    <a href="../../jp/chapter-hidden/">JP</a>
+                    <a href="../../jp/chapter-recent/">JP</a>
                 
             
         </div>
         
-        <h1>Hidden Chapter: Secret Interlude</h1>
+        <!-- Custom Fantasy Chapter Introduction -->
+        <div class="custom-chapter-intro">
+            <strong>🌟 Chapter Introduction:</strong> Welcome to this chapter of our epic fantasy tale! 
+            This custom template showcases novel-specific styling and theming.
+        </div>
+        
+        <h1>Chapter Recent: Just Published</h1>
+        
         
         
         <div class="chapter-metadata">
@@ -318,8 +432,7 @@
             <div class="metadata-item">
                 <strong>Author:</strong> 
                 
-                
-                <a href="../../../authors/original-author/" class="metadata-author-link">Original Author</a>
+                Original Author
                 
             </div>
             
@@ -328,7 +441,7 @@
             
             
             <div class="metadata-item">
-                <strong>Published:</strong> 2025-01-20
+                <strong>Published:</strong> 2025-07-20
             </div>
             
             
@@ -337,16 +450,21 @@
                 <strong>Tags:</strong>
                 <div class="tags">
                     
-                    <a href="tags/hidden/" class="tag">hidden</a>
+                    <a href="../tags/recent/" class="tag">recent</a>
                     
-                    <a href="tags/secret/" class="tag">secret</a>
+                    <a href="../tags/test/" class="tag">test</a>
                     
-                    <a href="tags/interlude/" class="tag">interlude</a>
+                    <a href="../tags/demo/" class="tag">demo</a>
                     
                 </div>
             </div>
             
             
+            
+            <div class="metadata-item translation-notes">
+                <strong>Translation Notes:</strong>
+                <p>This chapter should appear since it has yesterday's date</p>
+            </div>
             
         </div>
         
@@ -354,19 +472,35 @@
     <main>
         
         
-        
+        <div class="custom-fantasy-decoration">
+            ⚔️ 🏰 ⚔️
+        </div>
         
         <div id="chapter-content-wrapper" class="chapter-content">
-            <h1>Hidden Chapter: Secret Interlude</h1>
-<p>This is a hidden chapter that doesn't appear in the table of contents or tag listings. It can only be accessed by direct link.</p>
-<p>The secret chamber revealed ancient murals that told a story not found in any book. These were the lost chronicles, hidden from the world for centuries.</p>
-<p><em>This chapter is accessible only to those who discover the hidden link. It contains additional lore and world-building that enriches the main story.</em></p>
+            <h1>Chapter Recent: Just Published</h1>
+<p>This chapter has a publish date of January 23rd, 2025, which is in the recent past. It should always appear in builds.</p>
+<p>This demonstrates that the scheduled publishing feature only affects chapters with <strong>future</strong> publish dates.</p>
+<h2>Comparison</h2>
+<p>| Chapter | Publish Date | Status |
+|---------|-------------|--------|
+| Chapter Recent | 2025-01-23 | ✅ Always included |
+| Chapter Future | 2025-08-01 | ❌ Excluded until August 1st |
+| Regular chapters | No date or past dates | ✅ Always included |</p>
+<h2>Testing Results</h2>
+<ul>
+<li>Normal build: This chapter appears</li>
+<li><code>--include-scheduled</code> build: This chapter still appears </li>
+<li>Future chapters: Only appear with <code>--include-scheduled</code></li>
+</ul>
         </div>
+        
         
         
         
         <!-- Chapter Navigation -->
         <nav class="chapter-nav-bottom">
+            
+            <a href="../chapter-premium/">Previous Chapter</a>
             
             <a href="../toc/">Table of Contents</a>
             
@@ -386,6 +520,8 @@
     <footer>
         <nav>
             
+            <a href="../chapter-premium/">Previous Chapter</a>
+            
             <a href="../toc/">Table of Contents</a>
             
         </nav>
@@ -404,6 +540,12 @@
         </nav>
         
         
+        <!-- Theme Toggle -->
+        <div class="theme-toggle">
+            <span onclick="toggleTheme()" id="theme-toggle-text">
+                [ <span id="light-mode" class="theme-option">light mode</span> | <span id="dark-mode" class="theme-option">dark mode</span> ]
+            </span>
+        </div>
     </footer>
 </body>
 </html>

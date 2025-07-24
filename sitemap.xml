@@ -67,7 +67,6 @@
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-2/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-        <lastmod>2025-01-16</lastmod>
     </url>
     <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-3/</loc>
@@ -89,6 +88,12 @@
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-6/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <lastmod>2025-07-20</lastmod>
     </url>
     <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/adventure/</loc>
@@ -131,6 +136,21 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/future/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/scheduled/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/test/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/premium/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
@@ -142,6 +162,16 @@
     </url>
     <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/prophecy/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/recent/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/tags/demo/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -165,7 +195,6 @@
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/chapter-2/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
-        <lastmod>2025-01-16</lastmod>
     </url>
     <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/chapter-3/</loc>
@@ -187,6 +216,12 @@
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/chapter-6/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/chapter-recent/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <lastmod>2025-07-20</lastmod>
     </url>
     <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/tags/予言/</loc>

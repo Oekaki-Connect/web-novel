@@ -6,6 +6,65 @@
     <title>Chapter Premium: Early Access</title>
     <link rel="stylesheet" href="../../../static/style.css">
     
+    <!-- Custom styles for My Awesome Web Novel -->
+    <style>
+        .custom-novel-header {
+            background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+            color: white;
+            padding: 20px;
+            margin: 0 0 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .custom-novel-title {
+            font-size: 2.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .custom-novel-subtitle {
+            margin-top: 8px;
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .custom-chapter-intro {
+            background: var(--bg-secondary, #f7fafc);
+            border-left: 4px solid #4a5568;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        [data-theme="dark"] .custom-chapter-intro {
+            background: var(--bg-secondary, #2d3748);
+            border-left-color: #718096;
+        }
+        
+        .custom-fantasy-decoration {
+            text-align: center;
+            font-size: 1.5em;
+            color: #4a5568;
+            margin: 20px 0;
+        }
+        
+        [data-theme="dark"] .custom-fantasy-decoration {
+            color: #a0aec0;
+        }
+        
+        /* Ensure no horizontal overflow */
+        .custom-novel-header, 
+        .custom-chapter-intro {
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+    </style>
+    
     <!-- SEO Meta Tags -->
     
     <meta name="description" content="Premium chapter - early access for supporters">
@@ -130,7 +189,7 @@
         
         // Reading progress tracking
         function initReadingProgress() {
-            const novelSlug = 'my-awesome-web-novel';
+            const novelSlug = '';
             const chapterId = 'chapter-premium';
             const chapterTitle = 'Chapter Premium: Early Access';
             
@@ -204,93 +263,14 @@
     </script>
     
     
-    <script>
-        // Password decryption functionality
-        function sha256(str) {
-            // Simple SHA256 implementation for client-side verification
-            const msgBuffer = new TextEncoder().encode(str);
-            return crypto.subtle.digest('SHA-256', msgBuffer).then(hashBuffer => {
-                const hashArray = Array.from(new Uint8Array(hashBuffer));
-                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            });
-        }
-
-        function xorDecrypt(encryptedBase64, password) {
-            // Recreate the SHA256 key from password
-            return sha256(password).then(hashHex => {
-                const key = new Uint8Array(hashHex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
-                
-                // Decode base64
-                const encrypted = Uint8Array.from(atob(encryptedBase64), c => c.charCodeAt(0));
-                
-                // XOR decrypt
-                const decrypted = new Uint8Array(encrypted.length);
-                for (let i = 0; i < encrypted.length; i++) {
-                    decrypted[i] = encrypted[i] ^ key[i % key.length];
-                }
-                
-                // Convert back to string
-                return new TextDecoder().decode(decrypted);
-            });
-        }
-
-        function verifyPassword(password) {
-            return sha256(password).then(hash => {
-                return hash.substring(0, 16) === '3ea46143eab649d1';
-            });
-        }
-
-        function unlockContent() {
-            const passwordInput = document.getElementById('password-input');
-            const password = passwordInput.value;
-            const errorMsg = document.getElementById('password-error');
-            const loadingMsg = document.getElementById('password-loading');
-            
-            if (!password) {
-                errorMsg.textContent = 'Please enter a password.';
-                errorMsg.style.display = 'block';
-                return;
-            }
-            
-            errorMsg.style.display = 'none';
-            loadingMsg.style.display = 'block';
-            
-            verifyPassword(password).then(isValid => {
-                loadingMsg.style.display = 'none';
-                
-                if (isValid) {
-                    xorDecrypt('AsAINcrVJbBfdFczPbOAx29au0ZR3qns3JyZxpH3t4QPmiIri8Y9tF4nOmM7tojCdgXpLlPDq+GZs46Hyo740BHMUH3gijnveG8DYn6ykpdrTawGW8SquNqdg5DKk//MX9IAKobXK71JJwx+LPuD0m9e6RlX0KP9y4HNhcGZq7xf0BMmhdhpoll3Gn4sr4TFaBH1REKPzaTJzLmMyt3yg0vKBmOH1y60DGMDYj20l9JpWq1LU5Gv8d2WiIqPjvuJUshBN4LXPfFbaB99OvuC33pRrg4S1LH9y4uZjMaT7MIe8AkmytcnskViBGV+r47afh+uB13GovyZhYSQx93mlU3QBDGD2TyiDGIEdCy8mJd6TOkYWtTn7MuTjoHL3f+EW4QTNoTTOvFbbh55frOExTtZoAVV1LW2hd2d2qXB+9Ic8AkqmZY5vltiGD9w9cHebxi6S1DUvvfXls2FwYT/hFfKBmOjkT+0DGIcdCz7ktJ+UeVJEsKv/ZmFhY3cje6eW8BBN4WWIbRedA99OPXdmGsBw1dCj5Pw3NKelMqR58xJyxQvjpYovUBoHTE2vpOXb1DpCVffo7jNm4CBj5T/n1vIB2/K1DylDGYeMSmzgMM7XKYYRo77t8nM59jfw7eJU5o1K4PFabJEZhplO6nB1HRRvQJcxKLrmYaFgY+Q6oVQhBI3hcQwvUVpDzE/tYWXaVq/DlPdtLjagJiHxpznzE7IDjfKxia4QnMZP36PidZ1VOkSXcTn/taAzZ3AiPnMTdERM4XEPfAQKA98YOfOxyU19URW2LGms9LNxI/dq8wehEFjypZp8QwnSjF++8GXOwOtAkSRpPTYgZ7ZjZ7kgVPBDzeZmzq0T3MDfjD53707H+lLEpHnuJnSzcSP3avMHoRBY8qWafEMJ0oxYrPSiVhQpAZX37Prhd2F15H3q8wehEFjypZp8QwnSjF++8GXOx/pSxKR57iZ0tGXzI/inEqEEjGJi2u5WHMaYmT0zsJvS6wZU9+kttyBwofDlO6CSooLMMi8afEMJ0oxfvvBlzsf6UsSkee4mdLNxI/dq8wehEFjypZp8QwnGHQutNyVVFqiClnY6tvWnIOBzImkm1vGTC2FwCy9AXIeZTupgNl4WuQIXdyq/deGnsal3avMHoRBY8qWafEMJ0oxfvvBlzsf6UsSkee4mdLNxI/dq8wezRIwn9NkpUl1Byx8q4DDc1GoBleTzbiZ0s3Ej92rzB6EQWPKlmnxDCdKMX77wZc7H+lLEpHnuJnSzYjOn+6AA4YUN57TO7BCZA88PbSM2n5RvUk4kee4mdLNxI/dq8wehEFjypZp8QwnSjF++8GXOx/pSxKR57iZhoWBwpi2zlnNFSuf1GS9RWACZXzRwZc7H+lLEpHnuJnSzcSP3avMHoRBY8qWafEMJ0oxfvvBlzsfqhldwrT3y5uKjcHAqY1Qyw86h9k8og4NSjF++8GXOx/pSxKR57iZ0s3Ej92rzB6EQWPKlmnxDCdKMX77gMRiUapVOJHnuJnSzcSP3avMHoRBY8qWafEMJ0oxfvvBlzsD5hhRw67ozcznxI/dq8wehEFjypZp8QwnSjF++8GXOx/pVx3Vru6H', password).then(decryptedContent => {
-                        document.getElementById('chapter-content-wrapper').innerHTML = decryptedContent;
-                        document.getElementById('password-protection-form').style.display = 'none';
-                        
-                        // Initialize Utterances comments if they exist in the decrypted content
-                        if (typeof window.initializeUtterances === 'function') {
-                            // Small delay to ensure DOM is updated
-                            setTimeout(() => window.initializeUtterances(), 100);
-                        }
-                    });
-                } else {
-                    errorMsg.textContent = 'Invalid password. Please try again.';
-                    errorMsg.style.display = 'block';
-                }
-            });
-        }
-
-        // Allow Enter key to unlock
-        document.addEventListener('DOMContentLoaded', function() {
-            const passwordInput = document.getElementById('password-input');
-            if (passwordInput) {
-                passwordInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        unlockContent();
-                    }
-                });
-            }
-        });
-    </script>
-    
 </head>
 <body>
+    <!-- Custom Fantasy Novel Header -->
+    <div class="custom-novel-header">
+        <h1 class="custom-novel-title">My Awesome Web Novel</h1>
+        <div class="custom-novel-subtitle">Custom Story Template Example</div>
+    </div>
+    
     <header>
         <nav class="breadcrumbs">
             <a href="../../../">Home</a>
@@ -305,6 +285,8 @@
             
             <a href="../toc/">Table of Contents</a>
             
+            <a href="../chapter-recent/">Next Chapter</a>
+            
         </nav>
         
         <div class="chapter-dropdown">
@@ -314,45 +296,87 @@
                 
                     <optgroup label="Arc 1: The Beginning">
                         
+                            
                             <option value="../chapter-1/" >
                                 Chapter 1: The Prophecy
                             </option>
+                            
                         
+                            
                             <option value="../chapter-2/" >
                                 Chapter 2: A New Journey
                             </option>
+                            
                         
                     </optgroup>
                 
                     <optgroup label="Arc 2: The Quest">
                         
+                            
                             <option value="../chapter-3/" >
                                 Chapter 3: Ancient Ruins
                             </option>
+                            
                         
+                            
                             <option value="../chapter-4/" >
                                 Chapter 4: The Guardian
                             </option>
+                            
                         
                     </optgroup>
                 
                     <optgroup label="Arc 3: The Trials">
                         
+                            
                             <option value="../chapter-5/" >
                                 Chapter 5: The Test
                             </option>
+                            
                         
+                            
                             <option value="../chapter-6/" >
                                 Chapter 6: Allies in Darkness
                             </option>
+                            
+                        
+                            
+                            <option value="../chapter-6-draft/" >
+                                Chapter 6 Draft: The Secret Meeting
+                            </option>
+                            
                         
                     </optgroup>
                 
                     <optgroup label="Premium Content">
                         
+                            
                             <option value="../chapter-premium/" selected>
                                 Chapter Premium: Early Access 🔒
                             </option>
+                            
+                        
+                            
+                            <option value="../chapter-hidden/" >
+                                Chapter Hidden: Secret Interlude 👁️
+                            </option>
+                            
+                        
+                    </optgroup>
+                
+                    <optgroup label="Scheduled Content">
+                        
+                            
+                            <option value="../chapter-recent/" >
+                                Chapter Recent: Just Published
+                            </option>
+                            
+                        
+                            
+                            <option value="../chapter-future/" >
+                                Chapter Future: Scheduled Release
+                            </option>
+                            
                         
                     </optgroup>
                 
@@ -397,7 +421,77 @@
             
         </div>
         
+        <!-- Custom Fantasy Chapter Introduction -->
+        <div class="custom-chapter-intro">
+            <strong>🌟 Chapter Introduction:</strong> Welcome to this chapter of our epic fantasy tale! 
+            This custom template showcases novel-specific styling and theming.
+        </div>
+        
         <h1>Chapter Premium: Early Access</h1>
+        
+        
+        <div class="password-protection">
+            <h2>🔒 Password Protected Content</h2>
+            <p>Available for beta readers and Patreon supporters. Check your email or Patreon messages for the password.</p>
+            <div class="password-form">
+                <input type="password" id="password-input" placeholder="Enter password">
+                <button onclick="decryptContent()">Unlock Chapter</button>
+            </div>
+            <div id="decrypt-error" style="display: none; color: red; margin-top: 10px;">
+                Incorrect password. Please try again.
+            </div>
+        </div>
+        
+        <div id="encrypted-content" style="display: none;">AsAINcrVJbBfdFczPbOAx29au0ZR3qns3JyZxpH3t4QPmiIri8Y9tF4nOmM7tojCdgXpLlPDq+GZs46Hyo740BHMUH3gijnveG8DYn6ykpdrTawGW8SquNqdg5DKk//MX9IAKobXK71JJwx+LPuD0m9e6RlX0KP9y4HNhcGZq7xf0BMmhdhpoll3Gn4sr4TFaBH1REKPzaTJzLmMyt3yg0vKBmOH1y60DGMDYj20l9JpWq1LU5Gv8d2WiIqPjvuJUshBN4LXPfFbaB99OvuC33pRrg4S1LH9y4uZjMaT7MIe8AkmytcnskViBGV+r47afh+uB13GovyZhYSQx93mlU3QBDGD2TyiDGIEdCy8mJd6TOkYWtTn7MuTjoHL3f+EW4QTNoTTOvFbbh55frOExTtZoAVV1LW2hd2d2qXB+9Ic8AkqmZY5vltiGD9w9cHebxi6S1DUvvfXls2FwYT/hFfKBmOjkT+0DGIcdCz7ktJ+UeVJEsKv/ZmFhY3cje6eW8BBN4WWIbRedA99OPXdmGsBw1dCj5Pw3NKelMqR58xJyxQvjpYovUBoHTE2vpOXb1DpCVffo7jNm4CBj5T/n1vIB2/K1DylDGYeMSmzgMM7XKYYRo77t8nM59jfw7eJU5o1K4PFabJEZhplO6nB1HRRvQJcxKLrmYaFgY+Q6oVQhBI3hcQwvUVpDzE/tYWXaVq/DlPdtLjagJiHxpznzE7IDjfKxia4QnMZP36PidZ1VOkSXcTn/taAzZ3AiPnMTdERM4XEPfAQKA98YOfOxyU19URW2LGms9LNxI/dq8wehEFjypZp8QwnSjF++8GXOwOtAkSRpPTYgZ7ZjZ7kgVPBDzeZmzq0T3MDfjD53707H+lLEpHnuJnSzcSP3avMHoRBY8qWafEMJ0oxYrPSiVhQpAZX37Prhd2F15H3q8wehEFjypZp8QwnSjF++8GXOx/pSxKR57iZ0tGXzI/inEqEEjGJi2u5WHMaYmT0zsJvS6wZU9+kttyBwofDlO6CSooLMMi8afEMJ0oxfvvBlzsf6UsSkee4mdLNxI/dq8wehEFjypZp8QwnGHQutNyVVFqiClnY6tvWnIOBzImkm1vGTC2FwCy9AXIeZTupgNl4WuQIXdyq/deGnsal3avMHoRBY8qWafEMJ0oxfvvBlzsf6UsSkee4mdLNxI/dq8wezRIwn9NkpUl1Byx8q4DDc1GoBleTzbiZ0s3Ej92rzB6EQWPKlmnxDCdKMX77wZc7H+lLEpHnuJnSzYjOn+6AA4YUN57TO7BCZA88PbSM2n5RvUk4kee4mdLNxI/dq8wehEFjypZp8QwnSjF++8GXOx/pSxKR57iZhoWBwpi2zlnNFSuf1GS9RWACZXzRwZc7H+lLEpHnuJnSzcSP3avMHoRBY8qWafEMJ0oxfvvBlzsfqhldwrT3y5uKjcHAqY1Qyw86h9k8og4NSjF++8GXOx/pSxKR57iZ0s3Ej92rzB6EQWPKlmnxDCdKMX77gMRiUapVOJHnuJnSzcSP3avMHoRBY8qWafEMJ0oxfvvBlzsD5hhRw67ozcznxI/dq8wehEFjypZp8QwnSjF++8GXOx/pVx3Vru6H</div>
+        
+        <script>
+            function decryptContent() {
+                const password = document.getElementById('password-input').value;
+                const encryptedContent = document.getElementById('encrypted-content').textContent;
+                
+                try {
+                    const decrypted = decrypt(encryptedContent, password);
+                    if (decrypted && decrypted.trim()) {
+                        document.getElementById('chapter-content-wrapper').innerHTML = decrypted;
+                        document.querySelector('.password-protection').style.display = 'none';
+                        document.getElementById('decrypt-error').style.display = 'none';
+                    } else {
+                        document.getElementById('decrypt-error').style.display = 'block';
+                    }
+                } catch (e) {
+                    document.getElementById('decrypt-error').style.display = 'block';
+                }
+            }
+            
+            function decrypt(encryptedData, password) {
+                // Simple XOR cipher with SHA256 password hash
+                const crypto = window.crypto || window.msCrypto;
+                if (!crypto) return null;
+                
+                // Convert password to hash
+                const encoder = new TextEncoder();
+                const data = encoder.encode(password);
+                
+                return crypto.subtle.digest('SHA-256', data).then(hashBuffer => {
+                    const hashArray = new Uint8Array(hashBuffer);
+                    const encrypted = atob(encryptedData);
+                    let decrypted = '';
+                    
+                    for (let i = 0; i < encrypted.length; i++) {
+                        decrypted += String.fromCharCode(encrypted.charCodeAt(i) ^ hashArray[i % hashArray.length]);
+                    }
+                    
+                    return decrypted;
+                }).catch(() => null);
+            }
+            
+            // Allow Enter key to decrypt
+            document.getElementById('password-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    decryptContent();
+                }
+            });
+        </script>
         
         
         <div class="chapter-metadata">
@@ -405,8 +499,7 @@
             <div class="metadata-item">
                 <strong>Author:</strong> 
                 
-                
-                <a href="../../../authors/original-author/" class="metadata-author-link">Original Author</a>
+                Original Author
                 
             </div>
             
@@ -424,11 +517,11 @@
                 <strong>Tags:</strong>
                 <div class="tags">
                     
-                    <a href="tags/premium/" class="tag">premium</a>
+                    <a href="../tags/premium/" class="tag">premium</a>
                     
-                    <a href="tags/early-access/" class="tag">early-access</a>
+                    <a href="../tags/early-access/" class="tag">early-access</a>
                     
-                    <a href="tags/adventure/" class="tag">adventure</a>
+                    <a href="../tags/adventure/" class="tag">adventure</a>
                     
                 </div>
             </div>
@@ -440,41 +533,9 @@
     </header>
     <main>
         
-        <div class="translation-notice">
-            <p><strong>Translation Notice:</strong> This chapter is not yet available in JP. 
-            You are viewing the EN version. 
-            <a href="../en/chapter-premium.html">Continue reading in EN</a> or help contribute a translation!</p>
-        </div>
-        
-        
-        
-        <div id="password-protection-form" class="password-protection">
-            <div class="password-form-container">
-                <h3>🔒 Password Protected Content</h3>
-                <p>Available for beta readers and Patreon supporters. Check your email or Patreon messages for the password.</p>
-                
-                <div class="password-input-group">
-                    <input type="password" id="password-input" placeholder="Enter password" />
-                    <button onclick="unlockContent()" class="unlock-button">Unlock</button>
-                </div>
-                
-                <div id="password-loading" class="password-message" style="display: none;">
-                    <p>🔓 Unlocking content...</p>
-                </div>
-                
-                <div id="password-error" class="password-error" style="display: none;"></div>
-                
-                <div class="password-help">
-                    <p><small>Having trouble? Make sure you have the correct password from your beta reader access or Patreon messages.</small></p>
-                </div>
-            </div>
-        </div>
-        
-        
         <div id="chapter-content-wrapper" class="chapter-content">
-            <div id="password-protected-content" style="text-align: center; padding: 2rem;"><p>This chapter is password protected.</p></div>
+            <!-- Content will be loaded here after password verification -->
         </div>
-        
         
         
         <!-- Chapter Navigation -->
@@ -483,6 +544,8 @@
             <a href="../chapter-6/">Previous Chapter</a>
             
             <a href="../toc/">Table of Contents</a>
+            
+            <a href="../chapter-recent/">Next Chapter</a>
             
         </nav>
         
@@ -494,6 +557,8 @@
             <a href="../chapter-6/">Previous Chapter</a>
             
             <a href="../toc/">Table of Contents</a>
+            
+            <a href="../chapter-recent/">Next Chapter</a>
             
         </nav>
         <p>© 2025 My Awesome Web Novel - Original work by Sample Author</p>
@@ -511,6 +576,12 @@
         </nav>
         
         
+        <!-- Theme Toggle -->
+        <div class="theme-toggle">
+            <span onclick="toggleTheme()" id="theme-toggle-text">
+                [ <span id="light-mode" class="theme-option">light mode</span> | <span id="dark-mode" class="theme-option">dark mode</span> ]
+            </span>
+        </div>
     </footer>
 </body>
 </html>

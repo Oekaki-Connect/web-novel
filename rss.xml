@@ -5,8 +5,20 @@
     <link>https://oekaki-connect.github.io/web-novel</link>
     <description>A collection of translated web novels and original stories</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Jul 2025 18:37:38 </lastBuildDate>
+    <lastBuildDate>Thu, 24 Jul 2025 02:03:55 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
+    <item>
+        <title>My Awesome Web Novel: Chapter Recent: Just Published</title>
+        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/</link>
+        <description><![CDATA[A test chapter with a recent publish date to demonstrate the scheduled publishing feature.]]></description>
+        <content:encoded><![CDATA[<h1>Chapter Recent: Just Published</h1>
+<p>This chapter has a publish date of January 23rd, 2025, which is in the recent past. It should always appear in builds.</p>
+<p>This demonstrates that the scheduled publishing feature only affects chapters with <strong>future</strong> publish dates.</p>
+<h2>Comparison</h2>
+<p>| Chapter | Publish D...</p>]]></content:encoded>
+        <pubDate>Sun, 20 Jul 2025 00:00:00 </pubDate>
+        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/</guid>
+    </item>
     <item>
         <title>My Awesome Web Novel: Chapter 3: Ancient Ruins</title>
         <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-3/</link>
@@ -17,23 +29,14 @@
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-3/</guid>
     </item>
     <item>
-        <title>My Awesome Web Novel: Chapter 2: A New Journey Begins</title>
-        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-2/</link>
-        <description><![CDATA[]]></description>
-        <content:encoded><![CDATA[<h1>Chapter 2: A New Journey Begins</h1>
-<p>With the prophecy burning in her mind, Aria packed her belongings and set out into the wilderness, unaware of the dangers that awaited her.</p>
-<p>The morning mist clung to the cobblestones as she walked through the empty streets of Eldoria. Behind her, the great librari...</p>]]></content:encoded>
-        <pubDate>Thu, 16 Jan 2025 00:00:00 </pubDate>
-        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-2/</guid>
-    </item>
-    <item>
         <title>My Awesome Web Novel: Chapter 1: The Prophecy Unveiled</title>
         <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-1/</link>
         <description><![CDATA[Aria discovers a mysterious scroll that will change the fate of the realm forever. The prophecy begins in the ancient city of Eldoria.]]></description>
         <content:encoded><![CDATA[<h1>Chapter 1: The Prophecy Unveiled</h1>
+<p>This is a test!!</p>
 <p>In the ancient city of Eldoria, a young scribe named Aria discovered a mysterious scroll that would change the fate of the realm forever.</p>
 <p><img alt="The Ancient Scroll" src="ancient_scroll.jpg" title="A mysterious scroll with golden edges" /></p>
-<p>The parchment crackled under her careful t...</p>]]></content:encoded>
+<p>The parchment crackled u...</p>]]></content:encoded>
         <pubDate>Wed, 15 Jan 2025 00:00:00 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-1/</guid>
     </item>
