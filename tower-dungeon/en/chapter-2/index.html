@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chapter 2: The Tower's First Trial</title>
-    <link rel="stylesheet" href="../../../static/style-e96e3340.css">
+    <link rel="stylesheet" href="../../../static/style-f92c36f2.css">
     
     <!-- SEO Meta Tags -->
     
@@ -1683,11 +1683,17 @@
                 if (isFullscreen) {
                     reader.classList.add('fullscreen');
                     document.body.style.overflow = 'hidden';
+                    // Add fallback class for Firefox without :has() support
+                    if (!CSS.supports('selector(:has(*))')) {
+                        document.body.classList.add('manga-fullscreen-active');
+                    }
                     setupFullscreenMouseEvents();
                     hideFullscreenControls();
                 } else {
                     reader.classList.remove('fullscreen');
                     document.body.style.overflow = '';
+                    // Remove fallback class
+                    document.body.classList.remove('manga-fullscreen-active');
                     showFullscreenControls();
                     cleanupFullscreenMouseEvents();
                 }
