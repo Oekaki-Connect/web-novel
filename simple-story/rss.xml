@@ -5,7 +5,16 @@
     <link>https://oekaki-connect.github.io/web-novel/simple-story/</link>
     <description>This is a simple test story</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Jul 2025 00:47:52 </lastBuildDate>
+    <lastBuildDate>Sat, 26 Jul 2025 01:04:28 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
+    <item>
+        <title>Chapter 1</title>
+        <link>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</link>
+        <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<h1>Chapter 1</h1>
+<p>This is a simple test!! :)</p>]]></content:encoded>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 </pubDate>
+        <guid>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</guid>
+    </item>
 </channel>
 </rss>

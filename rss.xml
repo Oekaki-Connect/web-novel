@@ -5,8 +5,17 @@
     <link>https://oekaki-connect.github.io/web-novel</link>
     <description>A collection of translated web novels and original stories</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Jul 2025 00:47:51 </lastBuildDate>
+    <lastBuildDate>Sat, 26 Jul 2025 01:04:27 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
+    <item>
+        <title>A Simple Story: Chapter 1</title>
+        <link>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</link>
+        <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<h1>Chapter 1</h1>
+<p>This is a simple test!! :)</p>]]></content:encoded>
+        <pubDate>Fri, 25 Jul 2025 00:00:00 </pubDate>
+        <guid>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</guid>
+    </item>
     <item>
         <title>My Awesome Web Novel: Chapter Recent: Just Published</title>
         <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/</link>
