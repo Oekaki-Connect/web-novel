@@ -5,7 +5,7 @@
     <link>https://oekaki-connect.github.io/web-novel</link>
     <description>A collection of translated web novels and original stories</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Jul 2025 01:56:09 </lastBuildDate>
+    <lastBuildDate>Sat, 26 Jul 2025 02:49:13 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>A Simple Story: Chapter 1</title>
@@ -13,8 +13,18 @@
         <description><![CDATA[]]></description>
         <content:encoded><![CDATA[<h1>Chapter 1</h1>
 <p>This is a simple test!! :)</p>]]></content:encoded>
-        <pubDate>Fri, 25 Jul 2025 00:00:00 </pubDate>
+        <pubDate>Fri, 25 Jul 2025 12:12:12 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</guid>
+    </item>
+    <item>
+        <title>My Awesome Web Novel: Chapter 2: A New Journey Begins</title>
+        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-2/</link>
+        <description><![CDATA[]]></description>
+        <content:encoded><![CDATA[<h1>Chapter 2: A New Journey Begins</h1>
+<p>With the prophecy burning in her mind, Aria packed her belongings and set out into the wilderness, unaware of the dangers that awaited her.</p>
+<p>The morning mist clung to the cobblestones as she walked through the empty streets of Eldoria. Behind her, the great librari&hellip;</p>]]></content:encoded>
+        <pubDate>Tue, 22 Jul 2025 14:30:00 </pubDate>
+        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-2/</guid>
     </item>
     <item>
         <title>My Awesome Web Novel: Chapter Recent: Just Published</title>
