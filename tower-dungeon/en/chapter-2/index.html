@@ -738,6 +738,7 @@
         
         
         <script>
+            
             // Manga reader functionality
             const mangaData = {"config": {"cover_separate": true, "image_scaling": "fit_screen", "page_turn_area": "right_half", "preload_pages": 3, "reading_direction": "ltr", "view_mode": "single", "zoom_level": 100}, "page_count": 6, "pages": [{"alt_text": "Tower Dungeon Chapter ?, Page 1", "filename": "page01.png", "number": 1, "path": "../../../images/tower-dungeon/chapter-2/page01.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 2", "filename": "page02.png", "number": 2, "path": "../../../images/tower-dungeon/chapter-2/page02.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 3", "filename": "page03.png", "number": 3, "path": "../../../images/tower-dungeon/chapter-2/page03.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 4", "filename": "page04.png", "number": 4, "path": "../../../images/tower-dungeon/chapter-2/page04.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 5", "filename": "page05.png", "number": 5, "path": "../../../images/tower-dungeon/chapter-2/page05.png"}, {"alt_text": "Tower Dungeon Chapter ?, Page 6", "filename": "page06.png", "number": 6, "path": "../../../images/tower-dungeon/chapter-2/page06.png"}]};
             let currentPage = 1;
@@ -747,6 +748,7 @@
             // Use chapter-level reading direction if available, otherwise use story default
             let readingDirection = 'ltr';
             let preloadImages = 3; // Default to 3 images
+            
             let isFullscreen = false;
             let originalViewMode = null; // Store original view mode when entering fullscreen
             let isScrolling = false; // Prevent navigation during scroll
@@ -1958,9 +1960,11 @@
             }
             
             function resetMangaSettings() {
+                
                 viewMode = 'single';
                 imageScaling = 'fit_screen';
                 zoomLevel = 100;
+                
                 preloadImages = 3; // Reset to default
                 
                 saveMangaSettings();
@@ -2325,7 +2329,9 @@
             
             function setupDoublePage() {
                 const pages = document.querySelectorAll('.manga-page');
+                
                 const coverSeparate = true;
+                
                 
                 pages.forEach(page => {
                     page.style.display = 'none';
@@ -2403,7 +2409,9 @@
             function setupScrollDoublePage() {
                 const viewer = document.getElementById('manga-viewer');
                 const pages = document.querySelectorAll('.manga-page');
+                
                 const coverSeparate = true;
+                
                 const totalPages = pages.length;
                 
                 // Clear existing structure
@@ -2488,6 +2496,8 @@
         </nav>
         
         
+        
+        
         <div class="comments-section">
             <h3>Comments</h3>
             <div id="utterances-container" 
@@ -2496,8 +2506,6 @@
                  data-label="utterance-comment">
             </div>
         </div>
-        
-        
         
     </main>
     

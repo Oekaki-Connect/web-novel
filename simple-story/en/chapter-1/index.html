@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chapter 1: The Sovereign's Secret Sin</title>
+    <title>Chapter 1</title>
     <link rel="icon" type="image/png" href="../../../static/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="../../../static/favicon.svg" />
     <link rel="shortcut icon" href="../../../static/favicon.ico" />
@@ -14,50 +14,40 @@
     
     <!-- SEO Meta Tags -->
     
-    <meta name="description" content="Tower Dungeon Chapter 1 - The Sovereign's Secret Sin. Read the thrilling manga adventure!">
+    <meta name="description" content="This is a simple test story">
     
     
-    <meta name="keywords" content="chapter 1, tower dungeon, manga, adventure">
+    <meta name="keywords" content="simple">
     
     
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Chapter 1: The Sovereign's Secret Sin | Web Novel Collection">
-    <meta property="og:description" content="Chapter 1: The Sovereign's Secret Sin - The adventure begins!">
-    <meta property="og:image" content="https://oekaki-connect.github.io/web-novel/static/images/tower-dungeon/chapter-1/page01.png">
-    <meta property="og:url" content="https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-1/">
+    <meta property="og:title" content="Chapter 1 | Web Novel Collection">
+    <meta property="og:description" content="This is a simple test story">
+    <meta property="og:image" content="chapters/simple-social.jpg">
+    <meta property="og:url" content="https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Web Novel Collection">
     
-    <meta property="article:published_time" content="2025-01-25">
+    <meta property="article:published_time" content="2025-07-25">
     
     
-    <meta property="article:author" content="Manga Artist">
-    
-    
-    
-    <meta property="article:tag" content="action">
-    
-    <meta property="article:tag" content="mystery">
-    
-    <meta property="article:tag" content="fantasy">
-    
-    <meta property="article:tag" content="adventure">
+    <meta property="article:author" content="haiku">
     
     
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Chapter 1: The Sovereign's Secret Sin | Web Novel Collection">
-    <meta name="twitter:description" content="Chapter 1: The Sovereign's Secret Sin - The adventure begins!">
-    <meta name="twitter:image" content="https://oekaki-connect.github.io/web-novel/static/images/tower-dungeon/chapter-1/page01.png">
+    <meta name="twitter:title" content="Chapter 1 | Web Novel Collection">
+    <meta name="twitter:description" content="This is a simple test story">
+    <meta name="twitter:image" content="chapters/simple-social.jpg">
     
     <meta name="twitter:site" content="@your_twitter_handle">
     <meta name="twitter:creator" content="@your_twitter_handle">
     
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-1/">
+    <link rel="canonical" href="https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/">
     
     <!-- Theme Toggle Script -->
     <script src="../../../static/theme-toggle-39862a0f.js"></script>
@@ -175,19 +165,23 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadReadingSettings();
             
+            handleScrollParameter();
+            
         });
         
         // Reading progress tracking
         function initReadingProgress() {
-            const novelSlug = 'tower-dungeon';
+            const novelSlug = 'simple-story';
             const chapterId = 'chapter-1';
-            const chapterTitle = "Chapter 1: The Sovereign\u0027s Secret Sin";
+            const chapterTitle = "Chapter 1";
             
             // Mark this chapter as visited
             markChapterVisited(novelSlug, chapterId, chapterTitle);
             
             // Only set up scroll tracking for non-manga chapters
             // Manga chapters use page-based completion tracking
+            
+            setupScrollTracking(novelSlug, chapterId);
             
         }
         
@@ -309,8 +303,6 @@
             document.addEventListener('keydown', function(e) {
                 // Skip keyboard navigation for manga chapters - they have their own handlers
                 
-                return; // This is a manga chapter, don't use text navigation
-                
                 
                 // Skip if user is typing in an input field
                 if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') {
@@ -333,19 +325,6 @@
                     case 'ArrowRight':
                     case 'l':
                         // Next chapter
-                        
-                        const nextLink = document.querySelector('nav.chapter-nav a[href*="chapter-2"]');
-                        if (nextLink) {
-                            let url = nextLink.href;
-                            // Add scroll parameter if auto-scroll is enabled
-                            const autoScroll = localStorage.getItem('autoScrollToContent');
-                            if (autoScroll === 'true') {
-                                const urlObj = new URL(url, window.location.href);
-                                urlObj.searchParams.set('scroll', 'content');
-                                url = urlObj.toString();
-                            }
-                            window.location.href = url;
-                        }
                         
                         e.preventDefault();
                         break;
@@ -504,15 +483,13 @@
         <nav class="breadcrumbs" aria-label="Breadcrumb">
             <a href="../../../">Home</a>
             <span class="breadcrumb-separator">></span>
-            <a href="../toc/">Tower Dungeon</a>
+            <a href="../toc/">A Simple Story</a>
             <span class="breadcrumb-separator">></span>
-            <span class="current-page">Chapter 1: The Sovereign's Secret Sin</span>
+            <span class="current-page">Chapter 1</span>
         </nav>
         <nav class="chapter-nav" aria-label="Chapter navigation">
             
             <a href="../toc/">Table of Contents</a>
-            
-            <a href="../chapter-2/">Next Chapter</a>
             
         </nav>
         
@@ -521,14 +498,10 @@
             <select id="chapter-select" onchange="jumpToChapter()" aria-label="Jump to chapter">
                 <option value="">Select a chapter...</option>
                 
-                    <optgroup label="Volume 1: The Tower's Secret">
+                    <optgroup label="Arc 1">
                         
                             <option value="../chapter-1/" selected>
-                                Chapter 1: The Sovereign's Secret Sin
-                            </option>
-                        
-                            <option value="../chapter-2/" >
-                                Chapter 2: The Tower's First Trial
+                                Chapter 1
                             </option>
                         
                     </optgroup>
@@ -567,7 +540,7 @@
             </details>
         </div>
         
-        <h1>Chapter 1: The Sovereign's Secret Sin</h1>
+        <h1>Chapter 1</h1>
         
         
         <div class="chapter-metadata">
@@ -576,7 +549,7 @@
                 <strong>Author:</strong> 
                 
                 
-                Manga Artist
+                haiku
                 
             </div>
             
@@ -585,25 +558,10 @@
             
             
             <div class="metadata-item">
-                <strong>Published:</strong> 2025-01-25
+                <strong>Published:</strong> 2025-07-25
             </div>
             
             
-            
-            <div class="metadata-item">
-                <strong>Tags:</strong>
-                <div class="tags">
-                    
-                    <a href="../tags/action/" class="tag">action</a>
-                    
-                    <a href="../tags/mystery/" class="tag">mystery</a>
-                    
-                    <a href="../tags/fantasy/" class="tag">fantasy</a>
-                    
-                    <a href="../tags/adventure/" class="tag">adventure</a>
-                    
-                </div>
-            </div>
             
             
             
@@ -611,141 +569,6 @@
         
     </header>
     
-    
-    <!-- Manga Reader (outside main for better width control) -->
-    <div id="manga-reader" class="manga-reader">
-        <div class="manga-controls">
-            <div class="manga-controls-left">
-                <span class="page-indicator">
-                    Page <span id="current-page">1</span> of <span id="total-pages">10</span>
-                </span>
-            </div>
-            
-            <div class="manga-controls-center">
-                <button id="prev-page" class="manga-btn" aria-label="Previous page" title="Previous page (← or A)">
-                    <span>◀</span>
-                </button>
-                <button id="next-page" class="manga-btn" aria-label="Next page" title="Next page (→ or D)">
-                    <span>▶</span>
-                </button>
-            </div>
-            
-            <div class="manga-controls-right">
-                <!-- <button id="zoom-fit-btn" class="manga-btn" aria-label="Zoom to fit viewport" title="Fit to viewport height">
-                    <span>⤢</span>
-                </button> -->
-                <button id="fullscreen-btn" class="manga-btn" aria-label="Toggle fullscreen" title="Toggle fullscreen (F)">
-                    <span>⛶</span>
-                </button>
-                <button id="manga-settings-btn" class="manga-btn" aria-label="Reader settings" title="Reader settings (ESC)">
-                    <span>⚙</span>
-                </button>
-            </div>
-        </div>
-        
-        <div class="manga-viewer" id="manga-viewer">
-            
-            <div class="manga-page" data-page="1" >
-                <img src="../../../images/tower-dungeon/chapter-1/page01.png" alt="Tower Dungeon Chapter 1, Page 1" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="2" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page02.png" alt="Tower Dungeon Chapter 1, Page 2" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="3" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page03.png" alt="Tower Dungeon Chapter 1, Page 3" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="4" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page04.png" alt="Tower Dungeon Chapter 1, Page 4" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="5" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page05.png" alt="Tower Dungeon Chapter 1, Page 5" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="6" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page06.png" alt="Tower Dungeon Chapter 1, Page 6" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="7" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page07.png" alt="Tower Dungeon Chapter 1, Page 7" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="8" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page08.png" alt="Tower Dungeon Chapter 1, Page 8" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="9" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page09.png" alt="Tower Dungeon Chapter 1, Page 9" class="manga-image" loading="lazy">
-            </div>
-            
-            <div class="manga-page" data-page="10" style="display: none;">
-                <img src="../../../images/tower-dungeon/chapter-1/page10.png" alt="Tower Dungeon Chapter 1, Page 10" class="manga-image" loading="lazy">
-            </div>
-            
-        </div>
-    </div>
-    
-    <!-- Manga Settings Modal -->
-    <div id="manga-settings-modal" class="manga-settings-modal" style="display: none;">
-        <div class="manga-settings-content">
-            <h3>Manga Reader Settings</h3>
-            
-            <div class="setting-group">
-                <label for="view-mode">View Mode:</label>
-                <select id="view-mode">
-                    <option value="single">Single Page</option>
-                    <option value="double">Double Page</option>
-                    <option value="scroll">Vertical Scroll</option>
-                    <option value="scroll_double">Vertical Scroll Double</option>
-                </select>
-            </div>
-            
-            <div class="setting-group">
-                <label for="reading-direction">Reading Direction:</label>
-                <select id="reading-direction">
-                    <option value="ltr">Left to Right</option>
-                    <option value="rtl">Right to Left</option>
-                </select>
-            </div>
-            
-            <div class="setting-group">
-                <label for="image-scaling">Image Scaling:</label>
-                <select id="image-scaling">
-                    <option value="fit_screen">Fit Screen</option>
-                    <option value="fit_width">Fit Width</option>
-                    <!-- <option value="original">Original Size</option> -->
-                </select>
-            </div>
-            
-            <!-- <div class="setting-group">
-                <label for="zoom-level">Zoom: <span id="zoom-display">100%</span></label>
-                <input type="range" id="zoom-level" min="50" max="300" step="10" value="100">
-            </div> -->
-            
-            <div class="setting-group">
-                <label for="preload-images">Image Preloading:</label>
-                <select id="preload-images">
-                    <option value="0">Disabled</option>
-                    <option value="1">1 Image</option>
-                    <option value="2">2 Images</option>
-                    <option value="3" selected>3 Images</option>
-                    <option value="4">4 Images</option>
-                    <option value="5">5 Images</option>
-                </select>
-            </div>
-            
-            <div class="setting-group">
-                <button id="reset-settings" class="manga-btn">Reset to Defaults</button>
-            </div>
-            
-            <div class="setting-group">
-                <button id="close-settings" class="manga-btn manga-btn-primary">Close</button>
-            </div>
-        </div>
-    </div>
     
     
     <main>
@@ -755,15 +578,8 @@
         
         <script>
             
-            // Manga reader functionality
-            const mangaData = {"config": {"cover_separate": true, "image_scaling": "fit_screen", "page_turn_area": "right_half", "preload_pages": 3, "reading_direction": "ltr", "view_mode": "single", "zoom_level": 100}, "page_count": 10, "pages": [{"alt_text": "Tower Dungeon Chapter 1, Page 1", "filename": "page01.png", "number": 1, "path": "../../../images/tower-dungeon/chapter-1/page01.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 2", "filename": "page02.png", "number": 2, "path": "../../../images/tower-dungeon/chapter-1/page02.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 3", "filename": "page03.png", "number": 3, "path": "../../../images/tower-dungeon/chapter-1/page03.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 4", "filename": "page04.png", "number": 4, "path": "../../../images/tower-dungeon/chapter-1/page04.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 5", "filename": "page05.png", "number": 5, "path": "../../../images/tower-dungeon/chapter-1/page05.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 6", "filename": "page06.png", "number": 6, "path": "../../../images/tower-dungeon/chapter-1/page06.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 7", "filename": "page07.png", "number": 7, "path": "../../../images/tower-dungeon/chapter-1/page07.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 8", "filename": "page08.png", "number": 8, "path": "../../../images/tower-dungeon/chapter-1/page08.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 9", "filename": "page09.png", "number": 9, "path": "../../../images/tower-dungeon/chapter-1/page09.png"}, {"alt_text": "Tower Dungeon Chapter 1, Page 10", "filename": "page10.png", "number": 10, "path": "../../../images/tower-dungeon/chapter-1/page10.png"}]};
-            let currentPage = 1;
-            let viewMode = 'single';
-            let imageScaling = 'fit_screen';
-            let zoomLevel = 100;
-            // Use chapter-level reading direction if available, otherwise use story default
-            let readingDirection = 'ltr';
-            let preloadImages = 3; // Default to 3 images
+            // Text-only chapter - no manga functionality
+            const mangaData = null;
             
             let isFullscreen = false;
             let originalViewMode = null; // Store original view mode when entering fullscreen
@@ -825,7 +641,7 @@
                 
                 // Show toast if navigating from another chapter
                 if (urlParams.get('page') || urlParams.get('fullscreen') || urlParams.get('fitviewport')) {
-                    showChapterToast("Chapter 1: The Sovereign\u0027s Secret Sin");
+                    showChapterToast("Chapter 1");
                 }
             }
             
@@ -1258,10 +1074,10 @@
             }
             
             function navigateToNextChapter() {
-                const nextLink = document.querySelector('nav.chapter-nav a[href*="../chapter-2"]');
+                const nextLink = document.querySelector('nav.chapter-nav a[href*="../"]');
                 const tocLink = document.querySelector('nav.chapter-nav a[href*="toc"]');
                 
-                if (nextLink && 'chapter-2') {
+                if (nextLink && '') {
                     // Navigate to next chapter with state parameters
                     const url = new URL(nextLink.href, window.location.href);
                     url.searchParams.set('page', '1'); // Start at first page of next chapter
@@ -1977,10 +1793,6 @@
             
             function resetMangaSettings() {
                 
-                viewMode = 'single';
-                imageScaling = 'fit_screen';
-                zoomLevel = 100;
-                
                 preloadImages = 3; // Reset to default
                 
                 saveMangaSettings();
@@ -2231,7 +2043,7 @@
                     // Mark as completed if this is the last page
                     if (pageNum === mangaData.page_count) {
                         console.log('Marking manga chapter as completed - reached last page');
-                        markChapterCompleted('tower-dungeon', 'chapter-1');
+                        markChapterCompleted('simple-story', 'chapter-1');
                     }
                 };
             }
@@ -2346,7 +2158,7 @@
             function setupDoublePage() {
                 const pages = document.querySelectorAll('.manga-page');
                 
-                const coverSeparate = true;
+                const coverSeparate = false;
                 
                 
                 pages.forEach(page => {
@@ -2426,7 +2238,7 @@
                 const viewer = document.getElementById('manga-viewer');
                 const pages = document.querySelectorAll('.manga-page');
                 
-                const coverSeparate = true;
+                const coverSeparate = false;
                 
                 const totalPages = pages.length;
                 
@@ -2487,19 +2299,6 @@
         
         <!-- Show chapter content below manga pages -->
         
-        <div id="chapter-content-wrapper" class="chapter-content manga-chapter-text">
-            <h1>Chapter 1: The Sovereign&rsquo;s Secret Sin</h1>
-<p>Note: The images are blurred on purpose for testing purposes.</p>
-<p><em>This is a manga chapter. The story is told through sequential art. Use the manga reader controls to navigate through the pages.</em></p>
-<p><strong>Reading Instructions:</strong>
-- Use arrow keys (← →) or A/D keys to navigate pages
-- Press F to toggle image scaling modes
-- Use +/- to zoom in and out
-- Press ? for full keyboard shortcuts
-- Click the settings gear (⚙️) to customize your reading experience</p>
-<p><em>The king is slain, and the princess has been whisked away to an enormous structure that descended from the sky—the Dragon Tower! The Royal Warband ascends the tower in order to save her, but they are thwarted in their quest by a powerful monster&hellip;</em></p>
-        </div>
-        
         
         
         
@@ -2508,10 +2307,14 @@
             
             <a href="../toc/">Table of Contents</a>
             
-            <a href="../chapter-2/">Next Chapter</a>
-            
         </nav>
         
+        
+        <!-- Regular Chapter Content -->
+        <div id="chapter-content-wrapper" class="chapter-content">
+            <h1>Chapter 1</h1>
+<p>This is a simple test!! :)</p>
+        </div>
         
         
         
@@ -2531,16 +2334,10 @@
             
             <a href="../toc/">Table of Contents</a>
             
-            <a href="../chapter-2/">Next Chapter</a>
-            
         </nav>
-        <p>© 2025 Web Novel Collection</p>
+        <p>© Oekaki Connect. All rights reserved.</p>
         
         <nav class="footer-links" aria-label="Footer links">
-            
-            <a href="https://ko-fi.com/pyramid" target="_blank">Support the Artist</a>
-            
-            <a href="http://www.ocwn.net/" target="_blank">Original Source</a>
             
             <a href="https://github.com/Oekaki-Connect/web-novel-static-generator" target="_blank">Source Code</a>
             

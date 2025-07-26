@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table of Contents - A Simple Story</title>
+    <link rel="icon" type="image/png" href="../../../static/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../../../static/favicon.svg" />
+    <link rel="shortcut icon" href="../../../static/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../static/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="ocwn.net" />
+    <link rel="manifest" href="../../../static/site.webmanifest" />
+    <link rel="stylesheet" href="../../../static/style-6a00e669.css">
+    
+    <!-- SEO Meta Tags -->
+    
+    <meta name="description" content="This is a simple test story">
+    
+    
+    <meta name="keywords" content="simple">
+    
+    
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="A Simple Story - Table of Contents | Web Novel Collection">
+    <meta property="og:description" content="This is a simple test story">
+    <meta property="og:image" content="chapters/simple-social.jpg">
+    <meta property="og:url" content="https://oekaki-connect.github.io/web-novel/simple-story/en/toc/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Web Novel Collection">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="A Simple Story - Table of Contents | Web Novel Collection">
+    <meta name="twitter:description" content="This is a simple test story">
+    <meta name="twitter:image" content="chapters/simple-social.jpg">
+    
+    <meta name="twitter:site" content="@your_twitter_handle">
+    
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://oekaki-connect.github.io/web-novel/simple-story/en/toc/">
+    
+    <!-- Theme Toggle Script -->
+    <script src="../../../static/theme-toggle-39862a0f.js"></script>
+    
+    <!-- Reading Progress Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const novelSlug = 'simple-story';
+            displayReadingProgress(novelSlug);
+            displayLatestChapterRead(novelSlug);
+        });
+        
+        function displayReadingProgress(novelSlug) {
+            const visitedKey = `visited_${novelSlug}`;
+            const visitedChapters = JSON.parse(localStorage.getItem(visitedKey) || '{}');
+            
+            console.log('Reading progress data:', visitedChapters);
+            
+            // Add read indicators to chapter links
+            const chapterLinks = document.querySelectorAll('.arc ul li a');
+            console.log('Found chapter links:', chapterLinks.length);
+            
+            chapterLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                const chapterId = href.split('/').filter(Boolean).pop();
+                
+                console.log(`Processing link: ${href} -> chapter ID: ${chapterId}`);
+                
+                if (visitedChapters[chapterId]) {
+                    console.log(`Adding indicator for chapter ${chapterId}:`, visitedChapters[chapterId]);
+                    const indicator = document.createElement('span');
+                    indicator.className = visitedChapters[chapterId].completed ? 'read-completed' : 'read-visited';
+                    indicator.textContent = visitedChapters[chapterId].completed ? ' ✓' : ' ○';
+                    
+                    // Insert indicator inside the link at the end
+                    link.appendChild(indicator);
+                } else {
+                    console.log(`No visit data found for chapter ${chapterId}`);
+                }
+            });
+        }
+        
+        function displayLatestChapterRead(novelSlug) {
+            const latestKey = `latest_${novelSlug}`;
+            const latestChapter = JSON.parse(localStorage.getItem(latestKey) || 'null');
+            
+            if (latestChapter) {
+                const tocNav = document.querySelector('.toc-nav');
+                if (tocNav) {
+                    const latestDiv = document.createElement('div');
+                    latestDiv.className = 'latest-chapter-read';
+                    
+                    const latestDate = new Date(latestChapter.completedAt).toLocaleDateString();
+                    latestDiv.innerHTML = `
+                        <h3>Continue Reading</h3>
+                        <p>Last completed: <a href="../${latestChapter.chapterId}/">${latestChapter.title}</a></p>
+                        <p class="completion-date">Finished on ${latestDate}</p>
+                    `;
+                    
+                    tocNav.parentNode.insertBefore(latestDiv, tocNav.nextSibling);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <a href="../../../">Home</a>
+            <span class="breadcrumb-separator">></span>
+            <span class="current-page">A Simple Story</span>
+        </nav>
+        
+        <div class="story-cover">
+            <img src="../../../static/images/aca833a5-simple-story-cover.jpg" alt="A Simple Story Cover" class="story-cover-image clickable-image" onclick="openImageModal(this)">
+        </div>
+        
+        <h1>A Simple Story</h1>
+        
+        <div class="story-status">
+            <span class="status-label">Status:</span>
+            <span class="status-value status-ongoing">Ongoing</span>
+        </div>
+        
+        
+        <div class="story-stats">
+            <span class="stats-label">Total Length:</span>
+            <span class="stats-value">8 words</span>
+        </div>
+        
+        
+        <div class="story-tags">
+            <span class="tags-label">Genres:</span>
+            <div class="tags">
+                
+                <span class="tag story-tag">simple</span>
+                
+            </div>
+        </div>
+        
+        
+        <h2>Table of Contents</h2>
+        <nav class="toc-nav" aria-label="Story navigation">
+            <a href="../tags/" class="tags-link">Browse by Tags</a>
+        </nav>
+    </header>
+    <main>
+        
+        <section class="arc">
+            
+            <div class="arc-cover">
+                <img src="../../../static/images/aca833a5-simple-story-cover.jpg" alt="Arc 1 Cover" class="arc-cover-image clickable-image" onclick="openImageModal(this)">
+            </div>
+            
+            <div class="arc-content">
+                <h3>Arc 1</h3>
+                <ul aria-label="Chapters in Arc 1">
+                    
+                    <li>
+                        <a href="../chapter-1/" aria-label="Read Chapter 1">Chapter 1</a>
+                        
+                        <span class="chapter-date" aria-label="Published on 2025-07-25">
+                            
+                            <span class="chapter-new" aria-label="Recently published">(NEW!) </span>
+                            
+                            2025-07-25
+                        </span>
+                        
+                    </li>
+                    
+                </ul>
+            </div>
+        </section>
+        
+        
+        
+        <section class="downloads-section">
+            <h3>Downloads</h3>
+            <div class="download-links">
+                
+                
+                <a href="../../../static/epub/simple-story.epub" class="download-link epub-link" download>
+                    Download Full Story (EPUB)
+                </a>
+                
+                
+                <div class="arc-downloads">
+                    <h4>Download by Arc:</h4>
+                    
+                    <div class="arc-download-group">
+                        <span class="arc-download-title">Arc 1:</span>
+                        
+                        
+                        <a href="../../../static/epub/simple-story-arc-1.epub" class="download-link arc-epub-link" download>EPUB</a>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </section>
+        
+        
+        
+        <div class="comments-section">
+            <h3>Comments</h3>
+            <div id="utterances-container" 
+                 data-repo="Oekaki-Connect/web-novel-utterance-comments"
+                 data-issue-term="pathname"
+                 data-label="utterance-comment">
+            </div>
+        </div>
+        
+    </main>
+    <footer>
+        <p>© Oekaki Connect. All rights reserved.</p>
+        
+        <nav class="footer-links">
+            
+            <a href="https://github.com/Oekaki-Connect/web-novel-static-generator" target="_blank">Source Code</a>
+            
+            <a href="https://discord.gg/oekaki" target="_blank">Join Our Discord</a>
+            
+            <a href="https://x.com/OekakiConnect" target="_blank">Follow on X</a>
+            
+            <a href="https://www.oekakiconnect.net/" target="_blank">Oekaki Connect</a>
+            
+            <a href="https://www.oekaki.io/" target="_blank">Oekaki.io</a>
+            
+        </nav>
+        
+        
+    </footer>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <div class="modal-content">
+            <img id="modalImage" class="modal-image" alt="Full size image">
+        </div>
+    </div>
+
+    <script>
+        function openImageModal(imgElement) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            modal.style.display = 'flex';
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+            
+            // Reset any inline styles that might interfere with CSS
+            modalImg.style.width = 'auto';
+            modalImg.style.height = 'auto';
+            modalImg.style.maxWidth = '100%';
+            modalImg.style.maxHeight = '100%';
+            
+            // Prevent body scrolling when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+    </script>
+</body>
+</html>

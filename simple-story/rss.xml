@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>A Simple Story</title>
+    <link>https://oekaki-connect.github.io/web-novel/simple-story/</link>
+    <description>This is a simple test story</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 26 Jul 2025 00:37:29 </lastBuildDate>
+    <generator>Web Novel Static Generator</generator>
+</channel>
+</rss>
