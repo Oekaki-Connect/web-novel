@@ -5,34 +5,22 @@
     <link>https://oekaki-connect.github.io/web-novel</link>
     <description>A collection of translated web novels and original stories</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Jul 2025 08:27:48 </lastBuildDate>
+    <lastBuildDate>Sun, 27 Jul 2025 09:17:18 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>A Simple Story: Chapter 1</title>
         <link>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</link>
         <description><![CDATA[]]></description>
         <content:encoded><![CDATA[<h1>Chapter 1</h1>
-<p>This is a simple test!! :)</p>
-<br>
-<p>Line break test!</p>
+<p>This is a simple test!! :)<br />
+Line break test!</p>
 <p>!</p>
 <p>!</p>
-<br>
-<p>!</p>
-<br>
-<p>!</p>
-<br>
-<p>!
-<br><br>
-!
-<br>
-<br><br>
-!
-<br>
-<br>
-<br><br>
+<p><br><br><br><br />
 !</p>
-]]></content:encoded>
+<p>!</p>
+<p><br><br><br><br><br><br><br />
+END OF FILE!</p>]]></content:encoded>
         <pubDate>Fri, 25 Jul 2025 12:12:12 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</guid>
     </item>
@@ -64,9 +52,9 @@
         <description><![CDATA[]]></description>
         <content:encoded><![CDATA[<h1>Chapter 2: The Tower&rsquo;s First Trial</h1>
 <p><em>This is a manga chapter. The story is told through sequential art. Use the manga reader controls to navigate through the pages.</em></p>
-<p><strong>Reading Instructions:</strong>
-- Use arrow keys (← →) or A/D keys to navigate pages
-- Press F to toggle image scaling modes
+<p><strong>Reading Instructions:</strong><br />
+- Use arrow keys (← →) or A/D keys to navigate pages<br />
+- Press F to toggle image scaling modes<br />
 - Use +/- to&hellip;</p>]]></content:encoded>
         <pubDate>Sun, 26 Jan 2025 00:00:00 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-2/</guid>
@@ -78,7 +66,7 @@
         <content:encoded><![CDATA[<h1>Chapter 1: The Sovereign&rsquo;s Secret Sin</h1>
 <p>Note: The images are blurred on purpose for testing purposes.</p>
 <p><em>This is a manga chapter. The story is told through sequential art. Use the manga reader controls to navigate through the pages.</em></p>
-<p><strong>Reading Instructions:</strong>
+<p><strong>Reading Instructions:</strong><br />
 - Use arrow keys (← →) or A/D keys to n&hellip;</p>]]></content:encoded>
         <pubDate>Sat, 25 Jan 2025 00:00:00 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-1/</guid>
