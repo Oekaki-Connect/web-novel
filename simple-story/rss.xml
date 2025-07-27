@@ -5,14 +5,34 @@
     <link>https://oekaki-connect.github.io/web-novel/simple-story/</link>
     <description>This is a simple test story</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Jul 2025 07:47:37 </lastBuildDate>
+    <lastBuildDate>Sun, 27 Jul 2025 08:15:20 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>Chapter 1</title>
         <link>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</link>
         <description><![CDATA[]]></description>
         <content:encoded><![CDATA[<h1>Chapter 1</h1>
-<p>This is a simple test!! :)</p>]]></content:encoded>
+<p>This is a simple test!! :)</p>
+<br>
+<p>Line break test!</p>
+<p>!</p>
+<p>!</p>
+<br>
+<p>!</p>
+<br>
+<p>!</p>
+<br>
+<p>!
+<br><br>
+!
+<br>
+<br><br>
+!
+<br>
+<br>
+<br><br>
+!</p>
+<br><br><br><br><br><br><br>]]></content:encoded>
         <pubDate>Fri, 25 Jul 2025 12:12:12 </pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</guid>
     </item>
