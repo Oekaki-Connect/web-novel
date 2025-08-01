@@ -5,8 +5,22 @@
     <link>https://oekaki-connect.github.io/web-novel</link>
     <description>A collection of translated web novels and original stories</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Jul 2025 09:56:07 </lastBuildDate>
+    <lastBuildDate>Fri, 01 Aug 2025 00:33:10 </lastBuildDate>
     <generator>Web Novel Static Generator</generator>
+    <item>
+        <title>My Awesome Web Novel: Chapter Future: Scheduled Release</title>
+        <link>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-future/</link>
+        <description><![CDATA[A test chapter scheduled for future release to demonstrate the scheduled publishing feature.]]></description>
+        <content:encoded><![CDATA[<h1>Chapter Future: Scheduled Release</h1>
+<p>This is a test chapter with a future publish date. It should not appear in the generated site until August 1st, 2025.</p>
+<p>This chapter demonstrates the scheduled publishing feature:</p>
+<ul>
+<li><strong>Publish Date</strong>: 2025-08-01</li>
+<li><strong>Current Behavior</strong>: Should be excluded from buil&hellip;</li>
+</ul>]]></content:encoded>
+        <pubDate>Fri, 01 Aug 2025 00:00:00 </pubDate>
+        <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-future/</guid>
+    </item>
     <item>
         <title>A Simple Story: Chapter 1</title>
         <link>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</link>

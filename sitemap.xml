@@ -97,6 +97,12 @@
         <lastmod>2025-07-20</lastmod>
     </url>
     <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-future/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <lastmod>2025-08-01</lastmod>
+    </url>
+    <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-markdown-demo/</loc>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -245,6 +251,12 @@
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
         <lastmod>2025-07-20</lastmod>
+    </url>
+    <url>
+        <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/chapter-future/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+        <lastmod>2025-08-01</lastmod>
     </url>
     <url>
         <loc>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/jp/chapter-markdown-demo/</loc>
