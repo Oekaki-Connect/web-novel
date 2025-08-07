@@ -5,7 +5,7 @@
     <link>https://oekaki-connect.github.io/web-novel/simple-story/</link>
     <description>This is a simple test story</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Aug 2025 19:01:28 </lastBuildDate>
+    <lastBuildDate>Thu, 07 Aug 2025 19:02:28 +0000</lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>Chapter 1</title>
@@ -21,7 +21,7 @@ Line break test!</p>
 <p>!</p>
 <p><br><br><br><br><br><br><br />
 END OF FILE!</p>]]></content:encoded>
-        <pubDate>Sun, 27 Jul 2025 00:00:00 </pubDate>
+        <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</guid>
     </item>
 </channel>

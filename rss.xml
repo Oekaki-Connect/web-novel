@@ -5,7 +5,7 @@
     <link>https://oekaki-connect.github.io/web-novel</link>
     <description>A collection of translated web novels and original stories</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Aug 2025 19:01:27 </lastBuildDate>
+    <lastBuildDate>Thu, 07 Aug 2025 19:02:27 +0000</lastBuildDate>
     <generator>Web Novel Static Generator</generator>
     <item>
         <title>My Awesome Web Novel: Chapter Future: Scheduled Release</title>
@@ -18,7 +18,7 @@
 <li><strong>Publish Date</strong>: 2025-08-01</li>
 <li><strong>Current Behavior</strong>: Should be excluded from buil&hellip;</li>
 </ul>]]></content:encoded>
-        <pubDate>Fri, 01 Aug 2025 00:00:00 </pubDate>
+        <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-future/</guid>
     </item>
     <item>
@@ -35,7 +35,7 @@ Line break test!</p>
 <p>!</p>
 <p><br><br><br><br><br><br><br />
 END OF FILE!</p>]]></content:encoded>
-        <pubDate>Sun, 27 Jul 2025 00:00:00 </pubDate>
+        <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/simple-story/en/chapter-1/</guid>
     </item>
     <item>
@@ -45,7 +45,7 @@ END OF FILE!</p>]]></content:encoded>
         <content:encoded><![CDATA[<h1>Chapter 2: A New Journey Begins</h1>
 <p>With the prophecy burning in her mind, Aria packed her belongings and set out into the wilderness, unaware of the dangers that awaited her.</p>
 <p>The morning mist clung to the cobblestones as she walked through the empty streets of Eldoria. Behind her, the great librari&hellip;</p>]]></content:encoded>
-        <pubDate>Tue, 22 Jul 2025 19:30:00 </pubDate>
+        <pubDate>Tue, 22 Jul 2025 19:30:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-2/</guid>
     </item>
     <item>
@@ -57,7 +57,7 @@ END OF FILE!</p>]]></content:encoded>
 <p>This demonstrates that the scheduled publishing feature only affects chapters with <strong>future</strong> publish dates.</p>
 <h2>Comparison</h2>
 <p>| Chapter | Publish D&hellip;</p>]]></content:encoded>
-        <pubDate>Sun, 20 Jul 2025 00:00:00 </pubDate>
+        <pubDate>Sun, 20 Jul 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-recent/</guid>
     </item>
     <item>
@@ -70,7 +70,7 @@ END OF FILE!</p>]]></content:encoded>
 - Use arrow keys (← →) or A/D keys to navigate pages<br />
 - Press F to toggle image scaling modes<br />
 - Use +/- to&hellip;</p>]]></content:encoded>
-        <pubDate>Sun, 26 Jan 2025 00:00:00 </pubDate>
+        <pubDate>Sun, 26 Jan 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-2/</guid>
     </item>
     <item>
@@ -82,7 +82,7 @@ END OF FILE!</p>]]></content:encoded>
 <p><em>This is a manga chapter. The story is told through sequential art. Use the manga reader controls to navigate through the pages.</em></p>
 <p><strong>Reading Instructions:</strong><br />
 - Use arrow keys (← →) or A/D keys to n&hellip;</p>]]></content:encoded>
-        <pubDate>Sat, 25 Jan 2025 00:00:00 </pubDate>
+        <pubDate>Sat, 25 Jan 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/tower-dungeon/en/chapter-1/</guid>
     </item>
     <item>
@@ -93,7 +93,7 @@ END OF FILE!</p>]]></content:encoded>
 <hr />
 <h2 class="chapter-section">Part I: The Ancient Library</h2>
 <p>Elena stepped through the towering doors of the Arcanum Library, her breath catchin&hellip;</p>]]></content:encoded>
-        <pubDate>Fri, 24 Jan 2025 00:00:00 </pubDate>
+        <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-markdown-demo/</guid>
     </item>
     <item>
@@ -102,7 +102,7 @@ END OF FILE!</p>]]></content:encoded>
         <description><![CDATA[]]></description>
         <content:encoded><![CDATA[<h1>Chapter 3: Ancient Ruins</h1>
 <p>Deep in the Whispering Forest, Aria stumbled upon ruins older than memory, where ancient magic still lingered in the crumbling stones.</p>]]></content:encoded>
-        <pubDate>Fri, 17 Jan 2025 00:00:00 </pubDate>
+        <pubDate>Fri, 17 Jan 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-3/</guid>
     </item>
     <item>
@@ -114,7 +114,7 @@ END OF FILE!</p>]]></content:encoded>
 <p>In the ancient city of Eldoria, a young scribe named Aria discovered a mysterious scroll that would change the fate of the realm forever.</p>
 <p><img alt="The Ancient Scroll" src="ancient_scroll.jpg" title="A mysterious scroll with golden edges" /></p>
 <p>The parchment crackled u&hellip;</p>]]></content:encoded>
-        <pubDate>Wed, 15 Jan 2025 00:00:00 </pubDate>
+        <pubDate>Wed, 15 Jan 2025 00:00:00 +0000</pubDate>
         <guid>https://oekaki-connect.github.io/web-novel/my-awesome-web-novel/en/chapter-1/</guid>
     </item>
 </channel>
